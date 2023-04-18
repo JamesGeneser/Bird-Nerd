@@ -1,12 +1,34 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
+import React from "react";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import Home from "./pages/Home";
+import IdentifyBird from "./pages/IdentifyBird";
+import Login from "./pages/Login";
+import Signup from "./pages/Signup";
+import PostSighting from "./pages/PostSighting";
+import Navbar from "./components/Navbar";
+
+const client = new ApolloClient({
+  uri: "/graphql",
+  cache: new InMemoryCache(),
+});
 
 function App() {
   return (
-    <div className="App">
-      <Navbar />
-    </div>
+    <ApolloProvider client={client}>
+        <Navbar />
+      <Router>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/identify" element={<IdentifyBird />} />
+          <Route path="/post" element={<PostSighting />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+        </Routes>
+      </Router>
+    </ApolloProvider>
   );
 }
 
