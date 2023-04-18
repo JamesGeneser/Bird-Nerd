@@ -1,3 +1,3 @@
-const Bird = require ('./Birds')
+const Birds = require ('./Birds')
 
 module.exports = {Birds}
