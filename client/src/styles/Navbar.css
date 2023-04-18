@@ -3,7 +3,10 @@
   height: 80px;
   display: flex;
   flex-direction: row;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
   background-color: var(--darkGray);
+  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
 .navbar .leftSide {
@@ -32,6 +35,7 @@
   font-size: 1rem;
   text-decoration: none;
   color: white;
+  background-color: var(--darkGray);
 }
 
 .navbar .buttons:hover {
@@ -62,8 +66,12 @@
 }
 
 @media only screen and (max-width: 600px) {
+  .navbar .rightSide {
+    padding: 0;
+  }
   .navbar .hiddenLinks .buttons {
-    font-size: 1rem;
+    font-size: 0.8rem;
+    padding: 5px;
   }
 
   .navbar .rightSide .buttons {
