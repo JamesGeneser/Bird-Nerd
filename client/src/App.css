@@ -4,13 +4,20 @@
 
 :root {
   --darkGray: #303030;
+  --lightGray: #555555;
 }
 
-/* USE rem units FOR DYNAMIC FONT ACROSS THE APP */
+body {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+}
+
+/* USE rem units FOR DYNAMIC FONT-SIZING ACROSS THE APP */
 /* EXAMPLE: font-size: 1rem; */
 /* You can a set decimal point as well: font-size: 1.2rem; */
 
 .App {
-  font-size: 62.5%;
   box-sizing: border-box;
+  width: 100%;
 }
