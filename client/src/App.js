@@ -17,7 +17,6 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Header />
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/identify" element={<IdentifyBird />} />
@@ -25,8 +24,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
         </Routes>
-        <Footer />
       </Router>
     </ApolloProvider>
   );
 }
+
+export default App;
