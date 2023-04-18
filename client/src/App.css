@@ -1,0 +1,16 @@
+/* CUSTOM COLORS ACROSS ALL CSS FILES ON THE APP */
+/* SIMPLY USE var(--colorName) in place of Hardcoding the color */
+/* IT WILL MAKE THINGS SUPER EASY IF WE WANT TO MAKE SEVERAL THEMES */
+
+:root {
+  --darkGray: #303030;
+}
+
+/* USE rem units FOR DYNAMIC FONT ACROSS THE APP */
+/* EXAMPLE: font-size: 1rem; */
+/* You can a set decimal point as well: font-size: 1.2rem; */
+
+.App {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
