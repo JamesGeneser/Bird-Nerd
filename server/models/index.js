@@ -1,3 +1,5 @@
 const Birds = require ('./Birds')
+const User = require ('./User')
 
-module.exports = {Birds}
+
+module.exports = {Birds, User}
