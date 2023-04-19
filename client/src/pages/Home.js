@@ -6,15 +6,19 @@ import "../styles/Home.css";
 
 const Home = () => {
   return (
+
+    <>
     <main>
-      <div className="landing-wrapper">
-        <div className="img-wrapper">
-          <div className="landing-picture">
-            <img
-              src={landingImg}
-              alt="birb in a snazzy suit"
-              className="landing-img"
-            />
+        <div className="landing-wrapper">
+          <div className="img-wrapper">
+            <div className="landing-picture">
+              <img
+                src={landingImg}
+                alt="birb in a snazzy suit"
+                className="landing-img"
+              />
+            </div>
+
           </div>
         </div>
         <div className="landing-content">
@@ -40,6 +44,7 @@ const Home = () => {
         </div>
       </div>
     </main>
+    </>
   );
 };
 
