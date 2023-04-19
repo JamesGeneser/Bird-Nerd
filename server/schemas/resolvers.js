@@ -10,9 +10,9 @@ const resolvers = {
     addUser: async (parent, { name }) => {
       return User.create({ name });
     },
-    logBird: async (parent, { name }) => {
+    logBird: async (parent, { userId, name }) => {
       return User.findOneAndUpdate(
-        { _id: profileId },
+        { _id: userId },
         {
           $addToSet: { birdLog: name },
         },
