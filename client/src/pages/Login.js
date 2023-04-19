@@ -40,7 +40,7 @@ const Login = (props) => {
   };
 
   return (
-    <>
+    <main>
       <Card className="formCard">
         <Form>
           <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -93,7 +93,7 @@ const Login = (props) => {
       {error && (
         <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
       )}
-    </>
+    </main>
   );
 };
 

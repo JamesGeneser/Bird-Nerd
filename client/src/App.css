@@ -9,6 +9,9 @@
 
 html {
   scroll-behavior: smooth;
+  /* i've placed this color here so its easier to tell
+  your own elements from main HTML body apart*/
+  background-color: lightgrey;
 }
 
 body {
@@ -17,21 +20,24 @@ body {
   margin: 0;
 }
 
+main {
+  height: 90vh;
+}
+
 /* USE rem units FOR DYNAMIC FONT-SIZING ACROSS THE APP */
 /* EXAMPLE: font-size: 1rem; */
 /* You can a set decimal point as well: font-size: 1.2rem; */
-
 .App {
   box-sizing: border-box;
   width: 100%;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
 }
 
-.formCard{
+.formCard {
   justify-self: center;
   width: 30rem;
   padding: 2rem;

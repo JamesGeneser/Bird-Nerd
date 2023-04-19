@@ -1,26 +1,25 @@
-main {
-  height: 90vh;
+.Home {
   overflow-y: scroll;
 }
 
-.landing-wrapper {
+.Home .landing-wrapper {
   display: grid;
   grid-template-columns: 50% 30%;
   gap: 10%;
 }
 
-.img-wrapper {
+.Home .img-wrapper {
   width: 100%;
   aspect-ratio: 1/1;
   display: grid;
   place-items: center;
 }
 
-.landing-img {
+.Home .landing-img {
   width: 120%;
 }
 
-.landing-content {
+.Home .landing-content {
   display: flex;
   flex-direction: column;
   place-items: center;
@@ -28,78 +27,78 @@ main {
   gap: 2rem;
 }
 
-.landing-text {
+.Home .landing-text {
   text-align: center;
   background-color: rgba(35, 98, 134, 0.541);
   padding: 3rem;
 }
 
-.landing-text h1 {
+.Home .landing-text h1 {
   font-size: 78px;
   font-weight: lighter;
   margin-bottom: 4rem;
 }
 
-.btn {
+.Home .btn {
   background-color: rgba(35, 98, 134, 0.541);
   border-radius: 0;
   color: black;
 }
 
-.btn:hover {
+.Home .btn:hover {
   background-color: rgba(254, 175, 233, 0.533);
 }
 
-.link {
+.Home .link {
   text-decoration: none;
   color: black;
 }
 
-.link:hover {
+.Home .link:hover {
   text-decoration: none;
   color: black;
 }
 
-.login-btn {
+.Home .login-btn {
   padding: 1rem 5rem;
 }
 
-.signup-btn {
+.Home .signup-btn {
   padding: 1rem 4.6rem;
 }
 
 @media screen and (max-width: 1024px) {
-  main {
+  .Home {
     height: 100%;
   }
 
-  .landing-wrapper {
+  .Home .landing-wrapper {
     padding: 2rem;
     place-items: center;
     display: flex;
     flex-direction: column;
   }
 
-  .landing-img {
+  .Home .landing-img {
     width: 100%;
   }
 
-  .landing-content {
+  .Home .landing-content {
     width: 85%;
     gap: 1rem;
   }
 }
 
 @media screen and (max-width: 600px) {
-  .landing-wrapper {
+  .Home .landing-wrapper {
     padding: 1rem;
   }
 
-  .landing-img {
+  .Home .landing-img {
     margin-bottom: 1rem;
   }
 
-  .landing-content {
+  .Home .landing-content {
     width: 100%;
     gap: 1rem;
   }
