@@ -3,14 +3,25 @@
 /* IT WILL MAKE THINGS SUPER EASY IF WE WANT TO MAKE SEVERAL THEMES */
 
 :root {
-  --darkGray: #303030;
+  --darkGray: #21252a;
+  --lightGray: #373d45;
 }
 
-/* USE rem units FOR DYNAMIC FONT ACROSS THE APP */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-size: 62.5%;
+  padding: 0;
+  margin: 0;
+}
+
+/* USE rem units FOR DYNAMIC FONT-SIZING ACROSS THE APP */
 /* EXAMPLE: font-size: 1rem; */
 /* You can a set decimal point as well: font-size: 1.2rem; */
 
 .App {
-  font-size: 62.5%;
   box-sizing: border-box;
+  width: 100%;
 }
