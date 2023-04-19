@@ -1,4 +1,8 @@
-const {Birds, User} = require('../models')
+const {Birds} = require('../models')
+
+const resolvers = {
+    birdData: {Birds},
+    }
 
 
 
