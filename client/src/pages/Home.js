@@ -7,8 +7,7 @@ import "../styles/Home.css";
 const Home = () => {
   return (
     <>
-      <main>
-        <h1>HOME PAGE</h1>
+    <main>
         <div className="landing-wrapper">
           <div className="img-wrapper">
             <div className="landing-picture">
