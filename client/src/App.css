@@ -5,6 +5,11 @@
 :root {
   --darkGray: #21252a;
   --lightGray: #373d45;
+  --peach: #fe938c;
+  --tan: #e6b89c;
+  --lightyellow: #ead2ac;
+  --lightblue: #9cafb7;
+  --blue: #4281a4;
 }
 
 html {
@@ -38,8 +43,8 @@ main {
 }
 
 .formCard {
-  justify-self: center;
+  display: block;
   width: 30rem;
   padding: 2rem;
-  margin: 1rem;
+  margin: auto;
 }
