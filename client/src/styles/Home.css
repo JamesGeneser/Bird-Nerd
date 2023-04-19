@@ -1,5 +1,6 @@
 main {
   height: 90vh;
+  overflow-y: scroll;
 }
 
 .landing-wrapper {
@@ -65,4 +66,41 @@ main {
 
 .signup-btn {
   padding: 1rem 4.6rem;
+}
+
+@media screen and (max-width: 1024px) {
+  main {
+    height: 100%;
+  }
+
+  .landing-wrapper {
+    padding: 2rem;
+    place-items: center;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .landing-img {
+    width: 100%;
+  }
+
+  .landing-content {
+    width: 85%;
+    gap: 1rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .landing-wrapper {
+    padding: 1rem;
+  }
+
+  .landing-img {
+    margin-bottom: 1rem;
+  }
+
+  .landing-content {
+    width: 100%;
+    gap: 1rem;
+  }
 }

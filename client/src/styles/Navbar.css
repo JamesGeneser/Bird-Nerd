@@ -27,6 +27,7 @@
 
 .navbar .buttons {
   text-align: center;
+  min-width: 50px;
   width: auto;
   margin: 10px;
   padding: 10px;
