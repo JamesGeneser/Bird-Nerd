@@ -43,19 +43,19 @@ const Signup = () => {
   return (
     <>
       <Card className="formCard mt-4 mb-5">
-        <Form>
-          <h2>Login</h2>
+        <Form onSubmit={handleFormSubmit}>
+          <h2>Signup</h2>
           <Form.Group
             className="mb-3"
-            controlId="formBasicEmail"
-            value={formState.email}
+            controlId="formBasicUsername"
+            value={formState.username}
             onChange={handleChange}
-            placeholder="your email"
+            placeholder="username"
           >
-            <Form.Label>Email address</Form.Label>
-            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Label>Username</Form.Label>
+            <Form.Control type="username" placeholder="Enter a username" />
             <Form.Text className="text-muted">
-              We'll never share your email with anyone else.
+              This is the name of your Birdnerd profile
             </Form.Text>
           </Form.Group>
           <Form.Group

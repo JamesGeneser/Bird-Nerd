@@ -6,9 +6,8 @@ import "../styles/Home.css";
 
 const Home = () => {
   return (
-
     <>
-    <main>
+      <main>
         <div className="landing-wrapper">
           <div className="img-wrapper">
             <div className="landing-picture">
@@ -18,7 +17,6 @@ const Home = () => {
                 className="landing-img"
               />
             </div>
-
           </div>
         </div>
         <div className="landing-content">
@@ -42,8 +40,7 @@ const Home = () => {
             </Link>
           </div>
         </div>
-      </div>
-    </main>
+      </main>
     </>
   );
 };
