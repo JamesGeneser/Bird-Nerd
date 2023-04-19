@@ -34,11 +34,15 @@ body {
 .form {
   display: flex;
   flex-direction: column;
+  
 }
 
-.formCard {
-  justify-self: center;
+.formCard{
+  display: block;
   width: 30rem;
   padding: 2rem;
-  margin: 1rem;
+  margin: auto;
+  
+
+  
 }
