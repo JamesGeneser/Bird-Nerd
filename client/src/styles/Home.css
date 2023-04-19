@@ -1,3 +1,68 @@
 main {
   height: 90vh;
 }
+
+.landing-wrapper {
+  display: grid;
+  grid-template-columns: 50% 30%;
+  gap: 10%;
+}
+
+.img-wrapper {
+  width: 100%;
+  aspect-ratio: 1/1;
+  display: grid;
+  place-items: center;
+}
+
+.landing-img {
+  width: 120%;
+}
+
+.landing-content {
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.landing-text {
+  text-align: center;
+  background-color: rgba(35, 98, 134, 0.541);
+  padding: 3rem;
+}
+
+.landing-text h1 {
+  font-size: 78px;
+  font-weight: lighter;
+  margin-bottom: 4rem;
+}
+
+.btn {
+  background-color: rgba(35, 98, 134, 0.541);
+  border-radius: 0;
+  color: black;
+}
+
+.btn:hover {
+  background-color: rgba(254, 175, 233, 0.533);
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+}
+
+.link:hover {
+  text-decoration: none;
+  color: black;
+}
+
+.login-btn {
+  padding: 1rem 5rem;
+}
+
+.signup-btn {
+  padding: 1rem 4.6rem;
+}
