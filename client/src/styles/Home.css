@@ -29,7 +29,7 @@
 
 .Home .landing-text {
   text-align: center;
-  background-color: rgba(35, 98, 134, 0.541);
+  background-color: var(--lightblue);
   padding: 3rem;
 }
 
@@ -39,14 +39,16 @@
   margin-bottom: 4rem;
 }
 
+
 .Home .btn {
-  background-color: rgba(35, 98, 134, 0.541);
+  background-color: var(--lightblue);
   border-radius: 0;
   color: black;
 }
 
+
 .Home .btn:hover {
-  background-color: rgba(254, 175, 233, 0.533);
+  background-color: var(--tan);
 }
 
 .Home .link {

@@ -2,34 +2,26 @@ const { Schema, Types, model } = require("mongoose");
 const mongoose = require("mongoose");
 
 // create Thought model
-const thoughtSchema = new Schema(
-  {
-    thought: {
-      type: String,
-      required: true,
-      minLength: 1,
-      maxLength: 280,
+const thoughtSchema = new Schema({
+  thought: {
+    type: String,
+    required: true,
+    minLength: 1,
+    maxLength: 280,
+  },
+  createdAt: {
+    type: Date,
+    default: Date.now,
+    // format the timestamp on the query
+    get: (date) => {
+      if (date) return date.toString().split("G")[0];
     },
-    createdAt: {
-      type: Date,
-      default: Date.now,
-      // format the timestamp on the query
-      get: (date) => {
-        if (date) return date.toString().split("G")[0];
-      },
-    },
-    user: {
-      type: String,
-      required: true,
-    },
-    toJSON: {
-      virtuals: true,
-      getters: true,
-    },
-    id: false,
-  }
-);
-
+  },
+  user: {
+    type: String,
+    required: true,
+  },
+});
 
 const Thought = model("thought", thoughtSchema);
 
