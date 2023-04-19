@@ -166,4 +166,4 @@ db.once('open', async () => {
     ])
 })
 
-module.exports= {birdData}
+module.exports= Birds
