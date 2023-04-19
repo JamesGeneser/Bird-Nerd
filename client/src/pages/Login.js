@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import { Form, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useMutation } from "@apollo/client";
 import { LOGIN_USER } from "../utils/mutations";
 import Button from "react-bootstrap/Button";
-// import Form from "react-bootstrap/Form";
-
+import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 import Auth from "../utils/auth";
 
 const Login = (props) => {
@@ -40,34 +40,60 @@ const Login = (props) => {
   };
 
   return (
-    <Form>
-      <Form.Group className="mb-3" controlId="formBasicEmail">
-        <Form.Label>Email</Form.Label>
-        <Form.Control
-          className="form-input"
-          type="email"
-          name="email"
-          //   placeholder="enter your email"
-          //   value={formState.email}
-          //   onChange={handleChange}
-        ></Form.Control>
-      </Form.Group>
-      <Form.Group className="mb-3" controlId="formBasicPassword">
-        <Form.Label>Password</Form.Label>
-        <Form.Control
-          className="form-input"
-          type="password"
-          name="password"
-          placeholder="*****"
-          //   value={formState.password}
-          //   onChange={handleChange}
-        ></Form.Control>
-      </Form.Group>
+    <>
+      <Card className="formCard">
+        <Form>
+          <Form.Group className="mb-3" controlId="formBasicEmail">
+            <Form.Label>Email address</Form.Label>
+            <Form.Control type="email" placeholder="Enter email" />
+            <Form.Text className="text-muted">
+              We'll never share your email with anyone else.
+            </Form.Text>
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicPassword">
+            <Form.Label>Password</Form.Label>
+            <Form.Control type="password" placeholder="Password" />
+          </Form.Group>
+          <Form.Group className="mb-3" controlId="formBasicCheckbox">
+            <Form.Check type="checkbox" label="Check me out" />
+          </Form.Group>
+          <Button variant="primary" type="submit">
+            Submit
+          </Button>
+        </Form>
+      </Card>
+      <div className="formCard">
+        <form className="form">
+          <input3
+            className="form-input"
+            placeholder="your email"
+            name="email"
+            type="email"
+            value={formState.email}
+            onChange={handleChange}
+          />
+          <input
+            className="form-input"
+            placeholder="*****"
+            name="password"
+            type="password"
+            value={formState.password}
+            onChange={handleChange}
+          />
+          <button
+            className="btn btn-block btn-primary"
+            style={{ cursor: "pointer" }}
+            type="submit"
+          >
+            Submit
+          </button>
+        </form>
+      </div>
 
-      <Button varient="primary" type="submit">
-        Submit
-      </Button>
-    </Form>
+      {error && (
+        <div className="my-3 p-3 bg-danger text-white">{error.message}</div>
+      )}
+    </>
   );
 };
 
