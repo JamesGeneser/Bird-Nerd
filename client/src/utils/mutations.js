@@ -23,3 +23,13 @@ export const ADD_USER = gql`
     }
   }
 `;
+
+export const LOG_BIRD = gql`
+  mutation logBird($size: String!, $bodyColor: String!, $headColor: String!) {
+    logBird(size: $size, bodyColor: $bodyColor, headColor: $headColor) {
+      size
+      bodyColor
+      headColor
+    }
+  }
+`;
