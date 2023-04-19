@@ -5,7 +5,7 @@ import "../styles/Home.css";
 const Home = () => {
   return (
     <main>
-      <h1>Bird Nerd</h1>
+      <h1>HOME PAGE</h1>
     </main>
   );
 };

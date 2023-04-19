@@ -13,29 +13,29 @@ function Navbar() {
     <div className="navbar">
       <div id={openLinks ? "open" : "close"} className="leftSide">
         <Link to="/" id="logo" className="buttons">
-          LOGO
+          🦉
         </Link>
         <div className="hiddenLinks">
-          <Link to="/" className="buttons">
-            Page A
+          <Link to="/identify" className="buttons">
+            Identify
           </Link>
-          <Link to="/" className="buttons">
-            Page B
+          <Link to="/post" className="buttons">
+            Post
           </Link>
-          <Link to="/" className="buttons">
-            Page C
+          <Link to="/signup" className="buttons">
+            Sign Up
           </Link>
         </div>
       </div>
       <div className="rightSide">
-        <Link to="/" className="buttons">
-          Page A
+        <Link to="/identify" className="buttons">
+          Identify
         </Link>
-        <Link to="/" className="buttons">
-          Page B
+        <Link to="/post" className="buttons">
+          Post
         </Link>
-        <Link to="/" className="buttons">
-          Page C
+        <Link to="/signup" className="buttons">
+          Sign Up
         </Link>
         <div id="menuButton" className="buttons" onClick={toggleNavbar}>
           Menu
