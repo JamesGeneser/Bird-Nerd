@@ -5,6 +5,11 @@
 :root {
   --darkGray: #21252a;
   --lightGray: #373d45;
+  --peach: #fe938c;
+  --tan: #e6b89c;
+  --lightyellow: #ead2ac;
+  --lightblue: #9cafb7;
+  --blue: #4281a4;
 }
 
 html {
@@ -26,7 +31,7 @@ body {
   width: 100%;
 }
 
-.form{
+.form {
   display: flex;
   flex-direction: column;
   
