@@ -7,6 +7,10 @@
   --lightGray: #373d45;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-size: 62.5%;
   padding: 0;
