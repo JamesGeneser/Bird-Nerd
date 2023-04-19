@@ -42,7 +42,7 @@ const Login = (props) => {
   return (
     <>
       <Card className="formCard mt-4 mb-5">
-        <Form>
+        <Form onSubmit={handleFormSubmit}>
           <h2>Login</h2>
           <Form.Group
             className="mb-3"
