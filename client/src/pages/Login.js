@@ -40,6 +40,7 @@ const Login = (props) => {
   };
 
   return (
+
     <>
       <Card className="formCard mt-4 mb-5">
         <Form onSubmit={handleFormSubmit}>
@@ -51,6 +52,7 @@ const Login = (props) => {
             onChange={handleChange}
             placeholder="your email"
           >
+
             <Form.Label>Email address</Form.Label>
             <Form.Control type="email" placeholder="Enter email" />
             <Form.Text className="text-muted">

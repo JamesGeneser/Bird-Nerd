@@ -6,7 +6,7 @@ import "../styles/Home.css";
 
 const Home = () => {
   return (
-    <main>
+    <main className="Home">
       <div className="landing-wrapper">
         <div className="img-wrapper">
           <div className="landing-picture">
