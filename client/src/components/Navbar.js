@@ -17,7 +17,7 @@ function Navbar() {
         </Link>
         <div className="hiddenLinks">
           <Link to="/identify" className="buttons">
-            Identify
+            ID
           </Link>
           <Link to="/post" className="buttons">
             Post
@@ -29,7 +29,7 @@ function Navbar() {
       </div>
       <div className="rightSide">
         <Link to="/identify" className="buttons">
-          Identify
+          ID
         </Link>
         <Link to="/post" className="buttons">
           Post
