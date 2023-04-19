@@ -165,4 +165,6 @@ const birdSchema = new Schema({
   ],
 });
 
-module.exports = { birdSchema };
+const Birds = mongoose.model('Birds', birdSchema)
+
+module.exports = { Birds };
