@@ -8,8 +8,9 @@ import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
-// import MultiCheckBox from "../components/MultiCheckBox";
-// import { collection } from "../../../server/models/Birds";
+import BodyColorForm from "../components/MultiCheckboxes/BodyColorForm";
+import HeadColorForm from "../components/MultiCheckboxes/HeadColorForm";
+
 const IdentifyBird = () => {
   const [formData, setFormData] = useState({
     size: "",
@@ -38,7 +39,7 @@ const IdentifyBird = () => {
     const value = event.target.value;
     const name = event.target.name;
 
-    const colorGroup = event.target.parentNode;
+    const colorGroup = event.target.parent;
     console.log(colorGroup);
     const checked = event.target.checked;
 
@@ -76,8 +77,8 @@ const IdentifyBird = () => {
                   <option>Small</option>
                 </Form.Select>
               </Form.Group>
-
-              <Form.Group
+              <BodyColorForm />
+              {/* <Form.Group
                 className="bodyColor mb-3"
                 onChange={handleChange}
                 controlId="bodyColor"
@@ -116,8 +117,9 @@ const IdentifyBird = () => {
                   label="blue"
                   name="bodyColor"
                 ></Form.Check>
-              </Form.Group>
-              <Form.Group
+              </Form.Group> */}
+              <HeadColorForm />
+              {/* <Form.Group
                 className="headColor mb-3"
                 onChange={handleChange}
                 controlId="headColor"
@@ -156,7 +158,7 @@ const IdentifyBird = () => {
                   label="blue"
                   name="headColor"
                 ></Form.Check>
-              </Form.Group>
+              </Form.Group> */}
               <Button variant="primary" type="submit">
                 Submit
               </Button>
