@@ -1,4 +1,7 @@
 const { Birds, User } = require("../models");
+const { insertMany } = require("../models/Birds");
+
+
 
 const resolvers = {
   Query: {
