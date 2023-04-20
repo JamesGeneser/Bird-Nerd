@@ -1,6 +1,7 @@
 /* CUSTOM COLORS ACROSS ALL CSS FILES ON THE APP */
 /* SIMPLY USE var(--colorName) in place of Hardcoding the color */
 /* IT WILL MAKE THINGS SUPER EASY IF WE WANT TO MAKE SEVERAL THEMES */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Rubik:wght@300;400&display=swap");
 
 :root {
   --darkGray: #21252a;
@@ -20,7 +21,8 @@ html {
 }
 
 body {
-  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Rubik", sans-serif; */
   padding: 0;
   margin: 0;
 }

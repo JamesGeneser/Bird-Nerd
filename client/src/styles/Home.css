@@ -43,6 +43,8 @@
   background-color: var(--lightblue);
   border-radius: 0;
   color: black;
+  border: 1px solid var(--darkGray);
+  font-size: 16px;
 }
 
 .btn:hover {
