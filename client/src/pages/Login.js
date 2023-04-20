@@ -13,33 +13,27 @@ import "../styles/Login.css";
 
 const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
-  const [login, { error, data }] = useMutation(LOGIN_USER);
-
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
+  console.log(formState);
+  const [login, { error }] = useMutation(LOGIN_USER);
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log(formState);
     try {
-      const { data } = await login({
-        variables: { ...formState },
+      const mutationResponse = await login({
+        variables: { email: formState.email, password: formState.password },
       });
-
-      Auth.login(data.login.token);
-    } catch (e) {
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
+    } catch (error) {
       console.log(error);
     }
+  };
 
+  const handleChange = (event) => {
+    const { name, value } = event.target;
     setFormState({
-      email: "",
-      password: "",
+      ...formState,
+      [name]: value,
     });
   };
 
@@ -50,30 +44,32 @@ const Login = (props) => {
           <Card className="formCard mt-4 mb-5">
             <Form onSubmit={handleFormSubmit}>
               <h2>Login</h2>
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicEmail"
-                value={formState.email}
-                onChange={handleChange}
-                placeholder="your email"
-              >
+              {/* EMAIL INPUT */}
+              <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  name="email"
+                  type="email"
+                  value={formState.email}
+                  placeholder="Enter email"
+                  onChange={handleChange}
+                />
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicPassword"
-                value={formState.password}
-                name="password"
-                onChange={handleChange}
-              >
+              {/* PASSWORD INPUT */}
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="*****" />
+                <Form.Control
+                  name="password"
+                  type="password"
+                  value={formState.password}
+                  placeholder="******"
+                  onChange={handleChange}
+                />
               </Form.Group>
-
+              {/* SUBMIT BUTTON */}
               <Button variant="primary" type="submit">
                 Submit
               </Button>
