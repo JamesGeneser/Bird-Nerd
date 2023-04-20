@@ -8,9 +8,11 @@ import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
+import BodyColorForm from "../components/MultiCheckboxes/BodyColorForm";
+import HeadColorForm from "../components/MultiCheckboxes/HeadColorForm";
 
 const IdentifyBird = () => {
-  const [bird, setBird] = useState({
+  const [formData, setFormData] = useState({
     size: "",
     bodyColor: "",
     headColor: "",
@@ -18,21 +20,34 @@ const IdentifyBird = () => {
 
   const [logBird, { error, data }] = useMutation(LOG_BIRD);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setBird({
-      ...bird,
-      [name]: value,
-    });
-    console.log([name] + "name");
-    console.log(bird);
-  };
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
 
-    console.log(bird);
+    try {
+      const { data } = await logBird({
+        variables: { ...formData },
+      });
+      setFormData("");
+      window.location.reload();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    // const value = event.target.value;
+    // const name = event.target.name;
+
+    console.log(value + " value selected");
+    console.log(name);
+
+    setFormData({
+      ...formData,
+      [name]: value,
+    });
+
+    console.log([name] + " formData");
   };
   return (
     <Container fluid className="identifyBird">
@@ -43,12 +58,12 @@ const IdentifyBird = () => {
               <h2>Identify a bird</h2>
               <Form.Group
                 className="mb-3"
-                controlID="birdSize"
+                controlId="size"
                 onChange={handleChange}
               >
                 <Form.Label>What size was the bird?</Form.Label>
 
-                <Form.Select>
+                <Form.Select name="size">
                   <option key="blankChoice" hidden>
                     {" "}
                     bird size
@@ -58,38 +73,10 @@ const IdentifyBird = () => {
                   <option>Small</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="bodyColor"
-                onChange={handleChange}
-              >
-                <Form.Label>What color was its body?</Form.Label>
-                <Form.Text className="textMuted">
-                  (check all that apply)
-                </Form.Text>
-                <Form.Check type="checkbox" label="black"></Form.Check>
-                <Form.Check type="checkbox" label="white"></Form.Check>
-                <Form.Check type="checkbox" label="brown"></Form.Check>
-                <Form.Check type="checkbox" label="yellow"></Form.Check>
-                <Form.Check type="checkbox" label="red"></Form.Check>
-                <Form.Check type="checkbox" label="blue"></Form.Check>
-              </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="headColor"
-                onChange={handleChange}
-              >
-                <Form.Label>What color was its head?</Form.Label>
-                <Form.Text className="textMuted">
-                  (check all that apply)
-                </Form.Text>
-                <Form.Check type="checkbox" label="black"></Form.Check>
-                <Form.Check type="checkbox" label="white"></Form.Check>
-                <Form.Check type="checkbox" label="brown"></Form.Check>
-                <Form.Check type="checkbox" label="yellow"></Form.Check>
-                <Form.Check type="checkbox" label="red"></Form.Check>
-                <Form.Check type="checkbox" label="blue"></Form.Check>
-              </Form.Group>
+              <BodyColorForm />
+
+              <HeadColorForm />
+
               <Button variant="primary" type="submit">
                 Submit
               </Button>
