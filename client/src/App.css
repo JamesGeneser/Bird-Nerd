@@ -40,14 +40,11 @@ main {
 .form {
   display: flex;
   flex-direction: column;
-  
 }
-
 
 .formCard {
   display: block;
   width: 30rem;
   padding: 2rem;
   margin: auto;
-
 }

@@ -39,13 +39,11 @@
   margin-bottom: 4rem;
 }
 
-
 .Home .btn {
   background-color: var(--lightblue);
   border-radius: 0;
   color: black;
 }
-
 
 .Home .btn:hover {
   background-color: var(--tan);
