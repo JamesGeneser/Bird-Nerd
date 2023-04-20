@@ -1,169 +1,148 @@
 const db = require('./connection')
-const {Birds, User} = require('../models')
+const {Birds} = require('../models')
+const Category = require('../models/Category')
+
+
 
 db.once('open', async () => {
-    const birdData = await Birds.insertMany([
+   await Category.deleteMany();
+
+   const categories = await Category.insertMany([
+    {Size: 'Large'}, //1
+    {Size: 'Medium'}, //2
+    {Size: 'Small'}, //3
+    {bodyColor: 'Orange'}, //4
+    {bodyColor: 'Yellow'}, //5
+    {bodyColor: 'Blue'},
+    {bodyColor: 'Brown'},
+    {bodyColor: 'Blue'},
+    {bodyColor: 'BrownWhite'},
+    {bodyColor: 'BlueWhite'}, //10
+    {bodyColor: 'Black'},
+    {bodyColor: 'BlackWhite'},
+    {bodyColor: 'White'},
+    {headColor: 'Red'},
+    {headColor: 'Brown'}, //15
+    {headColor: 'Black'},
+    {headColor: 'Yellow'},
+    {headColor: 'Blue'},
+    {headColor: 'Grey'},
+    {headColor: 'White'}, //20
+  ])
+
+  console.log(`cateogires seeded`);
+
+  await Birds.deleteMany();
+  
+  const birds = await Birds.insertMany([
         {
             name: "Great Blue Heron",
-            keys: {
-              size: "Large",
-              "body-color": "Blue",
-              "head-color": "Grey",
-            },
+            category: categories[3,6,18]._id,
+            description: "description"
           },
           {
             name: "Bald Eagle",
-            keys: {
-              size: "Large",
-              "body-color": "Brown",
-              "head-color": "White",
-            },
+            category: categories[3,7,20]._id,
+            description: "description"
           },
           {
             name: "Osprey",
-            keys: {
-              size: "Large",
-              "body-color": "Brown/White",
-              "head-color": "White",
-            },
+            category: categories[3,9,18]._id,
+            description: "description"
           },
           {
             name: "Common Raven",
-            keys: {
-              size: "Large",
-              "body-color": "Black",
-              "head-color": "Black",
-            },
+            category: categories[3,11,16]._id,
+            description: "description"
           },
           {
             name: "Turkey Vulture",
-            keys: {
-              size: "Large",
-              "body-color": "Brown",
-              "head-color": "Red",
-            },
+            category: categories[3,7,14]._id,
+            description: "description"
           },
           {
             name: "Great Horned Owl",
-            keys: {
-              size: "Large",
-              "body-color": "Brown",
-              "head-color": "Brown",
-            },
+            category: categories[3,7,15]._id,
+            description: "description"
           },
           {
             name: "Mourning Dove",
-            keys: {
-              size: "Medium",
-              "body-color": "White",
-              "head-color": "Brown",
-            },
+            category: categories[2,13,20]._id,
+            description: "description"
           },
           {
             name: "Belted Kingfisher",
-            keys: {
-              size: "Medium",
-              "body-color": "Blue/White",
-              "head-color": "Blue",
-            },
+            category: categories[2,10,18]._id,
+            description: "description"
           },
           {
             name: "Common Grackle",
-            keys: {
-              size: "Medium",
-              "body-color": "Black",
-              "head-color": "Black",
-            },
+            category: categories[2,11,16]._id,
+            description: "description"
           },
           {
             name: "American Avocet",
-            keys: {
-              size: "Medium",
-              "body-color": "Black/White",
-              "head-color": "Brown",
-            },
+            category: categories[2,12,15]._id,
+            description: "description"
           },
           {
             name: "Black Billed Magpie",
-            keys: {
-              size: "Medium",
-              "body-color": "Black/White",
-              "head-color": "Black",
-            },
+            category: categories[2,12,16]._id,
+            description: "description"
           },
           {
             name: "Barn Swallow",
-            keys: {
-              size: "Small",
-              "body-color": "Brown",
-              "head-color": "Blue",
-            },
+            category: categories[1,7,18]._id,
+            description: "description"
           },
           {
             name: "Brownheaded Cowbord",
-            keys: {
-              size: "Small",
-              "body-color": "Black",
-              "head-color": "Brown",
-            },
+            category: categories[1,11,15]._id,
+            description: "description"
           },
           {
             name: "Lazuli Bunting",
-            keys: {
-              size: "Small",
-              "body-color": "White",
-              "head-color": "Blue",
-            },
+            category: categories[1,13,18]._id,
+            description: "description"
           },
           {
             name: "Mountain Bluebird",
-            keys: {
-              size: "Small",
-              "body-color": "Blue",
-              "head-color": "Blue",
-            },
+            category: categories[1,6,18]._id,
+            description: "description"
           },
           {
             name: "Tree Swallow",
-            keys: {
-              size: "Small",
-              "body-color": "Blue/White",
-              "head-color": "Blue",
-            },
+            category: categories[1,10,18]._id,
+            description: "description"
           },
           {
             name: "Yellow Warbler",
-            keys: {
-              size: "Small",
-              "body-color": "Yellow",
-              "head-color": "Yellow",
-            },
+            category: categories[1,5,17]._id,
+            description: "description"
           },
           {
             name: "Red-Headed Woodpecker",
-            keys: {
-              size: "Small",
-              "body-color": "Black/White",
-              "head-color": "Red",
-            },
+            category: categories[1,12,14]._id,
+            description: "description"
           },
           {
             name: "Black Headed Grosbeak",
-            keys: {
-              size: "Small",
-              "body-color": "Orange",
-              "head-color": "Black",
-            },
+            category: categories[1,4,16]._id,
+            description: "description"
           },
           {
             name: "Pygmey Nuthatch",
-            keys: {
-              size: "Small",
-              "body-color": "Blue/White",
-              "head-color": "Brown",
-            },
+            category: categories[1,10,15]._id,
+            description: "description"
           },
     ])
 })
 
-module.exports= Birds
+await Birds.create({
+  name: "Pygmey Nuthatch",
+            category: Category[1,10,15]._id,
+            description: "description"
+})
+
+
+module.exports= Birds, Category
