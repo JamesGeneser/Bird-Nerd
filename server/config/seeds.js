@@ -34,102 +34,103 @@ db.once("open", async () => {
   const birds = await Birds.insertMany([
     {
       name: "Great Blue Heron",
+      description:
+        "One of the most common herons, they stalk small fish in shallow waters. Flies with its legs trailing behind with wings in a cupped fashion. They nest in colonies of up to 100 birds in tree tops over open water.",
+        category: categories[0],
+    },
+    {
+      name: "Bald Eagle",
       category: categories[1],
       description: "description",
     },
     {
-      name: "Bald Eagle",
+      name: "Osprey",
       category: categories[2],
       description: "description",
     },
     {
-      name: "Osprey",
+      name: "Common Raven",
       category: categories[3],
       description: "description",
     },
     {
-      name: "Common Raven",
+      name: "Turkey Vulture",
       category: categories[4],
       description: "description",
     },
     {
-      name: "Turkey Vulture",
+      name: "Great Horned Owl",
       category: categories[5],
       description: "description",
     },
     {
-      name: "Great Horned Owl",
+      name: "Mourning Dove",
       category: categories[6],
       description: "description",
     },
     {
-      name: "Mourning Dove",
+      name: "Belted Kingfisher",
       category: categories[7],
       description: "description",
     },
     {
-      name: "Belted Kingfisher",
+      name: "Common Grackle",
       category: categories[8],
       description: "description",
     },
     {
-      name: "Common Grackle",
+      name: "American Avocet",
       category: categories[9],
       description: "description",
     },
     {
-      name: "American Avocet",
+      name: "Black Billed Magpie",
       category: categories[10],
       description: "description",
     },
     {
-      name: "Black Billed Magpie",
+      name: "Barn Swallow",
       category: categories[11],
       description: "description",
     },
     {
-      name: "Barn Swallow",
+      name: "Brownheaded Cowbord",
       category: categories[12],
       description: "description",
     },
     {
-      name: "Brownheaded Cowbord",
+      name: "Lazuli Bunting",
       category: categories[13],
       description: "description",
     },
     {
-      name: "Lazuli Bunting",
+      name: "Mountain Bluebird",
       category: categories[14],
       description: "description",
     },
     {
-      name: "Mountain Bluebird",
+      name: "Tree Swallow",
       category: categories[15],
       description: "description",
     },
     {
-      name: "Tree Swallow",
+      name: "Yellow Warbler",
       category: categories[16],
       description: "description",
     },
     {
-      name: "Yellow Warbler",
+      name: "Red-Headed Woodpecker",
       category: categories[17],
       description: "description",
     },
     {
-      name: "Red-Headed Woodpecker",
+      name: "Black Headed Grosbeak",
       category: categories[18],
       description: "description",
     },
     {
-      name: "Black Headed Grosbeak",
-      category: categories[19],
-      description: "description",
-    },
-    {
       name: "Pygmey Nuthatch",
-      category: categories[20],
+      category: categories[19],
       description: "description",
     },
   ]);
@@ -139,7 +140,7 @@ db.once("open", async () => {
 
   const thoughts = await Thoughts.insertMany([
     {
-      thought: "Today i came across a Great Horned Owl! ",
+      thought: "Today I came across a Great Horned Owl! ",
       createdAt: Date.now(),
       username: "Chris Hemsworth",
     },
@@ -167,26 +168,27 @@ db.once("open", async () => {
     {
       username: "Chris Hemsworth",
       email: "ChrisHems@gmail.com",
-      thought: thoughts[1],
+      thought: thoughts[20],
       password: "scoobydoo",
     },
     {
       username: "Levi Ackerman",
       email: "levi123@yahoo.com",
-      thought: thoughts[2],
+      thought: thoughts[21],
       password: "titankiller",
     },
     {
       username: "Kenn Kaufman",
       email: "KennKaufman@gmail.com",
-      thought: thoughts[3],
+      thought: thoughts[22],
       password: "skoolsout",
     },
     {
       username: "bindi irwin",
       email: "bindi@hotmail.com",
-      thought: thoughts[4],
+      thought: thoughts[23],
       password: "crochunter",
     },
   ]);
+  console.log(`Users Seeded`)
 });
