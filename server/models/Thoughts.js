@@ -4,7 +4,6 @@ const { Schema, model } = require("mongoose");
 const thoughtSchema = new Schema({
   thought: {
     type: String,
-    required: true,
     minLength: 1,
     maxLength: 280,
   },
@@ -18,7 +17,6 @@ const thoughtSchema = new Schema({
   },
   user: {
     type: String,
-    required: true,
   },
 });
 

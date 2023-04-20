@@ -1,14 +1,14 @@
 const db = require("./connection");
-const { Birds, Category } = require("../models");
+const { Birds, Category, Thoughts, User } = require("../models");
 
 db.once("open", async () => {
   await Category.deleteMany();
 
   const categories = await Category.insertMany([
     { Size: "Large", bodyColor: "Blue", headColor: "Blue" },
-    { Size: "Large", bodyColor: "Brown", headColor: "White" }, 
+    { Size: "Large", bodyColor: "Brown", headColor: "White" },
     { Size: "Large", bodyColor: "BrownWhite", headColor: "White" },
-    { Size: "Large", bodyColor: "Black", headColor: "Black"},
+    { Size: "Large", bodyColor: "Black", headColor: "Black" },
     { Size: "Large", bodyColor: "Brown", headColor: "Red" },
     { Size: "Large", bodyColor: "Brown", headColor: "Brown" },
     { Size: "Medium", bodyColor: "White", headColor: "Brown" },
@@ -122,7 +122,7 @@ db.once("open", async () => {
       category: categories[18],
       description: "description",
     },
-    { 
+    {
       name: "Black Headed Grosbeak",
       category: categories[19],
       description: "description",
@@ -133,7 +133,60 @@ db.once("open", async () => {
       description: "description",
     },
   ]);
-  console.log(`Birds Seeded`)
+  console.log(`Birds Seeded`);
+
+  await Thoughts.deleteMany;
+
+  const thoughts = await Thoughts.insertMany([
+    {
+      thought: "Today i came across a Great Horned Owl! ",
+      createdAt: Date.now(),
+      username: "Chris Hemsworth",
+    },
+    {
+      thought: "Red-Headed Woodpecker, never seen one before now.",
+      createdAt: Date.now(),
+      username: "Levi Ackerman",
+    },
+    {
+      thought: "got an amazing view of the Yellow Warbler",
+      createdAt: Date.now(),
+      username: "Kenn Kaufman",
+    },
+    {
+      thought: "I finally spotted a Lazuli Bunting ",
+      createdAt: Date.now(),
+      username: "bindi irwin",
+    },
+    console.log(`Thoughts Seeded`),
+  ]);
+
+  await User.deleteMany;
+
+  const user = await User.insertMany([
+    {
+      username: "Chris Hemsworth",
+      email: "ChrisHems@gmail.com",
+      thought: thoughts[1],
+      password: "scoobydoo",
+    },
+    {
+      username: "Levi Ackerman",
+      email: "levi123@yahoo.com",
+      thought: thoughts[2],
+      password: "titankiller",
+    },
+    {
+      username: "Kenn Kaufman",
+      email: "KennKaufman@gmail.com",
+      thought: thoughts[3],
+      password: "skoolsout",
+    },
+    {
+      username: "bindi irwin",
+      email: "bindi@hotmail.com",
+      thought: thoughts[4],
+      password: "crochunter",
+    },
+  ]);
 });
-
-
