@@ -1,6 +1,6 @@
 # Bird-Nerd
 
 sources:
-https://stackoverflow.com/questions/42682406/how-to-get-values-properties-from-a-react-bootstrap-checkbox
+https://www.geeksforgeeks.org/how-to-get-multiple-checkbox-values-in-react-js/#
 
-(How to get values/properties from a react-bootstrap checkbox?)
+(How to get multiple checkbox values in React.js ?)
