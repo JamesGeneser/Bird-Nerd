@@ -8,7 +8,7 @@ import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
-
+import MultiCheckBox from "../components/MultiCheckBox";
 const IdentifyBird = () => {
   const [formData, setFormData] = useState({
     size: "",
@@ -58,7 +58,7 @@ const IdentifyBird = () => {
               <h2>Identify a bird</h2>
               <Form.Group
                 className="mb-3"
-                controlID="size"
+                controlid="size"
                 onChange={handleChange}
               >
                 <Form.Label>What size was the bird?</Form.Label>
@@ -73,10 +73,11 @@ const IdentifyBird = () => {
                   <option>Small</option>
                 </Form.Select>
               </Form.Group>
-              <Form.Group
+              <MultiCheckBox />
+              {/* <Form.Group
                 className="bodyColor mb-3"
                 onChange={handleChange}
-                controlId="bodyColor"
+                controlid="bodyColor"
               >
                 <Form.Label>What color was its body?</Form.Label>
                 <Form.Text className="textMuted">
@@ -116,7 +117,7 @@ const IdentifyBird = () => {
               <Form.Group
                 className="headColor mb-3"
                 onChange={handleChange}
-                controlId="headColor"
+                controlid="headColor"
               >
                 <Form.Label>What color was its head?</Form.Label>
                 <Form.Text className="textMuted">
@@ -152,7 +153,7 @@ const IdentifyBird = () => {
                   label="blue"
                   name="headColor"
                 ></Form.Check>
-              </Form.Group>
+              </Form.Group> */}
               <Button variant="primary" type="submit">
                 Submit
               </Button>
