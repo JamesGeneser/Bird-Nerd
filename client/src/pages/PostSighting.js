@@ -21,8 +21,10 @@ function PostSighting() {
                   If you know what{" "}
                   <span style={{ fontWeight: "bold" }}>Bird</span> you saw.
                 </Form.Label>
-                <Form.Select aria-label="Default Option">
-                  <option>Select Bird</option>
+                <Form.Select>
+                  <option key="blankChoice" hidden>
+                    Select a Bird
+                  </option>
                   <option value="birdA">Bird A</option>
                   <option value="birdB">Bird B</option>
                   <option value="birdC">Bird C</option>
