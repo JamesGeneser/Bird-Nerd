@@ -1,9 +1,13 @@
 import React, { useState } from "react";
+import Container from "react-bootstrap/Container";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
+import "../styles/IdentifyBird.css";
 
 const IdentifyBird = () => {
   const [formData, setFormData] = useState({
@@ -46,97 +50,117 @@ const IdentifyBird = () => {
     // console.log(formData + " formData");
   };
   return (
-    <>
-      <Card className="formCard mb-5">
-        <Form onSubmit={handleFormSubmit}>
-          <h2>Identify a bird</h2>
-          <Form.Group className="birdSize" onChange={handleChange}>
-            <Form.Label>What size was the bird?</Form.Label>
+    <Container fluid className="identifyBird">
+      <Row className="justify-content-center">
+        <Col>
+          <Card className="formCard">
+            <Form onSubmit={handleFormSubmit}>
+              <h2>Identify a bird</h2>
+              <Form.Group
+                className="mb-3"
+                controlID="size"
+                onChange={handleChange}
+              >
+                <Form.Label>What size was the bird?</Form.Label>
 
-            <Form.Select name="size">
-              <option key="blankChoice" hidden>
-                {" "}
-                bird size
-              </option>
-              <option>Large</option>
-              <option>Medium</option>
-              <option>Small</option>
-            </Form.Select>
-          </Form.Group>
-          <Form.Group className="bodyColor" onChange={handleChange}>
-            <Form.Label>What color was its body?</Form.Label>
-            <Form.Text className="textMuted">(check all that apply)</Form.Text>
-            <Form.Check
-              type="checkbox"
-              label="black"
-              name="bodyColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="white"
-              name="bodyColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="brown"
-              name="bodyColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="yellow"
-              name="bodyColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="red"
-              name="bodyColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="blue"
-              name="bodyColor"
-            ></Form.Check>
-          </Form.Group>
-          <Form.Group className="headColor" onChange={handleChange}>
-            <Form.Label>What color was its head?</Form.Label>
-            <Form.Text className="textMuted">(check all that apply)</Form.Text>
-            <Form.Check
-              type="checkbox"
-              label="black"
-              name="headColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="white"
-              name="headColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="brown"
-              name="headColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="yellow"
-              name="headColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="red"
-              name="headColor"
-            ></Form.Check>
-            <Form.Check
-              type="checkbox"
-              label="blue"
-              name="headColor"
-            ></Form.Check>
-          </Form.Group>
-          <Button variant="primary" type="submit">
-            Submit
-          </Button>
-        </Form>
-      </Card>
-    </>
+                <Form.Select name="size">
+                  <option key="blankChoice" hidden>
+                    {" "}
+                    bird size
+                  </option>
+                  <option>Large</option>
+                  <option>Medium</option>
+                  <option>Small</option>
+                </Form.Select>
+              </Form.Group>
+              <Form.Group
+                className="bodyColor mb-3"
+                onChange={handleChange}
+                controlId="bodyColor"
+              >
+                <Form.Label>What color was its body?</Form.Label>
+                <Form.Text className="textMuted">
+                  (check all that apply)
+                </Form.Text>
+                <Form.Check
+                  type="checkbox"
+                  label="black"
+                  name="bodyColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="white"
+                  name="bodyColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="brown"
+                  name="bodyColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="yellow"
+                  name="bodyColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="red"
+                  name="bodyColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="blue"
+                  name="bodyColor"
+                ></Form.Check>
+              </Form.Group>
+              <Form.Group
+                className="headColor mb-3"
+                onChange={handleChange}
+                controlId="headColor"
+              >
+                <Form.Label>What color was its head?</Form.Label>
+                <Form.Text className="textMuted">
+                  (check all that apply)
+                </Form.Text>
+                <Form.Check
+                  type="checkbox"
+                  label="black"
+                  name="headColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="white"
+                  name="headColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="brown"
+                  name="headColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="yellow"
+                  name="headColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="red"
+                  name="headColor"
+                ></Form.Check>
+                <Form.Check
+                  type="checkbox"
+                  label="blue"
+                  name="headColor"
+                ></Form.Check>
+              </Form.Group>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
+            </Form>
+          </Card>
+        </Col>
+      </Row>
+    </Container>
   );
 };
 

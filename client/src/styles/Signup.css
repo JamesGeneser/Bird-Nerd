@@ -1,5 +1,6 @@
-.postSighting {
+.signup {
   padding-top: 20px;
   padding-bottom: 20px;
   height: 90vh;
+  overflow-y: scroll;
 }
