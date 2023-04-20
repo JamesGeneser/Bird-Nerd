@@ -1,7 +1,7 @@
 const {Birds} = require('../models')
 
 const resolvers = {
-    birdData: {Birds},
+    Query: {Birds},
     }
 
 
