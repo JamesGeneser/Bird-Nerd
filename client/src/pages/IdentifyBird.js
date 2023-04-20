@@ -36,8 +36,6 @@ const IdentifyBird = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-    // const value = event.target.value;
-    // const name = event.target.name;
 
     console.log(value + " value selected");
     console.log(name);
