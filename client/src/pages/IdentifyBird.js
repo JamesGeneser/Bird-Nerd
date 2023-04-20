@@ -27,7 +27,7 @@ const IdentifyBird = () => {
       const { data } = await logBird({
         variables: { ...formData },
       });
-
+      setFormData("");
       window.location.reload();
     } catch (err) {
       console.error(err);
@@ -35,23 +35,19 @@ const IdentifyBird = () => {
   };
 
   const handleChange = (event) => {
-    // const {name, value} = event.target
-    const value = event.target.value;
-    const name = event.target.name;
-
-    const colorGroup = event.target.parent;
-    console.log(colorGroup);
-    const checked = event.target.checked;
+    const { name, value } = event.target;
+    // const value = event.target.value;
+    // const name = event.target.name;
 
     console.log(value + " value selected");
     console.log(name);
-    console.log(checked);
+
     setFormData({
       ...formData,
       [name]: value,
     });
 
-    // console.log(formData + " formData");
+    console.log([name] + " formData");
   };
   return (
     <Container fluid className="identifyBird">
@@ -78,87 +74,9 @@ const IdentifyBird = () => {
                 </Form.Select>
               </Form.Group>
               <BodyColorForm />
-              {/* <Form.Group
-                className="bodyColor mb-3"
-                onChange={handleChange}
-                controlId="bodyColor"
-              >
-                <Form.Label>What color was its body?</Form.Label>
-                <Form.Text className="textMuted">
-                  (check all that apply)
-                </Form.Text>
-                <Form.Check
-                  type="checkbox"
-                  label="black"
-                  name="black"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="white"
-                  name="bodyColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="brown"
-                  name="bodyColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="yellow"
-                  name="bodyColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="red"
-                  name="bodyColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="blue"
-                  name="bodyColor"
-                ></Form.Check>
-              </Form.Group> */}
+
               <HeadColorForm />
-              {/* <Form.Group
-                className="headColor mb-3"
-                onChange={handleChange}
-                controlId="headColor"
-              >
-                <Form.Label>What color was its head?</Form.Label>
-                <Form.Text className="textMuted">
-                  (check all that apply)
-                </Form.Text>
-                <Form.Check
-                  type="checkbox"
-                  label="black"
-                  name="black"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="white"
-                  name="headColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="brown"
-                  name="headColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="yellow"
-                  name="headColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="red"
-                  name="headColor"
-                ></Form.Check>
-                <Form.Check
-                  type="checkbox"
-                  label="blue"
-                  name="headColor"
-                ></Form.Check>
-              </Form.Group> */}
+
               <Button variant="primary" type="submit">
                 Submit
               </Button>

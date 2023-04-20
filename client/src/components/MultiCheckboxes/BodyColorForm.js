@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Form from "react-bootstrap/Form";
 
 function BodyColorForm() {
-  const [userinfo, setUserInfo] = useState({
+  const [userInput, setUserInput] = useState({
     bodyColor: [],
     response: [],
   });
@@ -10,13 +10,15 @@ function BodyColorForm() {
   const handleChange = (e) => {
     // Destructuring
     const { value, checked } = e.target;
-    const { bodyColor } = userinfo;
+    const { bodyColor } = userInput;
+    const name = e.target.name;
 
     console.log(`${value} is ${checked}`);
+    console.log(name);
 
     // Case 1 : The user checks the box
     if (checked) {
-      setUserInfo({
+      setUserInput({
         bodyColor: [...bodyColor, value],
         response: [...bodyColor, value],
       });
@@ -24,7 +26,7 @@ function BodyColorForm() {
 
     // Case 2  : The user unchecks the box
     else {
-      setUserInfo({
+      setUserInput({
         bodyColor: bodyColor.filter((e) => e !== value),
         response: bodyColor.filter((e) => e !== value),
       });
