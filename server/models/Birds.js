@@ -5,22 +5,13 @@ const birdSchema = new Schema({
     type: String,
     required: true,
   },
-  description: {
-    type: String,
+  category: {
+    type: Schema.Types.ObjectId,
+    ref: 'Category',
     required: true,
-  },
-  size: {
-    type: String,
-    required: true,
-  },
-  bodyColor: {
-    type: String,
-  },
-  headColor: {
-    type: String,
-  },
+  }
 });
 
-const Birds = model("birds", birdSchema);
+const Birds = model("Birds", birdSchema);
 
 module.exports = Birds;
