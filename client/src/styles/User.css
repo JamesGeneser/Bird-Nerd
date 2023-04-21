@@ -1,0 +1,20 @@
+.userPage {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+.userPage h1 {
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+.userPage .leftSide {
+  background-color: dimgray;
+  padding-bottom: 20px;
+}
+
+.userPage .rightSide {
+  background-color: gray;
+  padding-bottom: 20px;
+}

@@ -30,6 +30,12 @@ body {
 main {
   height: 90vh;
 }
+.logoImg{
+  max-width: 5rem;
+}
+.logoImg:hover{
+  transform: scale(1.1);
+}
 
 /* USE rem units FOR DYNAMIC FONT-SIZING ACROSS THE APP */
 /* EXAMPLE: font-size: 1rem; */

@@ -11,7 +11,7 @@ import Card from "react-bootstrap/Card";
 import Auth from "../utils/auth";
 import "../styles/Signup.css";
 
-const Signup = () => {
+const Signup = (props) => {
   const [formState, setFormState] = useState({
     username: "",
     email: "",
@@ -19,28 +19,32 @@ const Signup = () => {
   });
   const [addUser, { error, data }] = useMutation(ADD_USER);
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-
-    setFormState({
-      ...formState,
-      [name]: value,
-    });
-  };
-
   const handleFormSubmit = async (event) => {
     event.preventDefault();
     console.log(formState);
 
     try {
-      const { data } = await addUser({
-        variables: { ...formState },
+      const mutationResponse = await addUser({
+        variables: {
+          username: formState.username,
+          email: formState.email,
+          password: formState.password,
+        },
       });
-
-      Auth.login(data.addUser.token);
-    } catch (e) {
-      console.error(e);
+      const token = mutationResponse.data.addUser.token;
+      Auth.login(token);
+    } catch (error) {
+      console.error(error);
     }
+    console.log({ ...formState });
+  };
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    console.log(formState);
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   };
 
   return (
@@ -50,41 +54,41 @@ const Signup = () => {
           <Card className="formCard mt-4 mb-5">
             <Form onSubmit={handleFormSubmit}>
               <h2>Signup</h2>
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicUsername"
-                value={formState.username}
-                onChange={handleChange}
-                placeholder="username"
-              >
+              <Form.Group className="mb-3" controlId="formBasicUsername">
                 <Form.Label>Username</Form.Label>
-                <Form.Control type="username" placeholder="Enter a username" />
+                <Form.Control
+                  value={formState.username}
+                  onChange={handleChange}
+                  placeholder="username"
+                  type="username"
+                  name="username"
+                />
                 <Form.Text className="text-muted">
                   This is the name of your Birdnerd profile
                 </Form.Text>
               </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicEmail"
-                value={formState.email}
-                onChange={handleChange}
-                placeholder="your email"
-              >
+              <Form.Group className="mb-3" controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control
+                  value={formState.email}
+                  onChange={handleChange}
+                  placeholder="your email"
+                  type="email"
+                  name="email"
+                />
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-              <Form.Group
-                className="mb-3"
-                controlId="formBasicPassword"
-                value={formState.password}
-                name="password"
-                onChange={handleChange}
-              >
+              <Form.Group className="mb-3" controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="*****" />
+                <Form.Control
+                  value={formState.password}
+                  name="password"
+                  onChange={handleChange}
+                  type="password"
+                  placeholder="*****"
+                />
               </Form.Group>
 
               <Button variant="primary" type="submit">
