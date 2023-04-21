@@ -13,7 +13,10 @@ function Navbar() {
     <div className="navbar">
       <div id={openLinks ? "open" : "close"} className="leftSide">
         <Link to="/" id="logo" className="buttons">
-          🦉
+          <img
+            src={require("../assets/images/logo.png")}
+            className="logoImg"
+          ></img>
         </Link>
         <div className="hiddenLinks">
           <Link to="/identify" className="buttons">
