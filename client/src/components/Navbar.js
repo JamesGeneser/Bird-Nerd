@@ -31,6 +31,9 @@ function Navbar() {
         </div>
       </div>
       <div className="rightSide">
+        <Link to="/user" className="buttons">
+          MyFeed
+        </Link>
         <Link to="/identify" className="buttons">
           ID
         </Link>

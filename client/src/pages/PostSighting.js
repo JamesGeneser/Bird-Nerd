@@ -76,6 +76,17 @@ const PostSighting = () => {
                     Black Headed Grosbeak
                   </option>
                   <option value="Pygmy Nuthatch">Pygmy Nuthatch</option>
+                </Form.Label>
+                <Form.Select>
+                  <option key="blankChoice" hidden>
+                    Select a Bird
+                  </option>
+                  <option value="birdA">Bird A</option>
+                  <option value="birdB">Bird B</option>
+                  <option value="birdC">Bird C</option>
+                  <option value="birdD">Bird D</option>
+                  <option value="birdE">Bird E</option>
+                  <option value="birdF">Bird F</option
                 </Form.Select>
                 <Form.Text>
                   {" "}
