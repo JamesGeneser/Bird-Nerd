@@ -93,7 +93,7 @@ db.once("open", async () => {
       description: "description",
     },
     {
-      name: "Brownheaded Cowbord",
+      name: "Brownheaded Cowbird",
       category: categories[13],
       description: "description",
     },
@@ -128,7 +128,7 @@ db.once("open", async () => {
       description: "description",
     },
     {
-      name: "Pygmey Nuthatch",
+      name: "Pygmy Nuthatch",
       category: categories[20],
       description: "description",
     },
