@@ -7,6 +7,7 @@ import Home from "./pages/Home";
 import IdentifyBird from "./pages/IdentifyBird";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
+import User from "./pages/User";
 import PostSighting from "./pages/PostSighting";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -27,6 +28,7 @@ function App() {
           <Route path="/post" element={<PostSighting />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
+          <Route path="/user" element={<User />} />
         </Routes>
         <Footer />
       </Router>
