@@ -65,12 +65,14 @@ db.once("open", async () => {
     {
       name: "Great Horned Owl",
       category: categories[5],
-      description: "description",
+      description:
+        "The largest owl in Colorado, that feeds on small mammals, birds, snakes, and insects. They have incredible hearing, and can fly silently.",
     },
     {
       name: "Mourning Dove",
       category: categories[6],
-      description: "description",
+      description:
+        "Ground feeders that eat seeds, head bobbing as it walks. The name comes from the sound of their cooing.",
     },
     {
       name: "Belted Kingfisher",
@@ -141,7 +143,8 @@ db.once("open", async () => {
     {
       name: "Black Headed Grosbeak",
       category: categories[18],
-      description: "description",
+      description:
+        "Prefers to nest in the foothills of the western part of Colorado, feeding on insects, seeds, and fruit. Both the male and the females sing.",
     },
     {
       name: "Pygmey Nuthatch",
