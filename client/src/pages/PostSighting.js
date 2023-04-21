@@ -6,29 +6,76 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
+import { useRef } from "react";
 import "../styles/PostSighting.css";
+import CardChanger from "../components/PostPrompts/Index";
 
-function PostSighting() {
+const PostSighting = () => {
+  const postCardRef = useRef(null);
+
+  function changeCard() {
+    const currentCard = postCardRef.current;
+    console.log(currentCard.current);
+  }
+
   return (
     <Container fluid className="postSighting">
       <Row className="justify-content-center">
         <Col>
           <Card className="formCard">
             <Form>
-              <h2>Post about a Sighting</h2>
-              <Form.Group className="mb-3" controlId="birdSize">
+              <h2>Log Book</h2>
+              <Form.Group className="mb-3 " controlId="btnGroup">
+                <CardChanger />
+                {/* <Button onClick={changeCard} name="selectBird">
+                  Select from <span style={{ fontWeight: "bold" }}>Birds</span>
+                </Button>
+
+                <Button>
+                  Use the <span style={{ fontWeight: "bold" }}>ID</span> tool
+                </Button>
                 <Form.Label>
                   If you know what{" "}
                   <span style={{ fontWeight: "bold" }}>Bird</span> you saw.
-                </Form.Label>
+                </Form.Label> */}
+              </Form.Group>
+              <Form.Group>
                 <Form.Select aria-label="Default Option">
-                  <option>Select Bird</option>
-                  <option value="birdA">Bird A</option>
-                  <option value="birdB">Bird B</option>
-                  <option value="birdC">Bird C</option>
-                  <option value="birdD">Bird D</option>
-                  <option value="birdE">Bird E</option>
-                  <option value="birdF">Bird F</option>
+                  <option>select from large birds</option>
+                  <option value="Great Blue Heron">Great Blue Heron</option>
+                  <option value="Bald Eagle">Bald Eagle</option>
+                  <option value="Osprey">Osprey</option>
+                  <option value="Common Raven">Common Raven</option>
+                  <option value="Turkey Vulture">Turkey Vulture</option>
+                  <option value="Great Horned Owl">Great Horned Owl</option>
+                </Form.Select>
+                <Form.Select aria-label="Default Option">
+                  <option>select from medium birds</option>
+                  <option value="Mourning Dove">Mourning Dove</option>
+                  <option value="Belted Kingfisher">Belted Kingfisher</option>
+                  <option value="Common Grackle">Common Grackle</option>
+                  <option value="American Avocet">American Avocet</option>
+                  <option value="Black Billed Magpie">
+                    Black Billed Magpie
+                  </option>
+                </Form.Select>
+                <Form.Select aria-label="Default Option">
+                  <option>select from small birds</option>
+                  <option value="Barn Swallow">Barn Swallow</option>
+                  <option value="Brownheaded Cowbird">
+                    Brownheaded Cowbird
+                  </option>
+                  <option value="Lazuli Bunting">Lazuli Bunting</option>
+                  <option value="Mountain Bluebird">Mountain Bluebird</option>
+                  <option value="Tree Swallow">Tree Swallow</option>
+                  <option value="Yellow Warbler">Yellow Warbler</option>
+                  <option value="Red-Headed Woodpecker">
+                    Red-Headed Woodpecker
+                  </option>
+                  <option value="Black Headed Grosbeck">
+                    Black Headed Grosbeak
+                  </option>
+                  <option value="Pygmy Nuthatch">Pygmy Nuthatch</option>
                 </Form.Select>
                 <Form.Text>
                   {" "}
@@ -51,6 +98,6 @@ function PostSighting() {
       </Row>
     </Container>
   );
-}
+};
 
 export default PostSighting;
