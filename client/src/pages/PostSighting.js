@@ -39,7 +39,7 @@ const PostSighting = () => {
                   <span style={{ fontWeight: "bold" }}>Bird</span> you saw.
                 </Form.Label> */}
               </Form.Group>
-              <Form.Group>
+              {/* <Form.Group>
                 <Form.Select aria-label="Default Option">
                   <option>select from large birds</option>
                   <option value="Great Blue Heron">Great Blue Heron</option>
@@ -82,7 +82,7 @@ const PostSighting = () => {
                   If you don't know what you saw, navigate to the{" "}
                   <Link to="/identify">ID</Link> page.
                 </Form.Text>
-              </Form.Group>
+              </Form.Group> */}
               <Form.Group controlId="formFile" className="mb-3">
                 <Form.Label>Upload an Image</Form.Label>
                 <Form.Control type="file" />
