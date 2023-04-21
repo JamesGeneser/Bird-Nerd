@@ -36,27 +36,31 @@ db.once("open", async () => {
       name: "Great Blue Heron",
       description:
         "One of the most common herons, they stalk small fish in shallow waters. Flies with its legs trailing behind with wings in a cupped fashion. They nest in colonies of up to 100 birds in tree tops over open water.",
-        category: categories[0],
+      category: categories[0],
     },
     {
       name: "Bald Eagle",
       category: categories[1],
-      description: "description",
+      description:
+        "Migratory birds that return to the same nests every year, adding more sticks each time with some weighing up to  1,000 pounds. They feed on fish, carrion, and ducks.",
     },
     {
       name: "Osprey",
       category: categories[2],
-      description: "description",
+      description:
+        "These birds consume fish and arethe only type of raptor that will dive into water to catch its prey. They nest in tall dead trees and mate for life.",
     },
     {
       name: "Common Raven",
       category: categories[3],
-      description: "description",
+      description:
+        "Considered to be one of the smartest birds, they follow wolf packs around to scavenge the remains of their kill. They have complex courtship rituals and mate for life.",
     },
     {
       name: "Turkey Vulture",
       category: categories[4],
-      description: "description",
+      description:
+        "The lack of feathers on this birds head is an adaptation to avoid picking up disease from the carcasses they scavenge from. They are one of the few birds with a developed sense of smell.",
     },
     {
       name: "Great Horned Owl",
@@ -71,57 +75,68 @@ db.once("open", async () => {
     {
       name: "Belted Kingfisher",
       category: categories[7],
-      description: "description",
+      description:
+        "Eats small fish by diving, and has a very loud call. Parents will drop dead fish into water to teach their baby to dive for food.",
     },
     {
       name: "Common Grackle",
       category: categories[8],
-      description: "description",
+      description:
+        "Named after the latin word graculus meaning to cough because of its raspy call, and travels with other birds in large flocks. They feed on insects in farmer's fields.",
     },
     {
       name: "American Avocet",
       category: categories[9],
-      description: "description",
+      description:
+        "Nesting in colonies of 20 pairs, in shallow alakline water, they are found on the eastern half of Colorado. They feed on aquatic vegetation, fruit, and insects.",
     },
     {
       name: "Black Billed Magpie",
       category: categories[10],
-      description: "description",
+      description:
+        "These birds travel in small flocks made up of family members, and nest with these colonies in nests with a dome-shaped roof. They are able to mimic many sounds. ",
     },
     {
       name: "Barn Swallow",
       category: categories[11],
-      description: "description",
+      description:
+        "Rarley glides in flight, so it will fly with continuous flapping. They nest in mud nests and feed on beetles, wasps, and flies.",
     },
     {
       name: "Brownheaded Cowbord",
       category: categories[12],
-      description: "description",
+      description:
+        "Part of the blackbird family, and is the only parasitic bird in Colorado. They lay eggs in host birds' nests, leaving it to raaise thier young. They feed on insects that are attracted to animals such as bison.",
     },
     {
       name: "Lazuli Bunting",
       category: categories[13],
-      description: "description",
+      description:
+        "Found often in shrubs along rivers and streams, and migrates to Colorado in the summer. They feed on insects and seeds gatehring in small flocks.",
     },
     {
       name: "Mountain Bluebird",
       category: categories[14],
-      description: "description",
+      description:
+        "Found in the open mountain regions of Colorado, they nest in dead trees, and nest boxes, tolerating close contact with humans. They feed on mainly  insects",
     },
     {
       name: "Tree Swallow",
       category: categories[15],
-      description: "description",
+      description:
+        "Migratory bird that is the first swallow to return in spring, they feed on insects. They are found along ponds, lakes, and agricultural fields.",
     },
     {
       name: "Yellow Warbler",
       category: categories[16],
-      description: "description",
+      description:
+        "Seen in gardens and shrubbery near water. They consume insects such as small caterpillers from leaves, and mirgrate to Colorado in the summer.",
     },
     {
       name: "Red-Headed Woodpecker",
       category: categories[17],
-      description: "description",
+      description:
+        "One of the few woodpeckers where the male and female share a similar apperance. They prefers dead wood to build its nests in due to its weaker bill, where they will store nuts and berries.",
     },
     {
       name: "Black Headed Grosbeak",
@@ -131,7 +146,8 @@ db.once("open", async () => {
     {
       name: "Pygmey Nuthatch",
       category: categories[19],
-      description: "description",
+      description:
+        "Found in ponderosa pine forests, where they make their nests in cavities of the trees. They feed on insects, seeds and berries, and are found all year round.",
     },
   ]);
   console.log(`Birds Seeded`);
@@ -190,5 +206,5 @@ db.once("open", async () => {
       password: "crochunter",
     },
   ]);
-  console.log(`Users Seeded`)
+  console.log(`Users Seeded`);
 });
