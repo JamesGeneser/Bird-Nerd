@@ -3,7 +3,7 @@ import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Stack from "react-bootstrap/Stack";
-import MyCard from "../components/userPage/MyCard";
+import MyCard from "../components/userPage/PostCard";
 import "../styles/User.css";
 import EditCardForm from "../components/userPage/EditCardForm";
 
