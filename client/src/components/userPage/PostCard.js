@@ -6,7 +6,7 @@ const cardStyle = {
   marginRight: "10px",
 };
 
-function MyCard() {
+function PostCard() {
   return (
     <Card>
       <Card.Header as="h5">Title</Card.Header>
@@ -22,4 +22,4 @@ function MyCard() {
   );
 }
 
-export default MyCard;
+export default PostCard;
