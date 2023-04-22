@@ -5,16 +5,17 @@
   font-size: 140%;
 }
 
-.formCard {
+.formCardLogin {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 50%;
+  width: 100%;
   text-align: center;
 }
-.form-box {
-  margin: 5rem;
-  width: 80%;
+
+.form-box-login {
+  margin: 3rem;
+  width: 50%;
   padding: 2rem;
   background-color: var(--lightblue);
   filter: drop-shadow(1px 1px 3px var(--peach));
@@ -24,7 +25,7 @@
   font-size: 70%;
 }
 
-.formGroup {
+.formGroupLogin {
   padding: 2rem;
 }
 
@@ -33,6 +34,47 @@
   font-size: 65%;
 }
 
-.submit-btn {
+.submit-btn-login {
+  background-color: var(--blue);
   padding: 0.6rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .form-box-login {
+    margin: 2rem;
+  }
+
+  .formGroupLogin {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formCardLogin {
+    margin-top: 4rem;
+    display: flex;
+    width: 100%;
+    height: 150%;
+  }
+
+  .form-box-login {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .formGroupLogin {
+    padding-bottom: 5rem;
+  }
+
+  .submit-btn-login {
+    margin-bottom: 3rem;
+  }
+
+  .login {
+    height: 75vh;
+  }
 }

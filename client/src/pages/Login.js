@@ -41,11 +41,11 @@ const Login = (props) => {
     <Container fluid className="login">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard mt-4 mb-5">
-            <Form onSubmit={handleFormSubmit} className="form-box">
+          <Card className="formCardLogin mt-4 mb-5">
+            <Form onSubmit={handleFormSubmit} className="form-box-login">
               <h2>Login</h2>
               {/* EMAIL INPUT */}
-              <Form.Group className="mb-3 formGroup" controlId="formBasicEmail">
+              <Form.Group className="mb-3 formGroupLogin" controlId="formBasicEmail">
                 <Form.Label>Email address: </Form.Label>
                 <Form.Control
                   name="email"
@@ -62,7 +62,7 @@ const Login = (props) => {
               </Form.Group>
               {/* PASSWORD INPUT */}
               <Form.Group
-                className="mb-3 formGroup"
+                className="mb-3 formGroupLogin"
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password: </Form.Label>
@@ -79,7 +79,7 @@ const Login = (props) => {
               <Button
                 variant="primary"
                 type="submit"
-                className="btn submit-btn"
+                className="btn submit-btn-login"
               >
                 Submit
               </Button>
