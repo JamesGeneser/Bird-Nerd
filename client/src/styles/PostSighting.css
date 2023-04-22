@@ -22,7 +22,7 @@
 }
 
 .form-box-sight {
-  margin: 3rem;
+  margin: 2rem;
   width: 80%;
   padding: 2rem;
   background-color: var(--lightblue);
@@ -44,14 +44,16 @@
 
 .submit-btn {
   padding: 0.6rem;
+  background-color: var(--blue);
 }
 
 .textarea {
   width: 50%;
+  margin-bottom: 1rem;
 }
 
 /* in post prompts index */
 .birdchoice {
   height: 2rem;
-  margin: .3rem;
+  margin: 0.3rem;
 }

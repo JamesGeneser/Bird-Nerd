@@ -105,7 +105,9 @@ const PostSighting = () => {
                 </Form.Label>
                 <Form.Control as="textarea" rows={7} className="textarea" />
               </Form.Group>
-              <Button variant="primary">Submit</Button>
+              <Button variant="primary" className="submit-btn btn">
+                Submit
+              </Button>
             </Form>
           </Card>
         </Col>
