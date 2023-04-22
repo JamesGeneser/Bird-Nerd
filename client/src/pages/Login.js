@@ -42,35 +42,45 @@ const Login = (props) => {
       <Row className="justify-content-center">
         <Col>
           <Card className="formCard mt-4 mb-5">
-            <Form onSubmit={handleFormSubmit}>
+            <Form onSubmit={handleFormSubmit} className="form-box">
               <h2>Login</h2>
               {/* EMAIL INPUT */}
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+              <Form.Group className="mb-3 formGroup" controlId="formBasicEmail">
+                <Form.Label>Email address: </Form.Label>
                 <Form.Control
                   name="email"
                   type="email"
                   value={formState.email}
                   placeholder="Enter email"
                   onChange={handleChange}
+                  className="custom-form"
                 />
+                <br></br>
                 <Form.Text className="text-muted">
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
               {/* PASSWORD INPUT */}
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+              <Form.Group
+                className="mb-3 formGroup"
+                controlId="formBasicPassword"
+              >
+                <Form.Label className="formLabel">Password: </Form.Label>
                 <Form.Control
                   name="password"
                   type="password"
                   value={formState.password}
                   placeholder="******"
                   onChange={handleChange}
+                  className="custom-form"
                 />
               </Form.Group>
               {/* SUBMIT BUTTON */}
-              <Button variant="primary" type="submit">
+              <Button
+                variant="primary"
+                type="submit"
+                className="btn submit-btn"
+              >
                 Submit
               </Button>
             </Form>
