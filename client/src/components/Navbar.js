@@ -3,6 +3,8 @@ import "../App.css";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
 
+import DarkMode from "./DarkMode/DarkMode";
+
 function Navbar() {
   const [openLinks, setOpenLinks] = useState(false);
   const toggleNavbar = () => {
@@ -18,6 +20,7 @@ function Navbar() {
             className="logoImg"
           ></img>
         </Link>
+        <DarkMode />
         <div className="hiddenLinks">
           <Link to="/identify" className="buttons">
             ID

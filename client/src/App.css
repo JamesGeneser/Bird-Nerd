@@ -6,19 +6,36 @@
 :root {
   --darkGray: #21252a;
   --lightGray: #373d45;
+  --lightgrey: lightgrey;
   --peach: #fe938c;
   --tan: #e6b89c;
   --lightyellow: #ead2ac;
   --lightblue: #9cafb7;
   --blue: #4281a4;
+  --darkblue: #0c3348;
   --white: #f8fffd;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+}
+
+body.light {
+  --background-color: var(--lightgrey);
+  --text-color: var(--darkGray);
+}
+
+body.dark {
+  --background-color: var(--darkblue);
+  --text-color: var(--darkGray);
 }
 
 html {
   scroll-behavior: smooth;
   /* i've placed this color here so its easier to tell
   your own elements from main HTML body apart*/
-  background-color: lightgrey;
 }
 
 body {
