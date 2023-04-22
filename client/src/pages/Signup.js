@@ -51,11 +51,11 @@ const Signup = (props) => {
     <Container fluid className="signup">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard mt-4 mb-5">
-            <Form onSubmit={handleFormSubmit} className="form-box">
+          <Card className="formCardSign mt-4 mb-5">
+            <Form onSubmit={handleFormSubmit} className="form-box-sign">
               <h2>Signup</h2>
               <Form.Group
-                className="mb-3 formGroup"
+                className="mb-3 formGroupSign"
                 controlId="formBasicUsername"
               >
                 <Form.Label>Username: </Form.Label>
@@ -71,7 +71,7 @@ const Signup = (props) => {
                   This is the name of your Birdnerd profile
                 </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3 formGroup" controlId="formBasicEmail">
+              <Form.Group className="mb-3 formGroupSign" controlId="formBasicEmail">
                 <Form.Label>Email address: </Form.Label>
                 <Form.Control
                   value={formState.email}
@@ -86,7 +86,7 @@ const Signup = (props) => {
                 </Form.Text>
               </Form.Group>
               <Form.Group
-                className="mb-3 formGroup"
+                className="mb-3 formGroupSign"
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password: </Form.Label>
@@ -103,7 +103,7 @@ const Signup = (props) => {
               <Button
                 variant="primary"
                 type="submit"
-                className="btn submit-btn"
+                className="btn submit-btn-sign"
               >
                 Submit
               </Button>

@@ -42,6 +42,7 @@
 @media screen and (max-width: 1024px) {
   .form-box-login {
     margin: 2rem;
+    width: 100%;
   }
 
   .formGroupLogin {
