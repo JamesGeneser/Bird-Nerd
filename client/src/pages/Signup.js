@@ -51,11 +51,14 @@ const Signup = (props) => {
     <Container fluid className="signup">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCardSign mt-4 mb-5">
-            <Form onSubmit={handleFormSubmit} className="form-box-sign">
+          <Card className="formCardSign formCard mt-4 mb-5">
+            <Form
+              onSubmit={handleFormSubmit}
+              className="form-box-sign form-box"
+            >
               <h2>Signup</h2>
               <Form.Group
-                className="mb-3 formGroupSign"
+                className="mb-3 formGroupSign formGroup"
                 controlId="formBasicUsername"
               >
                 <Form.Label>Username: </Form.Label>
@@ -65,13 +68,17 @@ const Signup = (props) => {
                   placeholder="username"
                   type="username"
                   name="username"
-                  className="custom-form"
+                  className="custom-form custom-form-sign"
                 />
-                <Form.Text className="text-muted"><br></br>
+                <Form.Text className="text-muted">
+                  <br></br>
                   This is the name of your Birdnerd profile
                 </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3 formGroupSign" controlId="formBasicEmail">
+              <Form.Group
+                className="mb-3 formGroupSign formGroup"
+                controlId="formBasicEmail"
+              >
                 <Form.Label>Email address: </Form.Label>
                 <Form.Control
                   value={formState.email}
@@ -79,14 +86,15 @@ const Signup = (props) => {
                   placeholder="your email"
                   type="email"
                   name="email"
-                  className="custom-form"
+                  className="custom-form-sign"
                 />
-                <Form.Text className="text-muted"><br></br>
+                <Form.Text className="text-muted">
+                  <br></br>
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
               <Form.Group
-                className="mb-3 formGroupSign"
+                className="mb-3 formGroupSign formGroup"
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password: </Form.Label>
@@ -96,7 +104,7 @@ const Signup = (props) => {
                   onChange={handleChange}
                   type="password"
                   placeholder="*****"
-                  className="custom-form"
+                  className="custom-form-sign"
                 />
               </Form.Group>
 

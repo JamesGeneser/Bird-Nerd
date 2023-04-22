@@ -51,17 +51,17 @@ const IdentifyBird = () => {
     <Container fluid className="identifyBird">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard">
-            <Form onSubmit={handleFormSubmit} className="form-box-id">
+          <Card className="formCard formCardID">
+            <Form onSubmit={handleFormSubmit} className="form-box form-box-id">
               <h2>Identify a bird</h2>
               <Form.Group
-                className="mb-3 formGroup"
+                className="mb-3 formGroup formGroupID"
                 controlId="size"
                 onChange={handleChange}
               >
                 <Form.Label>What size was the bird?</Form.Label>
                 <br></br>
-                <Form.Select name="size" className="select-box">
+                <Form.Select name="size" className="select-box select-box-id">
                   <option key="blankChoice" hidden>
                     {" "}
                     bird size
@@ -78,7 +78,7 @@ const IdentifyBird = () => {
               <Button
                 variant="primary"
                 type="submit"
-                className="btn submit-btn"
+                className="btn submit-btn submit-btn-id"
               >
                 Submit
               </Button>
