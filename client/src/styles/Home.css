@@ -39,18 +39,6 @@
   font-size: 24px;
 }
 
-.btn {
-  background-color: var(--lightblue);
-  border-radius: 0;
-  color: black;
-  border: 1px solid var(--darkGray);
-  font-size: 16px;
-}
-
-.btn:hover {
-  background-color: var(--tan);
-}
-
 .link {
   text-decoration: none;
   color: black;
@@ -67,6 +55,11 @@
 
 .signup-btn {
   padding: 1rem 4.6rem;
+}
+
+.landing-text,
+.btn {
+  filter: drop-shadow(1px 1px 5px var(--lightblue));
 }
 
 @media screen and (max-width: 1024px) {

@@ -11,6 +11,7 @@
   --lightyellow: #ead2ac;
   --lightblue: #9cafb7;
   --blue: #4281a4;
+  --white: #f8fffd;
 }
 
 html {
@@ -30,10 +31,10 @@ body {
 main {
   height: 90vh;
 }
-.logoImg{
+.logoImg {
   max-width: 5rem;
 }
-.logoImg:hover{
+.logoImg:hover {
   transform: scale(1.1);
 }
 
@@ -55,4 +56,17 @@ main {
   width: 30rem;
   padding: 2rem;
   margin: auto;
+}
+
+.btn {
+  border-radius: 0;
+  background-color: var(--lightblue);
+  border: 1px solid var(--blue);
+  color: var(--darkGray);
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: var(--tan);
+  cursor: pointer;
 }
