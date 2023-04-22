@@ -26,6 +26,7 @@
 
 .submit-btn {
   padding: 0.6rem;
+  background-color: var(--blue);
 }
 
 .select-box {
