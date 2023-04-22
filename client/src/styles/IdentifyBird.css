@@ -1,6 +1,35 @@
 .identifyBird {
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 90vh;
-  overflow-y: scroll;
+  height: 100vh;
+  font-size: 140%;
+}
+
+.formCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  text-align: center;
+}
+.form-box-id {
+  margin: 1rem;
+  width: 80%;
+  padding: 1rem;
+  background-color: var(--lightblue);
+  filter: drop-shadow(1px 1px 5px var(--lightblue));
+}
+
+.formGroup {
+  padding: 2rem;
+}
+
+.submit-btn {
+  padding: 0.6rem;
+}
+
+.select-box {
+  font-size: 75%;
+  margin: 1rem;
+  padding: 0.4rem;
 }
