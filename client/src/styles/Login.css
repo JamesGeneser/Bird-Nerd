@@ -30,8 +30,9 @@
 
 .custom-form {
   padding: 0.8rem;
+  font-size: 65%;
 }
 
 .submit-btn {
-  padding: .6rem;
+  padding: 0.6rem;
 }
