@@ -30,7 +30,7 @@ function Navbar() {
               Post
             </Link>
             <Link to="#" className="buttons">
-              Logout
+              Signup
             </Link>
           </div>
         </div>
@@ -45,7 +45,7 @@ function Navbar() {
             Post
           </Link>
           <Link to="/signup" className="buttons">
-            Sign Up
+            Logout
           </Link>
           <div id="menuButton" className="buttons" onClick={toggleNavbar}>
             Menu
