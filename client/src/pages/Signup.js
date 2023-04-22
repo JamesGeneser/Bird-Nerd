@@ -51,10 +51,10 @@ const Signup = (props) => {
     <Container fluid className="signup">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCardSign formCard mt-4 mb-5">
+          <Card className="formCardSign mt-4 mb-5">
             <Form
               onSubmit={handleFormSubmit}
-              className="form-box-sign form-box"
+              className="form-box-sign"
             >
               <h2>Signup</h2>
               <Form.Group
@@ -111,7 +111,7 @@ const Signup = (props) => {
               <Button
                 variant="primary"
                 type="submit"
-                className="btn submit-btn-sign"
+                className="btn submit-btn submit-btn-sign"
               >
                 Submit
               </Button>

@@ -41,10 +41,10 @@ const Login = (props) => {
     <Container fluid className="login">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard formCardLogin mt-4 mb-5">
+          <Card className="formCardLogin mt-4 mb-5">
             <Form
               onSubmit={handleFormSubmit}
-              className="form-box form-box-login"
+              className="form-box-login"
             >
               <h2>Login</h2>
               {/* EMAIL INPUT */}

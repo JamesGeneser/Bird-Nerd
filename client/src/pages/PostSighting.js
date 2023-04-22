@@ -22,10 +22,10 @@ const PostSighting = () => {
     <Container fluid className="postSighting">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard">
+          <Card className="formCardSight">
             <Form className="form-box-sight">
               <h2>Log Book</h2>
-              <Form.Group className="mb-3 formGroup" controlId="btnGroup">
+              <Form.Group className="mb-3 formGroup formGroupSight" controlId="btnGroup">
                 <CardChanger />
                 {/* <Button onClick={changeCard} name="selectBird">
                   Select from <span style={{ fontWeight: "bold" }}>Birds</span>
@@ -105,7 +105,7 @@ const PostSighting = () => {
                 </Form.Label>
                 <Form.Control as="textarea" rows={7} className="textarea" />
               </Form.Group>
-              <Button variant="primary" className="submit-btn btn">
+              <Button variant="primary" className="submit-btn btn submit-btn-sight">
                 Submit
               </Button>
             </Form>
