@@ -33,6 +33,7 @@ const Signup = (props) => {
       });
       const token = mutationResponse.data.addUser.token;
       Auth.login(token);
+      console.log(token);
     } catch (error) {
       console.error(error);
     }

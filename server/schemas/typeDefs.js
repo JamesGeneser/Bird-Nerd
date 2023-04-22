@@ -18,7 +18,7 @@ const typeDefs = gql`
     password: String
   }
   type Auth {
-    token: ID
+    token: ID!
     user: User
   }
   type Query {
@@ -32,6 +32,7 @@ const typeDefs = gql`
     logBird(userId: ID!, bird: String!): User
     addThought(thoughtText: String!, thoughtAuthor: String!): Thought
     removeThought(thoughtId: ID!): Thought
+    login(email: String!, password: String!): Auth
   }
 `;
 

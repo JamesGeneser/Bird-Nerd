@@ -15,13 +15,20 @@ const Login = (props) => {
   const [formState, setFormState] = useState({ email: "", password: "" });
   console.log(formState);
   const [login, { error }] = useMutation(LOGIN_USER);
+  console.log(error + "error");
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
+    // const form = event.currentTarget;
+    // if (form.checkValidity() === false) {
+    //   event.preventDefault();
+    //   event.stopPropagation();
+    // }
     try {
       const mutationResponse = await login({
         variables: { email: formState.email, password: formState.password },
       });
+
       const token = mutationResponse.data.login.token;
       Auth.login(token);
     } catch (error) {
@@ -69,6 +76,13 @@ const Login = (props) => {
                   onChange={handleChange}
                 />
               </Form.Group>
+              {error ? (
+                <div>
+                  <p className="error-text">
+                    The provided credentials are incorrect
+                  </p>
+                </div>
+              ) : null}
               {/* SUBMIT BUTTON */}
               <Button variant="primary" type="submit">
                 Submit
