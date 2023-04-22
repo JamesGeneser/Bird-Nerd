@@ -33,6 +33,7 @@ const typeDefs = gql`
     addThought(thoughtText: String!, thoughtAuthor: String!): Thought
     removeThought(thoughtId: ID!): Thought
     login(email: String!, password: String!): Auth
+    logout(email: String!, password: String!): Auth
   }
 `;
 

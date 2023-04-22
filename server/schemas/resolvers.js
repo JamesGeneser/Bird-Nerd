@@ -1,4 +1,4 @@
-const { Birds, User, Thought } = require("../models");
+const { Birds, User, Thoughts } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 const { insertMany } = require("../models/Birds");
@@ -9,11 +9,11 @@ const resolvers = {
       return User.findOne({ username });
     },
     thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+      return Thoughts.find().sort({ createdAt: -1 });
     },
 
     thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+      return Thoughts.findOne({ _id: thoughtId });
     },
   },
   Mutation: {
@@ -36,14 +36,17 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-      //   const userData = await User.find({user{$eq:user._id}});
-      //   const userDataId = entity[0]._id;
 
       const token = signToken(user);
       console.log(token + "signToken returns");
       console.log(user);
       return { token, user };
     },
+    logout() {
+      localStorage.removeItem("id_token");
+      window.location.assign("/");
+    },
+
     addThought: async (parent, { thoughtText }) => {
       return Thought.create({ thoughtText });
     },
