@@ -65,7 +65,7 @@ const Login = (props) => {
                 className="mb-3 formGroup"
                 controlId="formBasicPassword"
               >
-                <Form.Label className="formLabel">Password: </Form.Label>
+                <Form.Label>Password: </Form.Label>
                 <Form.Control
                   name="password"
                   type="password"
