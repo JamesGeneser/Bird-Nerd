@@ -23,9 +23,9 @@ const PostSighting = () => {
       <Row className="justify-content-center">
         <Col>
           <Card className="formCard">
-            <Form>
+            <Form className="form-box-sight">
               <h2>Log Book</h2>
-              <Form.Group className="mb-3 " controlId="btnGroup">
+              <Form.Group className="mb-3 formGroup" controlId="btnGroup">
                 <CardChanger />
                 {/* <Button onClick={changeCard} name="selectBird">
                   Select from <span style={{ fontWeight: "bold" }}>Birds</span>
@@ -94,13 +94,16 @@ const PostSighting = () => {
                   <Link to="/identify">ID</Link> page.
                 </Form.Text>
               </Form.Group> */}
-              <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Upload an Image</Form.Label>
+              <Form.Group controlId="formFile" className="mb-3 uploadform">
+                <Form.Label>Upload an Image: </Form.Label>
                 <Form.Control type="file" />
               </Form.Group>
+              <br></br>
               <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Additional Notes about the Encounter</Form.Label>
-                <Form.Control as="textarea" rows={5} />
+                <Form.Label>
+                  Additional Notes about the Encounter:<br></br>{" "}
+                </Form.Label>
+                <Form.Control as="textarea" rows={7} className="textarea" />
               </Form.Group>
               <Button variant="primary">Submit</Button>
             </Form>

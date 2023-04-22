@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "../App.css";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
-
 import DarkMode from "./DarkMode/DarkMode";
 
 function Navbar() {

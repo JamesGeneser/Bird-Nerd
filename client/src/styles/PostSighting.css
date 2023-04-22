@@ -1,5 +1,57 @@
 .postSighting {
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 90vh;
+  height: 100vh;
+  font-size: 120%;
+}
+
+.formCard {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  text-align: center;
+}
+
+.uploadform {
+  padding: 2rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.form-box-sight {
+  margin: 3rem;
+  width: 80%;
+  padding: 2rem;
+  background-color: var(--lightblue);
+  filter: drop-shadow(1px 1px 5px var(--lightblue));
+}
+
+.text-muted {
+  font-size: 70%;
+}
+
+.formGroup {
+  padding: 2rem;
+}
+
+.custom-form {
+  padding: 0.8rem;
+  font-size: 65%;
+}
+
+.submit-btn {
+  padding: 0.6rem;
+}
+
+.textarea {
+  width: 50%;
+}
+
+/* in post prompts index */
+.birdchoice {
+  height: 2rem;
+  margin: .3rem;
 }
