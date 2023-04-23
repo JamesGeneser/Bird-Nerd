@@ -34,17 +34,16 @@ const IdentifyBird = () => {
     }
   };
 
-  const handleChange = (event) => {
+  const handleSizeChange = (event) => {
     const { name, value } = event.target;
     console.log(`// ${[name]}: ${value}`);
 
     setFormData({
       ...formData,
-      [name]: [value],
+      [name]: value,
     });
     console.log(formData);
   };
-
   const handleHeadChange = (e) => {
     // Destructuring
     const { name, value, checked } = e.target;
@@ -74,6 +73,35 @@ const IdentifyBird = () => {
       console.log(headColor);
     }
   };
+  const handleBodyChange = (e) => {
+    // Destructuring
+    const { name, value, checked } = e.target;
+    const { bodyColor } = formData;
+
+    console.log(`// ${[name]}: ${value}`);
+    console.log(name);
+    console.log(`----> ${value} is ${checked}`);
+    console.log(formData);
+
+    // Case 1 : The user checks the box
+    if (checked) {
+      setFormData({
+        ...formData,
+        bodyColor: [...bodyColor, value],
+      });
+      // setUserInfo({
+      //   bodyColor: [...bodyColor, value],
+      //   response: [...bodyColor, value],
+      // });
+    }
+    // Case 2  : The user unchecks the box
+    else {
+      setFormData({
+        bodyColor: bodyColor.filter((e) => e !== value),
+      });
+      console.log(bodyColor);
+    }
+  };
 
   return (
     <Container fluid className="identifyBird">
@@ -82,25 +110,26 @@ const IdentifyBird = () => {
           <Card className="formCardID">
             <Form onSubmit={handleFormSubmit} className="form-box-id">
               <h2>Identify a bird</h2>
+              {/* BIRD SIZE DROPDOWN */}
               <Form.Group
                 className="mb-3 formGroupID"
                 controlId="size"
-                onChange={handleChange}
+                onChange={handleSizeChange}
               >
                 <Form.Label>What size was the bird?</Form.Label>
                 <br></br>
                 <Form.Select name="size" className="select-box select-box-id">
                   <option key="blankChoice" hidden>
                     {" "}
-                    bird size
+                    Bird size
                   </option>
-                  <option>Large</option>
-                  <option>Medium</option>
                   <option>Small</option>
+                  <option>Medium</option>
+                  <option>Large</option>
                 </Form.Select>
               </Form.Group>
-              <BodyColorForm />
               <br></br>
+              {/* HEAD COLOR FORM */}
               <Form.Group className="headColor mb-3" controlid="headColor">
                 <Form.Label>
                   What color was its HEAD?<br></br>
@@ -153,6 +182,60 @@ const IdentifyBird = () => {
                 ></Form.Check>
               </Form.Group>
               <br></br>
+              {/* BODY COLOR FORM */}
+              <Form.Group className="bodyColor mb-3" controlId="bodyColor">
+                <Form.Label>
+                  What color was its BODY?<br></br>
+                </Form.Label>
+                <Form.Text className="textMuted">
+                  {" "}
+                  (Check all that apply)
+                </Form.Text>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="black"
+                  name="bodyColor"
+                  value="black"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="white"
+                  name="bodyColor"
+                  value="white"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="brown"
+                  name="bodyColor"
+                  value="brown"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="yellow"
+                  name="bodyColor"
+                  value="yellow"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="red"
+                  name="bodyColor"
+                  value="red"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleBodyChange}
+                  type="checkbox"
+                  label="blue"
+                  name="bodyColor"
+                  value="blue"
+                ></Form.Check>
+              </Form.Group>{" "}
+              <br></br>
+              {/* SUBMIT BUTTON */}
               <Button
                 variant="primary"
                 className="btn submit-btn submit-btn-id"
