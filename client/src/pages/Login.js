@@ -49,7 +49,7 @@ const Login = (props) => {
               <h2>Login</h2>
               {/* EMAIL INPUT */}
               <Form.Group
-                className="mb-3 formGroup formGroupLogin"
+                className="mb-3 formGroupLogin"
                 controlId="formBasicEmail"
               >
                 <Form.Label>Email address: </Form.Label>
@@ -68,7 +68,7 @@ const Login = (props) => {
               </Form.Group>
               {/* PASSWORD INPUT */}
               <Form.Group
-                className="mb-3 formGroup formGroupLogin"
+                className="mb-3 formGroupLogin"
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password: </Form.Label>

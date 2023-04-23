@@ -25,7 +25,7 @@ const PostSighting = () => {
           <Card className="formCardSight">
             <Form className="form-box-sight">
               <h2>Log Book</h2>
-              <Form.Group className="mb-3 formGroup formGroupSight" controlId="btnGroup">
+              <Form.Group className="mb-3 formGroupSight" controlId="btnGroup">
                 <CardChanger />
                 {/* <Button onClick={changeCard} name="selectBird">
                   Select from <span style={{ fontWeight: "bold" }}>Birds</span>

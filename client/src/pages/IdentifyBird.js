@@ -51,11 +51,11 @@ const IdentifyBird = () => {
     <Container fluid className="identifyBird">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard formCardID">
-            <Form onSubmit={handleFormSubmit} className="form-box form-box-id">
+          <Card className="formCardID">
+            <Form onSubmit={handleFormSubmit} className="form-box-id">
               <h2>Identify a bird</h2>
               <Form.Group
-                className="mb-3 formGroup formGroupID"
+                className="mb-3 formGroupID"
                 controlId="size"
                 onChange={handleChange}
               >

@@ -58,7 +58,7 @@ const Signup = (props) => {
             >
               <h2>Signup</h2>
               <Form.Group
-                className="mb-3 formGroupSign formGroup"
+                className="mb-3 formGroupSign"
                 controlId="formBasicUsername"
               >
                 <Form.Label>Username: </Form.Label>
@@ -76,7 +76,7 @@ const Signup = (props) => {
                 </Form.Text>
               </Form.Group>
               <Form.Group
-                className="mb-3 formGroupSign formGroup"
+                className="mb-3 formGroupSign"
                 controlId="formBasicEmail"
               >
                 <Form.Label>Email address: </Form.Label>
@@ -94,7 +94,7 @@ const Signup = (props) => {
                 </Form.Text>
               </Form.Group>
               <Form.Group
-                className="mb-3 formGroupSign formGroup"
+                className="mb-3 formGroupSign"
                 controlId="formBasicPassword"
               >
                 <Form.Label>Password: </Form.Label>
