@@ -2,5 +2,81 @@
   padding-top: 20px;
   padding-bottom: 20px;
   height: 90vh;
-  overflow-y: scroll;
+  font-size: 140%;
+}
+
+.formCardLogin {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 90%;
+  text-align: center;
+}
+
+.form-box-login {
+  margin: 3rem;
+  width: 50%;
+  padding: 2rem;
+  background-color: var(--lightblue);
+  filter: drop-shadow(1px 1px 3px var(--peach));
+}
+
+.text-muted {
+  font-size: 70%;
+}
+
+.formGroupLogin {
+  padding: 2rem;
+}
+
+.custom-form-login {
+  padding: 0.8rem;
+  font-size: 65%;
+}
+
+.submit-btn-login {
+  background-color: var(--blue);
+  padding: 0.6rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .form-box-login {
+    margin: 2rem;
+    width: 100%;
+  }
+
+  .formGroupLogin {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formCardLogin {
+    display: flex;
+    width: 100%;
+    height: 150%;
+    margin: 0;
+    margin-top: 5rem;
+  }
+
+  .form-box-login {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .formGroupLogin {
+    padding-bottom: 5rem;
+  }
+
+  .submit-btn-login {
+    margin-bottom: 3rem;
+  }
+
+  .login {
+    height: 100vh;
+  }
 }

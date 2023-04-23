@@ -2,5 +2,84 @@
   padding-top: 20px;
   padding-bottom: 20px;
   height: 90vh;
-  overflow-y: scroll;
+  font-size: 140%;
+}
+
+.formCard {
+  padding: 0;
+}
+
+.formCardSign {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  text-align: center;
+}
+
+.form-box-sign {
+  margin: 3rem;
+  width: 50%;
+  padding: 2rem;
+  background-color: var(--lightblue);
+  filter: drop-shadow(1px 1px 3px var(--peach));
+}
+
+.text-muted {
+  font-size: 70%;
+}
+
+.formGroupSign {
+  padding: 2rem;
+}
+
+.custom-form-sign {
+  padding: 0.8rem;
+  font-size: 65%;
+}
+
+.submit-btn-sign {
+  padding: 0.6rem;
+  background-color: var(--blue);
+}
+
+@media screen and (max-width: 1024px) {
+  .form-box-sign {
+    margin: 2rem;
+    width: 90%;
+  }
+
+  .formGroupSign {
+    width: 90%;
+    padding: 0;
+    padding-bottom: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formCardSign {
+    display: flex;
+    width: 100%;
+    height: 150%;
+    margin-top: 3rem;
+  }
+
+  .form-box-sign {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .formGroupSign {
+    padding-bottom: 5rem;
+  }
+
+  .submit-btn-sign {
+    margin-bottom: 3rem;
+  }
+
+  .signup {
+    height: 100vh;
+  }
 }
