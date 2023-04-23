@@ -65,6 +65,7 @@ function Navbar() {
               className="logoImg"
             ></img>
           </Link>
+          <DarkMode />
           <div className="hiddenLinks">
             <Link to="/identify" className="buttons">
               ID
