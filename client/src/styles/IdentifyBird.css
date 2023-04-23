@@ -18,7 +18,7 @@
   width: 50%;
   padding: 1rem;
   background-color: var(--lightblue);
-  filter: drop-shadow(1px 1px 5px var(--lightblue));
+  filter: drop-shadow(1px 1px 5px var(--peach));
 }
 
 .formGroupID {
@@ -108,7 +108,7 @@
     transform: translateX(180%);
     text-align: start;
   }
-  
+
   .footer {
     margin-top: 8rem;
   }

@@ -39,11 +39,7 @@ function EditCardForm() {
         >
           Update
         </Button>
-        <Button
-          variant="danger"
-          className="submit-btn-user"
-          style={buttonStyle}
-        >
+        <Button variant="danger" className="del" style={buttonStyle}>
           Delete
         </Button>
       </Form>

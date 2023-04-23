@@ -63,13 +63,15 @@ main {
   border-radius: 0;
   background-color: var(--lightblue);
   border: 1px solid var(--blue);
-  color: var(--darkGray);
+  color: var(--white);
   font-size: 18px;
 }
 
 .btn:hover {
   background-color: var(--tan);
   cursor: pointer;
+  color: var(--darkGray);
+  border: 1px solid var(--tan);
 }
 
 body {

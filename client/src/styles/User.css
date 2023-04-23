@@ -52,6 +52,19 @@
   filter: drop-shadow(1px 1px 3px var(--blue));
 }
 
+.del {
+  color: var(--white);
+  background-color: var(--lightGray);
+  padding: 0.6rem;
+  border: 1px solid var(--lightGray);
+}
+
+.del:hover {
+  color: var(--darkGray);
+  background-color: var(--peach);
+  border: 1px solid var(--peach);
+}
+
 .submit-btn-user {
   background-color: var(--blue);
   padding: 0.6rem;
@@ -85,7 +98,7 @@
     margin-bottom: 3rem;
   }
 
-  .editPost{
+  .editPost {
     font-weight: bold;
   }
 
@@ -102,8 +115,8 @@
     margin: 0;
     margin-bottom: 1rem;
   }
-  
-  .leftSideUser{
+
+  .leftSideUser {
     padding: 1.5rem;
   }
 
