@@ -10,7 +10,7 @@ const typeDefs = gql`
     _id: ID
     bird: [Birds]
     postText: String
-
+    postAuthor: String
     createdAt: String
   }
   type User {

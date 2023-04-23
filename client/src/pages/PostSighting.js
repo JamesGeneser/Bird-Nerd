@@ -39,24 +39,23 @@ const PostSighting = () => {
   const [thoughtText, setThoughtText] = useState("");
   const [selected, setSelected] = useState(options[0]);
   const [addPost, { error, data }] = useMutation(ADD_POST, {
-    update(cache, { data: { addPost } }) {
-      try {
-        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
-        console.log(thoughts + "POSTSIGHTING 24");
-
-        cache.writeQuery({
-          query: QUERY_THOUGHTS,
-          data: { thoughts: [addPost, ...thoughts] },
-        });
-      } catch (e) {
-        console.error(e);
-      }
-      const { me } = cache.readQuery({ query: QUERY_ME });
-      cache.writeQuery({
-        query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addPost] } },
-      });
-    },
+    // update(cache, { data: { addPost } }) {
+    //   try {
+    //     const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+    //     console.log(thoughts + "POSTSIGHTING 24");
+    //     cache.writeQuery({
+    //       query: QUERY_THOUGHTS,
+    //       data: { thoughts: [addPost, ...thoughts] },
+    //     });
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    //   const { me } = cache.readQuery({ query: QUERY_ME });
+    //   cache.writeQuery({
+    //     query: QUERY_ME,
+    //     data: { me: { ...me, thoughts: [...me.thoughts, addPost] } },
+    //   });
+    // },
   });
 
   //   function changeCard() {

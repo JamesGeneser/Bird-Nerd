@@ -37,17 +37,7 @@ export const LOG_BIRD = gql`
 export const ADD_POST = gql`
   mutation addPost($bird: String!, $postText: String!) {
     addPost(bird: $bird, postText: $postText) {
-      _id
-      bird
       postText
-
-      createdAt
-      post {
-        _id
-        bird
-        postText
-        createdAt
-      }
     }
   }
 `;
