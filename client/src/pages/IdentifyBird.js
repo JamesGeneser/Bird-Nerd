@@ -8,23 +8,22 @@ import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
-import BodyColorForm from "../components/MultiCheckboxes/BodyColorForm";
-import HeadColorForm from "../components/MultiCheckboxes/HeadColorForm";
 
 const IdentifyBird = () => {
+  // STATE
   const [formData, setFormData] = useState({
     size: "",
-    bodyColor: [],
-    headColor: [],
+    bodyColor: "",
+    headColor: "",
   });
 
   const [logBird, { error, data }] = useMutation(LOG_BIRD);
 
-  const handleFormSubmit = async (event) => {
+  const handleFormSubmit = (event) => {
     event.preventDefault();
 
     try {
-      const { data } = await logBird({
+      const { data } = logBird({
         variables: { ...formData },
       });
       setFormData("");
@@ -33,26 +32,25 @@ const IdentifyBird = () => {
       console.error(err);
     }
   };
-
+  // Size Change event Listener
   const handleSizeChange = (event) => {
     const { name, value } = event.target;
-    console.log(`// ${[name]}: ${value}`);
+    console.log(formData);
+    console.log(`// ${[name]}: changed to --> ${value}`);
 
     setFormData({
       ...formData,
       [name]: value,
     });
-    console.log(formData);
   };
-  const handleHeadChange = (e) => {
+  // HEAD Color Change event Listener
+  const handleHeadChange = (event) => {
     // Destructuring
-    const { name, value, checked } = e.target;
+    const { name, value, checked } = event.target;
     const { headColor } = formData;
 
-    console.log(`// ${[name]}: ${value}`);
-    console.log(name);
-    console.log(`----> ${value} is ${checked}`);
     console.log(formData);
+    console.log(`// ${[name]}: added --> ${value}`);
 
     // Case 1 : The user checks the box
     if (checked) {
@@ -73,15 +71,14 @@ const IdentifyBird = () => {
       console.log(headColor);
     }
   };
-  const handleBodyChange = (e) => {
+  // BODY Color Change event Listener
+  const handleBodyChange = (event) => {
     // Destructuring
-    const { name, value, checked } = e.target;
+    const { name, value, checked } = event.target;
     const { bodyColor } = formData;
 
-    console.log(`// ${[name]}: ${value}`);
-    console.log(name);
-    console.log(`----> ${value} is ${checked}`);
     console.log(formData);
+    console.log(`// ${[name]}: added --> ${value}`);
 
     // Case 1 : The user checks the box
     if (checked) {
