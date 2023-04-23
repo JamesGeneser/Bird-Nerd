@@ -9,6 +9,134 @@ import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
 
+const birdsArray = [
+  //1
+  {
+    name: "Great Blue Heron",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  //2
+  {
+    name: "Bald Eagle",
+    size: "Large",
+    bodyColor: "Brown",
+    headColor: "White",
+  },
+  //3
+  {
+    name: "Osprey",
+    size: "Large",
+    bodyColor: "BrownWhite",
+    headColor: "White",
+  },
+  //4
+  {
+    name: "Common Raven",
+    size: "Large",
+    bodyColor: "Black",
+    headColor: "Black",
+  },
+  //5
+  {
+    name: "Turkey Vulture",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Great Horned Owl",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Mourning Dove",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Belted Kingfisher",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Common Grackle",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "American Avocet",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Black Billed Magpie",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Barn Swallow",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Brownheaded Cowbird",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Lazuli Bunting",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Mountain Bluebird",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Tree Swallow",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Yellow Warbler",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Red-Headed Woodpecker",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Black Headed Grosbeak",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+  {
+    name: "Pygmey Nuthatch",
+    size: "Large",
+    bodyColor: "Blue",
+    headColor: "Blue",
+  },
+];
+
 const IdentifyBird = () => {
   // STATE
   const [formData, setFormData] = useState({
