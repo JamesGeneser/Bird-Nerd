@@ -70,14 +70,15 @@ const PostSighting = () => {
     console.log(selected);
     console.log(thoughtText);
     try {
-      const mutationResponse = await addPost({
+      const { mutationResponse } = await addPost({
         variables: {
           bird: selected,
-          thoughtText: thoughtText,
+          postText: thoughtText,
+          //   postAuthor: Auth.getProfile().data.username,
         },
       });
-      const token = mutationResponse.data.login.token;
-      Auth.login(token);
+      //   const token = mutationResponse.data.login.token;
+
       console.log(data + "data post 57");
 
       setThoughtText("");

@@ -40,7 +40,7 @@ export const ADD_POST = gql`
       _id
       bird
       postText
-      postAuthor
+
       createdAt
       post {
         _id

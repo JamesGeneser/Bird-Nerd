@@ -55,15 +55,14 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addPost: async (parent, { bird, postText }, context) => {
+    addPost: async (parent, { bird, postText }) => {
       //   if (context.user) {
-      console.log(context.user + "resolvers 60");
+
       const post = await Post.create({
         bird,
         postText,
-        postAuthor: context.user.username,
       });
-      console.log(context.user + "resolvers 66");
+
       return post;
       //   }
     },
