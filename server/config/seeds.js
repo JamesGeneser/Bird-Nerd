@@ -105,7 +105,7 @@ db.once("open", async () => {
         "Rarley glides in flight, so it will fly with continuous flapping. They nest in mud nests and feed on beetles, wasps, and flies.",
     },
     {
-      name: "Brownheaded Cowbord",
+      name: "Brownheaded Cowbird",
       category: categories[12],
       description:
         "Part of the blackbird family, and is the only parasitic bird in Colorado. They lay eggs in host birds' nests, leaving it to raaise thier young. They feed on insects that are attracted to animals such as bison.",
@@ -159,22 +159,26 @@ db.once("open", async () => {
 
   const posts = await Post.insertMany([
     {
-      post: "Today I came across a Great Horned Owl! ",
+      bird: "Great Horned Owl",
+      postText: "Today I came across a Great Horned Owl! ",
       createdAt: Date.now(),
       username: "Chris Hemsworth",
     },
     {
-      post: "Red-Headed Woodpecker, never seen one before now.",
+      bird: "Red-Headed Woodpecker",
+      postText: "Red-Headed Woodpecker, never seen one before now.",
       createdAt: Date.now(),
       username: "Levi Ackerman",
     },
     {
-      post: "got an amazing view of the Yellow Warbler",
+      bird: "Yellow Warbler",
+      postText: "got an amazing view of the Yellow Warbler",
       createdAt: Date.now(),
       username: "Kenn Kaufman",
     },
     {
-      post: "I finally spotted a Lazuli Bunting ",
+      bird: "Lazuli Bunting",
+      postText: "I finally spotted a Lazuli Bunting ",
       createdAt: Date.now(),
       username: "bindi irwin",
     },

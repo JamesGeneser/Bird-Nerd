@@ -15,6 +15,12 @@ const resolvers = {
     post: async (parent, { postId }) => {
       return Post.findOne({ _id: postId });
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("thoughts");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
 
   Mutation: {
@@ -49,9 +55,17 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addPost: async (parent, postText) => {
-      const post = await Post.create(postText);
+    addPost: async (parent, { bird, postText }, context) => {
+      //   if (context.user) {
+      console.log(context.user + "resolvers 60");
+      const post = await Post.create({
+        bird,
+        postText,
+        postAuthor: context.user.username,
+      });
+      console.log(context.user + "resolvers 66");
       return post;
+      //   }
     },
 
     deletePost: async (parent, { postId }) => {

@@ -25,6 +25,12 @@ const UserSchema = new Schema({
     },
     match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
+  thoughts: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Thought",
+    },
+  ],
 });
 UserSchema.pre("save", async function (next) {
   if (this.isNew || this.isModified("password")) {
