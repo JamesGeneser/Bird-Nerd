@@ -15,7 +15,7 @@
 
 .form-box-login {
   margin: 3rem;
-  width: 50%;
+  width: 50%; 
   padding: 2rem;
   background-color: var(--lightblue);
   filter: drop-shadow(1px 1px 3px var(--peach));

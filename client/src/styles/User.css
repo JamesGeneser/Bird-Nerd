@@ -1,20 +1,55 @@
 .userPage {
-  height: 90vh;
-  overflow-y: scroll;
+  display: flex;
+  place-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 140%;
+  height: 100%;
 }
 
 .userPage h1 {
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-.userPage .leftSide {
-  background-color: dimgray;
-  padding-bottom: 20px;
+.columns {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  align-items: center;
+  text-align: center;
+  gap: 20%;
 }
 
-.userPage .rightSide {
-  background-color: gray;
-  padding-bottom: 20px;
+.leftSideUser {
+  background-color: var(--lightblue);
+  display: grid;
+  grid-template-columns: 1fr, 1;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 3px var(--peach));
+  padding: 3rem;
+}
+
+.rightSideUser {
+  background-color: var(--lightblue);
+  display: grid;
+  grid-template-columns: 1fr, 1;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 3px var(--peach));
+  padding: 2rem;
+}
+
+.postCard {
+  padding: 2rem;
+  margin: 1rem;
+  background-color: var(--peach);
+  filter: drop-shadow(1px 1px 3px var(--blue));
+}
+
+.submit-btn-user {
+  background-color: var(--blue);
+  padding: 0.6rem;
+}
+
+.formLabelUser {
+  padding: 0.5rem;
 }

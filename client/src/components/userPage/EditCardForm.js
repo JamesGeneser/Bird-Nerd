@@ -16,23 +16,33 @@ function EditCardForm() {
           <Form.Control
             name="text"
             type="text"
-            placeholder="Title Placeholder"
+            className="formLabelUser"
+            // placeholder="Title Placeholder"
           />
-          <Form.Text className="text-muted">Muted Text</Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group controlId="formDescription" className="mb-3">
           <Form.Label as="h4">Description</Form.Label>
           <Form.Control
             as="textarea"
-            rows={3}
-            placeholder="Text Area Placeholder"
+            rows={5}
+            className="textarea"
+            // placeholder="Text Area Placeholder"
           />
-          <Form.Text className="text-muted">Muted Text</Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Button variant="success" style={buttonStyle}>
+        <Button
+          variant="success"
+          className="submit-btn-user"
+          style={buttonStyle}
+        >
           Update
         </Button>
-        <Button variant="danger" style={buttonStyle}>
+        <Button
+          variant="danger"
+          className="submit-btn-user"
+          style={buttonStyle}
+        >
           Delete
         </Button>
       </Form>
