@@ -2,6 +2,10 @@ const { Schema, model } = require("mongoose");
 
 // create Thought model
 const thoughtSchema = new Schema({
+  bird: {
+    type: String,
+    required: true,
+  },
   thought: {
     type: String,
     minLength: 1,

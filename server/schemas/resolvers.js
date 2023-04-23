@@ -47,8 +47,8 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addThought: async (parent, { thoughtText }) => {
-      return Thoughts.create({ thoughtText });
+    addThought: async (parent, { bird, thoughtText }) => {
+      return Thoughts.create({ bird, thoughtText });
     },
     removeThought: async (parent, { thoughtId }) => {
       return Thoughts.findOneAndDelete({ _id: thoughtId });
