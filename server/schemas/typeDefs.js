@@ -6,7 +6,7 @@ const typeDefs = gql`
     name: String
     description: String
   }
-  type Thought {
+  type Post {
     _id: ID
     thoughtText: String
     createdAt: String
@@ -24,15 +24,20 @@ const typeDefs = gql`
   type Query {
     users: [User]!
     user(userId: ID!): User
-    thoughts: [Thought]!
-    thought(thoughtId: ID!): Thought
+    posts: [Post]!
+    post(postId: ID!): Post
+    bird(birdId: ID!): Birds
+
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
-    logBird(userId: ID!, bird: String!): User
-    addThought(thoughtText: String!, thoughtAuthor: String!): Thought
-    removeThought(thoughtId: ID!): Thought
+    logBird(userId: ID!, birdId: String!): User
+
+    addPost(postText: String!, postAuthor: String!): Post
+    deletePost(postId: ID!): Post
+
     login(email: String!, password: String!): Auth
+    logout(email: String!, password: String!): Auth
   }
 `;
 

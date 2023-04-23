@@ -1,4 +1,4 @@
-const { Birds, User, Thought } = require("../models");
+const { Birds, User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 const { insertMany } = require("../models/Birds");
@@ -8,14 +8,15 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+    posts: async () => {
+      return Post.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
     },
   },
+
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -36,20 +37,36 @@ const resolvers = {
       if (!correctPw) {
         throw new AuthenticationError("Incorrect credentials");
       }
-      //   const userData = await User.find({user{$eq:user._id}});
-      //   const userDataId = entity[0]._id;
 
       const token = signToken(user);
       console.log(token + "signToken returns");
       console.log(user);
       return { token, user };
     },
-    addThought: async (parent, { thoughtText }) => {
-      return Thought.create({ thoughtText });
+
+    logout() {
+      localStorage.removeItem("id_token");
+      window.location.assign("/");
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+
+    addPost: async (parent, postText) => {
+      const post = await Post.create(postText);
+      return post;
     },
+
+    deletePost: async (parent, { postId }) => {
+      const post = await Post.findOneAndDelete({
+        _id: postId,
+        postAuthor: User._id,
+      });
+
+      await User.findOneAndUpdate(
+        { _id: User._id },
+        { $pull: { posts: post._id } }
+      );
+      return post;
+    },
+
     logBird: async (parent, { userId, name }) => {
       return User.findOneAndUpdate(
         { _id: userId },
