@@ -24,13 +24,13 @@ const CardChanger = () => {
     <>
       <div className="btnBox">
         <div id="selectBird">
-          <Button onClick={chooseSelectBird}>
+          <Button onClick={chooseSelectBird} className="form-btn">
             Select from <span style={{ fontWeight: "bold" }}>Birds</span>
           </Button>
         </div>
         <br></br>
         <div id="idTool">
-          <Button onClick={chooseIdTool}>
+          <Button onClick={chooseIdTool} className="form-btn">
             Use the <span style={{ fontWeight: "bold" }}>ID</span> tool
           </Button>
         </div>
