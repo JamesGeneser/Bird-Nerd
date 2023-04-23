@@ -1,4 +1,4 @@
-const { Birds, User, Thoughts } = require("../models");
+const { Birds, User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 const { insertMany } = require("../models/Birds");
@@ -8,12 +8,12 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    thoughts: async () => {
-      return Thoughts.find().sort({ createdAt: -1 });
+    posts: async () => {
+      return Post.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thoughts.findOne({ _id: thoughtId });
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
     },
   },
   Mutation: {
@@ -42,17 +42,30 @@ const resolvers = {
       console.log(user);
       return { token, user };
     },
+
     logout() {
       localStorage.removeItem("id_token");
       window.location.assign("/");
     },
 
-    addThought: async (parent, { thoughtText }) => {
-      return Thought.create({ thoughtText });
+    addPost: async (parent, postText) => {
+      const post = await Post.create(postText);
+      return post;
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+
+    deletePost: async (parent, { postId }) => {
+      const post = await Post.findOneAndDelete({
+        _id: postId,
+        postAuthor: User._id,
+      });
+
+      await User.findOneAndUpdate(
+        { _id: User._id },
+        { $pull: { posts: post._id } }
+      );
+      return post;
     },
+
     logBird: async (parent, { userId, name }) => {
       return User.findOneAndUpdate(
         { _id: userId },
