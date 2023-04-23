@@ -9,9 +9,9 @@ const cardStyle = {
 function PostCard() {
   return (
     <Card className="postCard">
-      <Card.Header as="h3">Title</Card.Header>
+      <Card.Header as="h3">Title: </Card.Header>
       <Card.Body>
-        <Card.Title>Description</Card.Title>
+        <Card.Title>Description: </Card.Title>
         <Card.Text>Things happened and I saw a really cool Bird</Card.Text><br></br>
         <Button variant="warning" className="submit-btn-user" style={cardStyle}>
           Edit

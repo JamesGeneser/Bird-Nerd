@@ -17,7 +17,7 @@
   grid-template-columns: 60% 30%;
   align-items: center;
   text-align: center;
-  gap: 20%;
+  gap: 15%;
 }
 
 .leftSideUser {
@@ -36,6 +36,13 @@
   justify-content: center;
   filter: drop-shadow(1px 1px 3px var(--peach));
   padding: 2rem;
+  width: 120%;
+}
+
+.textarea {
+  padding: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .postCard {
@@ -52,4 +59,22 @@
 
 .formLabelUser {
   padding: 0.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .userPage {
+   max-width: 100%
+  }
+
+  .columns {
+    gap: 2%;
+  }
+
+  .rightSideUser {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+ 
 }

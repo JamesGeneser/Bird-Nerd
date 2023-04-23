@@ -13,7 +13,7 @@ const User = () => {
       <Row className="columns">
         <Col className="leftSideUser">
           <h1>{`[Username]'s Feed`}</h1>
-          <Stack gap={3}>
+          <Stack gap={3}> 
             <MyCard />
             <MyCard />
             <MyCard />
