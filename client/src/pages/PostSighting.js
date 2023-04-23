@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
@@ -8,25 +8,80 @@ import Card from "react-bootstrap/Card";
 import { Link } from "react-router-dom";
 import { useRef } from "react";
 import "../styles/PostSighting.css";
+import { useMutation } from "@apollo/client";
+import { ADD_THOUGHT } from "../utils/mutations";
+import { QUERY_THOUGHTS, QUERY_ME } from "../utils/queries";
+import Auth from "../utils/auth";
 import CardChanger from "../components/PostPrompts/Index";
 
 const PostSighting = () => {
-  const postCardRef = useRef(null);
+  const [noteText, setNoteText] = useState("");
+  const [bird, setBird] = useState("");
+  const [addPost, { error }] = useMutation(ADD_THOUGHT, {
+    update(cache, { data: { addThought } }) {
+      try {
+        const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
 
-  function changeCard() {
-    const currentCard = postCardRef.current;
-    console.log(currentCard.current);
-  }
+        cache.writeQuery({
+          query: QUERY_THOUGHTS,
+          data: { thoughts: [addThought, ...thoughts] },
+        });
+      } catch (e) {
+        console.error(e);
+      }
+      const { me } = cache.readQuery({ query: QUERY_ME });
+      cache.writeQuery({
+        query: QUERY_ME,
+        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+      });
+    },
+  });
+
+  //   function changeCard() {
+  //     const currentCard = postCardRef.current;
+  //     console.log(currentCard.current);
+  //   }
+
+  const handleFormSubmit = async (event) => {
+    event.preventDefault();
+    console.log("handle for submit post");
+    try {
+      const { data } = await addPost({
+        variables: {
+          noteText,
+          bird,
+          username: Auth.getProfile().data.username,
+        },
+      });
+
+      setNoteText("");
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === "noteText") {
+      setNoteText(value);
+    }
+
+    if (name === "bird") {
+      setBird(value);
+      console.log(value);
+    }
+  };
 
   return (
     <Container fluid className="postSighting">
       <Row className="justify-content-center">
         <Col>
           <Card className="formCard">
-            <Form>
+            <Form onSubmit={handleFormSubmit}>
               <h2>Log Book</h2>
               <Form.Group className="mb-3 " controlId="btnGroup">
-                <CardChanger />
+                {/* <CardChanger /> */}
                 {/* <Button onClick={changeCard} name="selectBird">
                   Select from <span style={{ fontWeight: "bold" }}>Birds</span>
                 </Button>
@@ -38,6 +93,73 @@ const PostSighting = () => {
                   If you know what{" "}
                   <span style={{ fontWeight: "bold" }}>Bird</span> you saw.
                 </Form.Label> */}
+              </Form.Group>
+              <Form.Group>
+                <Form.Select
+                  aria-label="Default Option"
+                  onChange={handleChange}
+                >
+                  <option name="bird" value="Great Blue Heron">
+                    Great Blue Heron
+                  </option>
+                  <option name="bird" value="Bald Eagle">
+                    Bald Eagle
+                  </option>
+                  <option name="bird" value="Osprey">
+                    Osprey
+                  </option>
+                  <option name="bird" value="Common Raven">
+                    Common Raven
+                  </option>
+                  <option name="bird" value="Turkey Vulture">
+                    Turkey Vulture
+                  </option>
+                  <option name="bird" value="Great Horned Owl">
+                    Great Horned Owl
+                  </option>
+                  <option name="bird" value="Mourning Dove">
+                    Mourning Dove
+                  </option>
+                  <option name="bird" value="Belted Kingfisher">
+                    Belted Kingfisher
+                  </option>
+                  <option name="bird" value="Common Grackle">
+                    Common Grackle
+                  </option>
+                  <option name="bird" value="American Avocet">
+                    American Avocet
+                  </option>
+                  <option name="bird" value="Black Billed Magpie">
+                    Black Billed Magpie
+                  </option>
+                  <option name="bird" value="Barn Swallow">
+                    Barn Swallow
+                  </option>
+                  <option name="bird" value="Brownheaded Cowbird">
+                    Brownheaded Cowbird
+                  </option>
+                  <option name="bird" value="Lazuli Bunting">
+                    Lazuli Bunting
+                  </option>
+                  <option name="bird" value="Mountain Bluebird">
+                    Mountain Bluebird
+                  </option>
+                  <option name="bird" value="Tree Swallow">
+                    Tree Swallow
+                  </option>
+                  <option name="bird" value="Yellow Warbler">
+                    Yellow Warbler
+                  </option>
+                  <option name="bird" value="Red-Headed Woodpecker">
+                    Red-Headed Woodpecker
+                  </option>
+                  <option name="bird" value="Black Headed Grosbeck">
+                    Black Headed Grosbeak
+                  </option>
+                  <option name="bird" value="Pygmy Nuthatch">
+                    Pygmy Nuthatch
+                  </option>
+                </Form.Select>
               </Form.Group>
               {/* <Form.Group>
                 <Form.Select aria-label="Default Option">
@@ -99,10 +221,19 @@ const PostSighting = () => {
                 <Form.Control type="file" />
               </Form.Group>
               <Form.Group className="mb-3" controlId="description">
-                <Form.Label>Additional Notes about the Encounter</Form.Label>
-                <Form.Control as="textarea" rows={5} />
+                <Form.Label>Notes</Form.Label>
+                <Form.Control
+                  placeholder="Log any notes about the bird sighting here"
+                  value={noteText}
+                  name="noteText"
+                  as="textarea"
+                  rows={5}
+                  onChange={handleChange}
+                />
               </Form.Group>
-              <Button variant="primary">Submit</Button>
+              <Button variant="primary" type="submit">
+                Submit
+              </Button>
             </Form>
           </Card>
         </Col>

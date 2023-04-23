@@ -48,10 +48,10 @@ const resolvers = {
     },
 
     addThought: async (parent, { thoughtText }) => {
-      return Thought.create({ thoughtText });
+      return Thoughts.create({ thoughtText });
     },
     removeThought: async (parent, { thoughtId }) => {
-      return Thought.findOneAndDelete({ _id: thoughtId });
+      return Thoughts.findOneAndDelete({ _id: thoughtId });
     },
     logBird: async (parent, { userId, name }) => {
       return User.findOneAndUpdate(

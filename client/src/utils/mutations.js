@@ -33,3 +33,19 @@ export const LOG_BIRD = gql`
     }
   }
 `;
+
+export const ADD_THOUGHT = gql`
+  mutation addThought($thoughtText: String!) {
+    addThought(thoughtText: $thoughtText) {
+      _id
+      thoughtText
+      thoughtAuthor
+      createdAt
+      comments {
+        _id
+        bird
+        commentText
+      }
+    }
+  }
+`;
