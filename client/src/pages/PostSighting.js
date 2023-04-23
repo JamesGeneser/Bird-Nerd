@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 import { useRef } from "react";
 import "../styles/PostSighting.css";
 import { useMutation } from "@apollo/client";
-import { ADD_THOUGHT } from "../utils/mutations";
+import { ADD_POST } from "../utils/mutations";
 import { QUERY_THOUGHTS, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import CardChanger from "../components/PostPrompts/Index";
@@ -36,21 +36,17 @@ const options = [
   "Pygmey Nuthatch",
 ];
 const PostSighting = () => {
-  //   const [formState, setFormState] = useState({
-  //     bird: "",
-  //     thoughtText: "",
-  //   });
   const [thoughtText, setThoughtText] = useState("");
   const [selected, setSelected] = useState(options[0]);
-  const [addThought, { error, data }] = useMutation(ADD_THOUGHT, {
-    update(cache, { data: { addThought } }) {
+  const [addPost, { error, data }] = useMutation(ADD_POST, {
+    update(cache, { data: { addPost } }) {
       try {
         const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
         console.log(thoughts + "POSTSIGHTING 24");
 
         cache.writeQuery({
           query: QUERY_THOUGHTS,
-          data: { thoughts: [addThought, ...thoughts] },
+          data: { thoughts: [addPost, ...thoughts] },
         });
       } catch (e) {
         console.error(e);
@@ -58,7 +54,7 @@ const PostSighting = () => {
       const { me } = cache.readQuery({ query: QUERY_ME });
       cache.writeQuery({
         query: QUERY_ME,
-        data: { me: { ...me, thoughts: [...me.thoughts, addThought] } },
+        data: { me: { ...me, thoughts: [...me.thoughts, addPost] } },
       });
     },
   });
@@ -74,17 +70,14 @@ const PostSighting = () => {
     console.log(selected);
     console.log(thoughtText);
     try {
-      const mutationResponse = await addThought({
+      const mutationResponse = await addPost({
         variables: {
           bird: selected,
           thoughtText: thoughtText,
         },
-        // variables: {
-        //   bird: formState.bird,
-        //   thoughtText: formState.thoughtText,
-        //   username: Auth.getProfile().data.username,
-        // },
       });
+      const token = mutationResponse.data.login.token;
+      Auth.login(token);
       console.log(data + "data post 57");
 
       setThoughtText("");

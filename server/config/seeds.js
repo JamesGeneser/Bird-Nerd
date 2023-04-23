@@ -159,22 +159,26 @@ db.once("open", async () => {
 
   const posts = await Post.insertMany([
     {
-      post: "Today I came across a Great Horned Owl! ",
+      bird: "Great Horned Owl",
+      postText: "Today I came across a Great Horned Owl! ",
       createdAt: Date.now(),
       username: "Chris Hemsworth",
     },
     {
-      post: "Red-Headed Woodpecker, never seen one before now.",
+      bird: "Red-Headed Woodpecker",
+      postText: "Red-Headed Woodpecker, never seen one before now.",
       createdAt: Date.now(),
       username: "Levi Ackerman",
     },
     {
-      post: "got an amazing view of the Yellow Warbler",
+      bird: "Yellow Warbler",
+      postText: "got an amazing view of the Yellow Warbler",
       createdAt: Date.now(),
       username: "Kenn Kaufman",
     },
     {
-      post: "I finally spotted a Lazuli Bunting ",
+      bird: "Lazuli Bunting",
+      postText: "I finally spotted a Lazuli Bunting ",
       createdAt: Date.now(),
       username: "bindi irwin",
     },

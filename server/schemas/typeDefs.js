@@ -8,9 +8,9 @@ const typeDefs = gql`
   }
   type Post {
     _id: ID
-    bird: String
-    thoughtText: String
-    thoughtAuthor: String
+    bird: [Birds]
+    postText: String
+    postAuthor: String
     createdAt: String
   }
   type User {
@@ -35,7 +35,7 @@ const typeDefs = gql`
     addUser(username: String!, email: String!, password: String!): Auth
     logBird(userId: ID!, birdId: String!): User
 
-    addPost(postText: String!, postAuthor: String!): Post
+    addPost(bird: String!, postText: String!, postAuthor: String!): Post
     deletePost(postId: ID!): Post
 
     login(email: String!, password: String!): Auth

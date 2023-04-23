@@ -34,17 +34,18 @@ export const LOG_BIRD = gql`
   }
 `;
 
-export const ADD_THOUGHT = gql`
-  mutation addThought($bird: String!, $thoughtText: String!) {
-    addThought(bird: $bird, thoughtText: $thoughtText) {
+export const ADD_POST = gql`
+  mutation addPost($bird: String!, $postText: String!) {
+    addPost(bird: $bird, postText: $postText) {
       _id
-      thoughtText
-      thoughtAuthor
+      bird
+      postText
+      postAuthor
       createdAt
-      thought {
+      post {
         _id
         bird
-        thoughtText
+        postText
         createdAt
       }
     }
