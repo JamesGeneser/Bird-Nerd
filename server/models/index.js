@@ -1,6 +1,6 @@
 const Birds = require("./Birds");
 const User = require("./User");
-const Thoughts = require("./Thoughts");
+const Post = require("./Post");
 const Category = require("./Category");
 
-module.exports = { Birds, User, Thoughts, Category };
+module.exports = { Birds, User, Post, Category };
