@@ -6,15 +6,13 @@
   justify-content: center;
   align-items: center;
   text-align: center;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-
+  border-top: 3px solid var(--peach);
   background-color: var(--darkGray);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
 }
 
 .copyright {
-  color: white;
+  color: var(--white);
 }
 
 @media only screen and (max-width: 600px) {

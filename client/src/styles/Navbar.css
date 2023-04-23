@@ -3,10 +3,9 @@
   height: 100px;
   display: flex;
   flex-direction: row;
-  border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px;
   background-color: var(--darkGray);
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
+  border-bottom: 3px solid var(--blue);
 }
 
 .navbar .leftSide {
@@ -31,29 +30,27 @@
   width: auto;
   margin: 10px;
   padding: 10px;
-  border-radius: 10px;
-  font-size: 1rem;
+  font-size: 18px;
   text-decoration: none;
-  color: white;
+  color: var(--white);
   background-color: var(--darkGray);
 }
 
 .navbar .buttons:hover {
-  background-color: var(--lightGray);
-  box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.5);
-  transition: 0.3s ease-in;
+  background-color: var(--lightblue);
   cursor: pointer;
+  color: var(--darkGray);
 }
 
 .navbar #logo {
   display: flex;
   align-items: center;
   justify-content: center;
-  border-radius: 50%;
   padding: 5px;
   font-size: 3rem;
   width: 70px;
   height: 70px;
+  background-color: #21252a;
 }
 
 .navbar #menuButton {

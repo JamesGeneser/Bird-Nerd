@@ -1,5 +1,5 @@
 const db = require("./connection");
-const { Birds, Category, Thoughts, User } = require("../models");
+const { Birds, Category, Post, User } = require("../models");
 
 db.once("open", async () => {
   await Category.deleteMany();
@@ -155,30 +155,30 @@ db.once("open", async () => {
   ]);
   console.log(`Birds Seeded`);
 
-  await Thoughts.deleteMany;
+  await Post.deleteMany;
 
-  const thoughts = await Thoughts.insertMany([
+  const posts = await Post.insertMany([
     {
-      thought: "Today I came across a Great Horned Owl! ",
+      post: "Today I came across a Great Horned Owl! ",
       createdAt: Date.now(),
       username: "Chris Hemsworth",
     },
     {
-      thought: "Red-Headed Woodpecker, never seen one before now.",
+      post: "Red-Headed Woodpecker, never seen one before now.",
       createdAt: Date.now(),
       username: "Levi Ackerman",
     },
     {
-      thought: "got an amazing view of the Yellow Warbler",
+      post: "got an amazing view of the Yellow Warbler",
       createdAt: Date.now(),
       username: "Kenn Kaufman",
     },
     {
-      thought: "I finally spotted a Lazuli Bunting ",
+      post: "I finally spotted a Lazuli Bunting ",
       createdAt: Date.now(),
       username: "bindi irwin",
     },
-    console.log(`Thoughts Seeded`),
+    console.log(`Posts Seeded`),
   ]);
 
   await User.deleteMany;
@@ -187,25 +187,25 @@ db.once("open", async () => {
     {
       username: "Chris Hemsworth",
       email: "ChrisHems@gmail.com",
-      thought: thoughts[20],
+      post: posts[20],
       password: "scoobydoo",
     },
     {
       username: "Levi Ackerman",
       email: "levi123@yahoo.com",
-      thought: thoughts[21],
+      post: posts[21],
       password: "titankiller",
     },
     {
       username: "Kenn Kaufman",
       email: "KennKaufman@gmail.com",
-      thought: thoughts[22],
+      post: posts[22],
       password: "skoolsout",
     },
     {
       username: "bindi irwin",
       email: "bindi@hotmail.com",
-      thought: thoughts[23],
+      post: posts[23],
       password: "crochunter",
     },
   ]);

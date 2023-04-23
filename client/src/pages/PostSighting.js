@@ -110,11 +110,20 @@ const PostSighting = () => {
     <Container fluid className="postSighting">
       <Row className="justify-content-center">
         <Col>
+<<<<<<< HEAD
           <Card className="formCard">
             <Form onSubmit={handleFormSubmit}>
               <h2>Log Book</h2>
               <Form.Group className="mb-3 " controlId="btnGroup">
                 {/* <CardChanger /> */}
+=======
+          <Card className="formCardSight">
+            <Form className="form-box-sight">
+              <h2>Log Book</h2>
+              <Form.Group className="mb-3 formGroupSight" controlId="btnGroup">
+                <br></br>
+                <CardChanger />
+>>>>>>> main
                 {/* <Button onClick={changeCard} name="selectBird">
                   Select from <span style={{ fontWeight: "bold" }}>Birds</span>
                 </Button>
@@ -211,11 +220,14 @@ const PostSighting = () => {
                   <Link to="/identify">ID</Link> page.
                 </Form.Text>
               </Form.Group> */}
-              <Form.Group controlId="formFile" className="mb-3">
-                <Form.Label>Upload an Image</Form.Label>
+              <Form.Group controlId="formFile" className="mb-3 uploadform">
+                <Form.Label className="upload-label">Upload an Image:</Form.Label>
+
                 <Form.Control type="file" />
               </Form.Group>
+              <br></br>
               <Form.Group className="mb-3" controlId="description">
+<<<<<<< HEAD
                 <Form.Label>Notes</Form.Label>
                 <Form.Control
                   placeholder="Log any notes about the bird sighting here"
@@ -227,6 +239,17 @@ const PostSighting = () => {
                 />
               </Form.Group>
               <Button variant="primary" type="submit">
+=======
+                <Form.Label>
+                  Additional Notes about the Encounter:<br></br>
+                </Form.Label>
+                <Form.Control as="textarea" rows={7} className="textarea" />
+              </Form.Group>
+              <Button
+                variant="primary"
+                className="submit-btn btn submit-btn-sight"
+              >
+>>>>>>> main
                 Submit
               </Button>
             </Form>

@@ -36,8 +36,8 @@ function BodyColorForm() {
   return (
     <>
       <Form.Group className="bodyColor mb-3" controlId="bodyColor">
-        <Form.Label>What color was its body?</Form.Label>
-        <Form.Text className="textMuted">(check all that apply)</Form.Text>
+        <Form.Label>What color was its body?<br></br></Form.Label>
+        <Form.Text className="textMuted"> (check all that apply)</Form.Text>
         <Form.Check
           onChange={handleChange}
           type="checkbox"

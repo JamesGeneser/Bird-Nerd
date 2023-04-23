@@ -52,47 +52,68 @@ const Signup = (props) => {
     <Container fluid className="signup">
       <Row className="justify-content-center">
         <Col>
-          <Card className="formCard mt-4 mb-5">
-            <Form onSubmit={handleFormSubmit}>
+          <Card className="formCardSign mt-4 mb-5">
+            <Form
+              onSubmit={handleFormSubmit}
+              className="form-box-sign"
+            >
               <h2>Signup</h2>
-              <Form.Group className="mb-3" controlId="formBasicUsername">
-                <Form.Label>Username</Form.Label>
+              <Form.Group
+                className="mb-3 formGroupSign"
+                controlId="formBasicUsername"
+              >
+                <Form.Label>Username: </Form.Label>
                 <Form.Control
                   value={formState.username}
                   onChange={handleChange}
                   placeholder="username"
                   type="username"
                   name="username"
+                  className="custom-form custom-form-sign"
                 />
                 <Form.Text className="text-muted">
+                  <br></br>
                   This is the name of your Birdnerd profile
                 </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email address</Form.Label>
+              <Form.Group
+                className="mb-3 formGroupSign"
+                controlId="formBasicEmail"
+              >
+                <Form.Label>Email address: </Form.Label>
                 <Form.Control
                   value={formState.email}
                   onChange={handleChange}
                   placeholder="your email"
                   type="email"
                   name="email"
+                  className="custom-form-sign"
                 />
                 <Form.Text className="text-muted">
+                  <br></br>
                   We'll never share your email with anyone else.
                 </Form.Text>
               </Form.Group>
-              <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Password</Form.Label>
+              <Form.Group
+                className="mb-3 formGroupSign"
+                controlId="formBasicPassword"
+              >
+                <Form.Label>Password: </Form.Label>
                 <Form.Control
                   value={formState.password}
                   name="password"
                   onChange={handleChange}
                   type="password"
                   placeholder="*****"
+                  className="custom-form-sign"
                 />
               </Form.Group>
 
-              <Button variant="primary" type="submit">
+              <Button
+                variant="primary"
+                type="submit"
+                className="btn submit-btn submit-btn-sign"
+              >
                 Submit
               </Button>
             </Form>

@@ -1,4 +1,4 @@
-const { Birds, User, Thoughts } = require("../models");
+const { Birds, User, Post } = require("../models");
 const { signToken } = require("../utils/auth");
 const { AuthenticationError } = require("apollo-server-express");
 const { insertMany } = require("../models/Birds");
@@ -8,12 +8,12 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    thoughts: async () => {
-      return Thoughts.find().sort({ createdAt: -1 });
+    posts: async () => {
+      return Post.find().sort({ createdAt: -1 });
     },
 
-    thought: async (parent, { thoughtId }) => {
-      return Thoughts.findOne({ _id: thoughtId });
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
     },
     me: async (parent, args, context) => {
       if (context.user) {
@@ -22,6 +22,7 @@ const resolvers = {
       throw new AuthenticationError("You need to be logged in!");
     },
   },
+
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
@@ -48,32 +49,30 @@ const resolvers = {
       console.log(user);
       return { token, user };
     },
+
     logout() {
       localStorage.removeItem("id_token");
       window.location.assign("/");
     },
 
-    addThought: async (parent, { bird, thoughtText }, context) => {
-      if (context.user) {
-        console.log(context.user + "resolv 52");
-        const thought = await Thoughts.create({
-          bird,
-          thoughtText,
-          thoughtAuthor: context.user.username,
-        });
-
-        await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { thoughts: thought._id } }
-        );
-
-        return thought;
-      }
-      throw new AuthenticationError("You need to be logged in!");
+    addPost: async (parent, postText) => {
+      const post = await Post.create(postText);
+      return post;
     },
-    removeThought: async (parent, { thoughtId }) => {
-      return Thoughts.findOneAndDelete({ _id: thoughtId });
+
+    deletePost: async (parent, { postId }) => {
+      const post = await Post.findOneAndDelete({
+        _id: postId,
+        postAuthor: User._id,
+      });
+
+      await User.findOneAndUpdate(
+        { _id: User._id },
+        { $pull: { posts: post._id } }
+      );
+      return post;
     },
+
     logBird: async (parent, { userId, name }) => {
       return User.findOneAndUpdate(
         { _id: userId },

@@ -1,5 +1,179 @@
 .postSighting {
   padding-top: 20px;
   padding-bottom: 20px;
-  height: 90vh;
+  height: 100vh;
+  font-size: 120%;
+}
+
+.formCardSight {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+}
+
+.uploadform {
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  width: 100%;
+  gap: 0.5%;
+}
+
+.form-box-sight {
+  margin: 2rem;
+  width: 50%;
+  padding: 2rem;
+  background-color: var(--lightblue);
+  filter: drop-shadow(1px 1px 3px var(--peach));
+}
+
+.text-muted {
+  font-size: 70%;
+}
+
+.formGroupSight {
+  padding: 2rem;
+}
+
+.upload-label {
+  margin-left: 9%;
+}
+
+.submit-btn-sight {
+  padding: 0.6rem;
+  background-color: var(--blue);
+}
+
+.form-btn {
+  padding: 0.5rem;
+  background-color: var(--lightyellow);
+}
+
+.textarea {
+  width: 50%;
+  margin-bottom: 1rem;
+}
+
+/* in post prompts index */
+.birdchoice {
+  height: 2rem;
+  margin: 0.3rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .form-box-sight {
+    margin: 2rem;
+    width: 80%;
+  }
+
+  .formGroupSight {
+    width: 100%;
+    padding: 0;
+    padding-bottom: 1.6rem;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .formCardSight {
+    margin-top: 4rem;
+    display: flex;
+    width: 100%;
+    height: 150%;
+  }
+
+  .birdsBySize {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    justify-content: center;
+  }
+
+  .birdchoice {
+    width: 50%;
+  }
+
+  .form-box-sight {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .uploadform {
+    padding-top: 0;
+    width: 100%;
+    gap: 0;
+  }
+
+  .form-label {
+    width: 26%;
+    font-size: 90%;
+  }
+
+  .upload-label {
+    margin: 0;
+  }
+
+  .formGroupSight {
+    padding-bottom: 3rem;
+  }
+
+  .submit-btn-sight {
+    margin-bottom: 3rem;
+  }
+
+  .identifyBird {
+    height: 85vh;
+  }
+
+  .textarea {
+    width: 70%;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .formCardSight {
+    margin-top: 4rem;
+    display: flex;
+    width: 100%;
+    height: 150%;
+  }
+
+  .form-box-sight {
+    width: 100%;
+    height: 100%;
+    margin: 0rem;
+    padding: 0rem;
+  }
+
+  .uploadfrom {
+    padding-top: 0;
+    width: 70%;
+  }
+
+  .form-label {
+    width: 60%;
+    font-size: 90%;
+  }
+
+  .formGroupSight {
+    padding-bottom: 3rem;
+  }
+
+  .submit-btn-sight {
+    margin-bottom: 3rem;
+  }
+
+  .identifyBird {
+    height: 85vh;
+  }
+
+  .textarea {
+    width: 70%;
+  }
 }

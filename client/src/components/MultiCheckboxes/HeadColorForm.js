@@ -34,8 +34,10 @@ function HeadColorForm() {
   return (
     <>
       <Form.Group className="headColor mb-3" controlid="headColor">
-        <Form.Label>What color was its head?</Form.Label>
-        <Form.Text className="textMuted">(check all that apply)</Form.Text>
+        <Form.Label>
+          What color was its head?<br></br>
+        </Form.Label>
+        <Form.Text className="textMuted"> (check all that apply)</Form.Text>
         <Form.Check
           onChange={handleChange}
           type="checkbox"

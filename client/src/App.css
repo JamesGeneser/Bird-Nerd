@@ -1,26 +1,30 @@
 /* CUSTOM COLORS ACROSS ALL CSS FILES ON THE APP */
 /* SIMPLY USE var(--colorName) in place of Hardcoding the color */
 /* IT WILL MAKE THINGS SUPER EASY IF WE WANT TO MAKE SEVERAL THEMES */
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&family=Rubik:wght@300;400&display=swap");
 
 :root {
   --darkGray: #21252a;
   --lightGray: #373d45;
+  --lightgrey: lightgrey;
   --peach: #fe938c;
   --tan: #e6b89c;
   --lightyellow: #ead2ac;
   --lightblue: #9cafb7;
   --blue: #4281a4;
+  --darkblue: #0c3348;
+  --white: #f8fffd;
 }
 
 html {
   scroll-behavior: smooth;
   /* i've placed this color here so its easier to tell
   your own elements from main HTML body apart*/
-  background-color: lightgrey;
 }
 
 body {
-  font-size: 62.5%;
+  font-family: "Roboto", sans-serif;
+  /* font-family: "Rubik", sans-serif; */
   padding: 0;
   margin: 0;
 }
@@ -28,10 +32,10 @@ body {
 main {
   height: 90vh;
 }
-.logoImg{
+.logoImg {
   max-width: 5rem;
 }
-.logoImg:hover{
+.logoImg:hover {
   transform: scale(1.1);
 }
 
@@ -53,4 +57,33 @@ main {
   width: 30rem;
   padding: 2rem;
   margin: auto;
+}
+
+.btn {
+  border-radius: 0;
+  background-color: var(--lightblue);
+  border: 1px solid var(--blue);
+  color: var(--darkGray);
+  font-size: 18px;
+}
+
+.btn:hover {
+  background-color: var(--tan);
+  cursor: pointer;
+}
+
+body {
+  background: var(--background-color);
+  color: var(--text-color);
+  transition: background 0.3s ease-in-out, color 0.6s ease-in-out;
+}
+
+body.light {
+  --background-color: var(--lightgrey);
+  --text-color: var(--darkGray);
+}
+
+body.dark {
+  --background-color: var(--darkblue);
+  --text-color: var(--darkGray);
 }
