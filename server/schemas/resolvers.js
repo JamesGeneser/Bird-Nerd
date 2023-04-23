@@ -15,6 +15,12 @@ const resolvers = {
     thought: async (parent, { thoughtId }) => {
       return Thoughts.findOne({ _id: thoughtId });
     },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("thoughts");
+      }
+      throw new AuthenticationError("You need to be logged in!");
+    },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
@@ -47,9 +53,11 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addThought: async (parent, { thoughtText }, context) => {
+    addThought: async (parent, { bird, thoughtText }, context) => {
       if (context.user) {
-        const thought = await Thought.create({
+        console.log(context.user + "resolv 52");
+        const thought = await Thoughts.create({
+          bird,
           thoughtText,
           thoughtAuthor: context.user.username,
         });

@@ -105,7 +105,7 @@ db.once("open", async () => {
         "Rarley glides in flight, so it will fly with continuous flapping. They nest in mud nests and feed on beetles, wasps, and flies.",
     },
     {
-      name: "Brownheaded Cowbord",
+      name: "Brownheaded Cowbird",
       category: categories[12],
       description:
         "Part of the blackbird family, and is the only parasitic bird in Colorado. They lay eggs in host birds' nests, leaving it to raaise thier young. They feed on insects that are attracted to animals such as bison.",

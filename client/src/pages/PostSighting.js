@@ -13,14 +13,40 @@ import { ADD_THOUGHT } from "../utils/mutations";
 import { QUERY_THOUGHTS, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import CardChanger from "../components/PostPrompts/Index";
-
+const options = [
+  "Great Blue Heron",
+  "Bald Eagle",
+  "Osprey",
+  "Common Raven",
+  "Turkey Vulture",
+  "Great Horned Owl",
+  "Mourning Dove",
+  "Belted Kingfisher",
+  "Common Grackle",
+  "American Avocet",
+  "Black Billed Magpie",
+  "Barn Swallow",
+  "Brownheaded Cowbird",
+  "Lazuli Bunting",
+  "Mountain Bluebird",
+  "Tree Swallow",
+  "Yellow Warbler",
+  "Red-Headed Woodpecker",
+  "Black Headed Grosbeak",
+  "Pygmey Nuthatch",
+];
 const PostSighting = () => {
+  //   const [formState, setFormState] = useState({
+  //     bird: "",
+  //     thoughtText: "",
+  //   });
   const [thoughtText, setThoughtText] = useState("");
-  const [bird, setBird] = useState("");
-  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
+  const [selected, setSelected] = useState(options[0]);
+  const [addThought, { error, data }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {
         const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
+        console.log(thoughts + "POSTSIGHTING 24");
 
         cache.writeQuery({
           query: QUERY_THOUGHTS,
@@ -44,35 +70,42 @@ const PostSighting = () => {
 
   const handleFormSubmit = async (event) => {
     event.preventDefault();
-    console.log("handle for submit post");
+    console.log("handle form submit post");
+    console.log(selected);
+    console.log(thoughtText);
     try {
-      const { data } = await addThought({
+      const mutationResponse = await addThought({
         variables: {
-          bird,
-          thoughtText,
-          username: Auth.getProfile().data.username,
+          bird: selected,
+          thoughtText: thoughtText,
         },
+        // variables: {
+        //   bird: formState.bird,
+        //   thoughtText: formState.thoughtText,
+        //   username: Auth.getProfile().data.username,
+        // },
       });
+      console.log(data + "data post 57");
 
       setThoughtText("");
     } catch (err) {
-      console.error(err);
+      console.error(err + "err on 61");
     }
   };
 
   const handleChange = (event) => {
     const { name, value } = event.target;
 
+    if (name === "birdSelect") {
+      console.log(selected);
+      setSelected(value);
+    }
+
     if (name === "thoughtText") {
+      console.log(thoughtText);
       setThoughtText(value);
     }
-
-    if (name === "bird") {
-      setBird(value);
-      console.log(value);
-    }
   };
-
   return (
     <Container fluid className="postSighting">
       <Row className="justify-content-center">
@@ -98,67 +131,29 @@ const PostSighting = () => {
                 <Form.Select
                   aria-label="Default Option"
                   onChange={handleChange}
+                  value={selected}
+                  name="birdSelect"
                 >
-                  <option name="bird" value="Great Blue Heron">
-                    Great Blue Heron
-                  </option>
-                  <option name="bird" value="Bald Eagle">
-                    Bald Eagle
-                  </option>
-                  <option name="bird" value="Osprey">
-                    Osprey
-                  </option>
-                  <option name="bird" value="Common Raven">
-                    Common Raven
-                  </option>
-                  <option name="bird" value="Turkey Vulture">
-                    Turkey Vulture
-                  </option>
-                  <option name="bird" value="Great Horned Owl">
-                    Great Horned Owl
-                  </option>
-                  <option name="bird" value="Mourning Dove">
-                    Mourning Dove
-                  </option>
-                  <option name="bird" value="Belted Kingfisher">
-                    Belted Kingfisher
-                  </option>
-                  <option name="bird" value="Common Grackle">
-                    Common Grackle
-                  </option>
-                  <option name="bird" value="American Avocet">
-                    American Avocet
-                  </option>
-                  <option name="bird" value="Black Billed Magpie">
-                    Black Billed Magpie
-                  </option>
-                  <option name="bird" value="Barn Swallow">
-                    Barn Swallow
-                  </option>
-                  <option name="bird" value="Brownheaded Cowbird">
-                    Brownheaded Cowbird
-                  </option>
-                  <option name="bird" value="Lazuli Bunting">
-                    Lazuli Bunting
-                  </option>
-                  <option name="bird" value="Mountain Bluebird">
-                    Mountain Bluebird
-                  </option>
-                  <option name="bird" value="Tree Swallow">
-                    Tree Swallow
-                  </option>
-                  <option name="bird" value="Yellow Warbler">
-                    Yellow Warbler
-                  </option>
-                  <option name="bird" value="Red-Headed Woodpecker">
-                    Red-Headed Woodpecker
-                  </option>
-                  <option name="bird" value="Black Headed Grosbeck">
-                    Black Headed Grosbeak
-                  </option>
-                  <option name="bird" value="Pygmy Nuthatch">
-                    Pygmy Nuthatch
-                  </option>
+                  <option name="bird">Great Blue Heron</option>
+                  <option name="bird">Bald Eagle</option>
+                  <option name="bird">Osprey</option>
+                  <option name="bird">Common Raven</option>
+                  <option name="bird">Turkey Vulture</option>
+                  <option name="bird">Great Horned Owl</option>
+                  <option name="bird">Mourning Dove</option>
+                  <option name="bird">Belted Kingfisher</option>
+                  <option name="bird">Common Grackle</option>
+                  <option name="bird">American Avocet</option>
+                  <option name="bird">Black Billed Magpie</option>
+                  <option name="bird">Barn Swallow</option>
+                  <option name="bird">Brownheaded Cowbird</option>
+                  <option name="bird">Lazuli Bunting</option>
+                  <option name="bird">Mountain Bluebird</option>
+                  <option name="bird">Tree Swallow</option>
+                  <option name="bird">Yellow Warbler</option>
+                  <option name="bird">Red-Headed Woodpecker</option>
+                  <option name="bird">Black Headed Grosbeak</option>
+                  <option name="bird">Pygmy Nuthatch</option>
                 </Form.Select>
               </Form.Group>
               {/* <Form.Group>
