@@ -2,14 +2,16 @@ const { Schema, model } = require("mongoose");
 
 // create Thought model
 const thoughtSchema = new Schema({
-  bird: {
-    type: String,
-    required: true,
-  },
-  thought: {
+  bird: [{ type: Schema.Types.ObjectId, ref: "Bird" }],
+  thoughtText: {
     type: String,
     minLength: 1,
     maxLength: 280,
+  },
+  thoughtAuthor: {
+    type: String,
+    required: true,
+    trim: true,
   },
   createdAt: {
     type: Date,

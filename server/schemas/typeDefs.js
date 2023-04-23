@@ -8,7 +8,9 @@ const typeDefs = gql`
   }
   type Thought {
     _id: ID
+    bird: String
     thoughtText: String
+    thoughtAuthor: String
     createdAt: String
   }
   type User {
@@ -26,6 +28,7 @@ const typeDefs = gql`
     user(userId: ID!): User
     thoughts: [Thought]!
     thought(thoughtId: ID!): Thought
+    me: User
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth

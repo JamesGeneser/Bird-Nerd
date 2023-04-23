@@ -15,9 +15,9 @@ import Auth from "../utils/auth";
 import CardChanger from "../components/PostPrompts/Index";
 
 const PostSighting = () => {
-  const [noteText, setNoteText] = useState("");
+  const [thoughtText, setThoughtText] = useState("");
   const [bird, setBird] = useState("");
-  const [addPost, { error }] = useMutation(ADD_THOUGHT, {
+  const [addThought, { error }] = useMutation(ADD_THOUGHT, {
     update(cache, { data: { addThought } }) {
       try {
         const { thoughts } = cache.readQuery({ query: QUERY_THOUGHTS });
@@ -46,15 +46,15 @@ const PostSighting = () => {
     event.preventDefault();
     console.log("handle for submit post");
     try {
-      const { data } = await addPost({
+      const { data } = await addThought({
         variables: {
-          noteText,
           bird,
+          thoughtText,
           username: Auth.getProfile().data.username,
         },
       });
 
-      setNoteText("");
+      setThoughtText("");
     } catch (err) {
       console.error(err);
     }
@@ -63,8 +63,8 @@ const PostSighting = () => {
   const handleChange = (event) => {
     const { name, value } = event.target;
 
-    if (name === "noteText") {
-      setNoteText(value);
+    if (name === "thoughtText") {
+      setThoughtText(value);
     }
 
     if (name === "bird") {
@@ -224,8 +224,8 @@ const PostSighting = () => {
                 <Form.Label>Notes</Form.Label>
                 <Form.Control
                   placeholder="Log any notes about the bird sighting here"
-                  value={noteText}
-                  name="noteText"
+                  value={thoughtText}
+                  name="thoughtText"
                   as="textarea"
                   rows={5}
                   onChange={handleChange}

@@ -47,8 +47,21 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addThought: async (parent, { bird, thoughtText }) => {
-      return Thoughts.create({ bird, thoughtText });
+    addThought: async (parent, { thoughtText }, context) => {
+      if (context.user) {
+        const thought = await Thought.create({
+          thoughtText,
+          thoughtAuthor: context.user.username,
+        });
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $addToSet: { thoughts: thought._id } }
+        );
+
+        return thought;
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
     removeThought: async (parent, { thoughtId }) => {
       return Thoughts.findOneAndDelete({ _id: thoughtId });
