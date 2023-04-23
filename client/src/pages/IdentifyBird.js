@@ -19,19 +19,43 @@ const IdentifyBird = () => {
 
   const [logBird, { error, data }] = useMutation(LOG_BIRD);
 
+  // FORM SUBMIT event Listener
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    console.log("***** Submit Click *****");
+    console.log("Capturing Info from State: ");
+    console.log({ ...formData });
 
+    // Combine all answers into 1 string for each key
+    let headColorString = formData.headColor.join("");
+    let bodyColorString = formData.bodyColor.join("");
+
+    // Assign combined strings
+    console.log("Combining Answers: ");
+    let birdObject = {
+      size: formData.size,
+      headColor: headColorString,
+      bodyColor: bodyColorString,
+    };
+
+    console.log("Size: " + birdObject.size);
+    console.log("Head Color: " + birdObject.headColor);
+    console.log("Body Color: " + birdObject.bodyColor);
+
+    // ---- ACTUAL LOGIC ON SUBMIT ----
     try {
       const { data } = logBird({
         variables: { ...formData },
       });
       setFormData("");
-      window.location.reload();
-    } catch (err) {
-      console.error(err);
+      console.log("TRY: Success");
+      // window.location.reload();
+    } catch (error) {
+      console.log("CATCH: Error");
+      console.error(error);
     }
   };
+
   // Size Change event Listener
   const handleSizeChange = (event) => {
     const { name, value } = event.target;
@@ -138,44 +162,44 @@ const IdentifyBird = () => {
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="black"
+                  label="Black"
                   name="headColor"
-                  value="black"
+                  value="Black"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="white"
+                  label="White"
                   name="headColor"
-                  value="white"
+                  value="White"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="brown"
+                  label="Brown"
                   name="headColor"
-                  value="brown"
+                  value="Brown"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="yellow"
+                  label="Yellow"
                   name="headColor"
-                  value="yellow"
+                  value="Yellow"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="red"
+                  label="Red"
                   name="headColor"
-                  value="red"
+                  value="Red"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleHeadChange}
                   type="checkbox"
-                  label="blue"
+                  label="Blue"
                   name="headColor"
-                  value="blue"
+                  value="Blue"
                 ></Form.Check>
               </Form.Group>
               <br></br>
@@ -191,44 +215,44 @@ const IdentifyBird = () => {
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="black"
+                  label="Black"
                   name="bodyColor"
-                  value="black"
+                  value="Black"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="white"
+                  label="White"
                   name="bodyColor"
-                  value="white"
+                  value="White"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="brown"
+                  label="Brown"
                   name="bodyColor"
-                  value="brown"
+                  value="Brown"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="yellow"
+                  label="Yellow"
                   name="bodyColor"
-                  value="yellow"
+                  value="Yellow"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="red"
+                  label="Red"
                   name="bodyColor"
-                  value="red"
+                  value="Red"
                 ></Form.Check>
                 <Form.Check
                   onChange={handleBodyChange}
                   type="checkbox"
-                  label="blue"
+                  label="Blue"
                   name="bodyColor"
-                  value="blue"
+                  value="Blue"
                 ></Form.Check>
               </Form.Group>{" "}
               <br></br>
