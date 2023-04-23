@@ -1,29 +1,52 @@
-const { Birds, User, Thought } = require("../models");
+const { Birds, User, Thoughts } = require("../models");
 const { signToken } = require("../utils/auth");
-
+const { AuthenticationError } = require("apollo-server-express");
 const { insertMany } = require("../models/Birds");
 
 const resolvers = {
   Query: {
-    user: async () => {
-      return User.find({});
+    user: async (parent, { username }) => {
+      return User.findOne({ username });
     },
     thoughts: async () => {
-      return Thought.find().sort({ createdAt: -1 });
+      return Thoughts.find().sort({ createdAt: -1 });
     },
 
     thought: async (parent, { thoughtId }) => {
-      return Thought.findOne({ _id: thoughtId });
+      return Thoughts.findOne({ _id: thoughtId });
     },
   },
   Mutation: {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
-      const token = signToken(user);
+      //   const token = signToken(user);
 
-      return { token, user };
-      //todo: incluce utilsAuth on backend; (will have sign token method); in mutation, call signToken function; pass in the user just created (on 20); return out an obj that has token and user
+      return user;
     },
+
+    login: async (parent, { email, password }) => {
+      const user = await User.findOne({ email });
+
+      if (!user) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const correctPw = await user.isCorrectPassword(password);
+      console.log(correctPw + "correct password");
+      if (!correctPw) {
+        throw new AuthenticationError("Incorrect credentials");
+      }
+
+      const token = signToken(user);
+      console.log(token + "signToken returns");
+      console.log(user);
+      return { token, user };
+    },
+    logout() {
+      localStorage.removeItem("id_token");
+      window.location.assign("/");
+    },
+
     addThought: async (parent, { thoughtText }) => {
       return Thought.create({ thoughtText });
     },

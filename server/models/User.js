@@ -1,37 +1,49 @@
-const {Schema, model} = require('mongoose')
-
+const { Schema, model } = require("mongoose");
+const bcrypt = require("bcrypt");
 const UserSchema = new Schema({
   username: {
     type: String,
     trim: true,
-    required: "Username is required.",
-    unique: true
+    required: true,
+    unique: true,
   },
   password: {
     type: String,
     trim: true,
-    required: "Password is required.",
-    validate: [
-      function (input) {
-        return input.length >= 6;
-      },
-      "Password should be at least 6 characters long."
-    ]
+    required: true,
+    minlength: 5,
   },
   userCreated: {
     type: Date,
-    default: Date.now
+    default: Date.now,
   },
   email: {
     type: String,
     index: {
       unique: true,
-      partialFilterExpression: {email: {$type:"string"}}
+      partialFilterExpression: { email: { $type: "string" } },
     },
-    match: [/.+@.+\..+/, "Please enter a valid e-mail address"]
+    match: [/.+@.+\..+/, "Please enter a valid e-mail address"],
   },
 });
+UserSchema.pre("save", async function (next) {
+  if (this.isNew || this.isModified("password")) {
+    const saltRounds = 10;
+    this.password = await bcrypt.hash(this.password, saltRounds);
+  }
 
-var User = model("User", UserSchema);
+  next();
+});
+
+UserSchema.methods.isCorrectPassword = async function (password) {
+  // console.log(password + "passed password");
+
+  // const bcryptPromise = await bcrypt.compare(password, this.password);
+  // console.log(bcryptPromise + " bcrypt promise");
+
+  return bcrypt.compare(password, this.password);
+};
+
+const User = model("User", UserSchema);
 
 module.exports = User;
