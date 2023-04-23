@@ -12,7 +12,8 @@ function EditCardForm() {
     <Card className="formCardUser">
       <Form>
         <Form.Group controlId="formTitle" className="mb-3">
-          <Form.Label as="h4">Title: </Form.Label>
+          <Form.Label className="editPost">Title: </Form.Label>
+          <br></br>
           <Form.Control
             name="text"
             type="text"
@@ -22,7 +23,7 @@ function EditCardForm() {
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group controlId="formDescription" className="mb-3">
-          <Form.Label as="h4">Description: </Form.Label>
+          <Form.Label className="editPost">Description: </Form.Label>
           <Form.Control
             as="textarea"
             rows={5}

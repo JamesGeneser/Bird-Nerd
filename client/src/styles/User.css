@@ -63,7 +63,7 @@
 
 @media screen and (max-width: 1024px) {
   .userPage {
-   max-width: 100%
+    max-width: 100%;
   }
 
   .columns {
@@ -76,5 +76,40 @@
 }
 
 @media screen and (max-width: 600px) {
- 
+  .columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leftSideUser {
+    margin-bottom: 3rem;
+  }
+
+  .editPost{
+    font-weight: bold;
+  }
+
+  .rightSideUser {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .postCard {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+  
+  .leftSideUser{
+    padding: 1.5rem;
+  }
+
+  .textarea {
+    padding: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }
