@@ -14,8 +14,8 @@ import HeadColorForm from "../components/MultiCheckboxes/HeadColorForm";
 const IdentifyBird = () => {
   const [formData, setFormData] = useState({
     size: "",
-    bodyColor: "",
-    headColor: "",
+    bodyColor: [],
+    headColor: [],
   });
 
   const [logBird, { error, data }] = useMutation(LOG_BIRD);
@@ -36,17 +36,45 @@ const IdentifyBird = () => {
 
   const handleChange = (event) => {
     const { name, value } = event.target;
-
-    console.log(value + " value selected");
-    console.log(name);
+    console.log(`// ${[name]}: ${value}`);
 
     setFormData({
       ...formData,
-      [name]: value,
+      [name]: [value],
     });
-
-    console.log([name] + " formData");
+    console.log(formData);
   };
+
+  const handleHeadChange = (e) => {
+    // Destructuring
+    const { name, value, checked } = e.target;
+    const { headColor } = formData;
+
+    console.log(`// ${[name]}: ${value}`);
+    console.log(name);
+    console.log(`----> ${value} is ${checked}`);
+    console.log(formData);
+
+    // Case 1 : The user checks the box
+    if (checked) {
+      setFormData({
+        ...formData,
+        headColor: [...headColor, value],
+      });
+      // setUserInfo({
+      //   headColor: [...headColor, value],
+      //   response: [...headColor, value],
+      // });
+    }
+    // Case 2  : The user unchecks the box
+    else {
+      setFormData({
+        headColor: headColor.filter((e) => e !== value),
+      });
+      console.log(headColor);
+    }
+  };
+
   return (
     <Container fluid className="identifyBird">
       <Row className="justify-content-center">
@@ -73,12 +101,62 @@ const IdentifyBird = () => {
               </Form.Group>
               <BodyColorForm />
               <br></br>
-              <HeadColorForm />
+              <Form.Group className="headColor mb-3" controlid="headColor">
+                <Form.Label>
+                  What color was its HEAD?<br></br>
+                </Form.Label>
+                <Form.Text className="textMuted">
+                  {" "}
+                  (Check all that apply)
+                </Form.Text>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="black"
+                  name="headColor"
+                  value="black"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="white"
+                  name="headColor"
+                  value="white"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="brown"
+                  name="headColor"
+                  value="brown"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="yellow"
+                  name="headColor"
+                  value="yellow"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="red"
+                  name="headColor"
+                  value="red"
+                ></Form.Check>
+                <Form.Check
+                  onChange={handleHeadChange}
+                  type="checkbox"
+                  label="blue"
+                  name="headColor"
+                  value="blue"
+                ></Form.Check>
+              </Form.Group>
               <br></br>
               <Button
                 variant="primary"
-                type="submit"
                 className="btn submit-btn submit-btn-id"
+                type="submit"
               >
                 Submit
               </Button>
