@@ -50,9 +50,9 @@ const resolvers = {
       return { token, user };
     },
 
-    logout() {
-      localStorage.removeItem("id_token");
-      window.location.assign("/");
+    logout: async (parent, args, context) => {
+      await context.session.destroy();
+      return true;
     },
 
     addPost: async (parent, { bird, postText }, context) => {
