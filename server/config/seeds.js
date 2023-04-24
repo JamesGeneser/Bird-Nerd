@@ -182,10 +182,8 @@ db.once("open", async () => {
       createdAt: Date.now(),
       username: "bindi irwin",
     },
-    console.log(`Posts Seeded`),
   ]);
-
-  await User.deleteMany;
+  console.log(`Posts Seeded`), await User.deleteMany;
 
   const user = await User.insertMany([
     {

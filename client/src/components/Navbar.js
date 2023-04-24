@@ -22,7 +22,12 @@ function Navbar() {
               className="logoImg"
             ></img>
           </Link>
+
           <DarkMode />
+          <h1 style={{ color: "white" }} className="ms-1 birdNerdTitle">
+            Bird Nerd
+          </h1>
+
           <div className="hiddenLinks">
             <Link to="/identify" className="buttons">
               ID

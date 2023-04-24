@@ -16,7 +16,7 @@ const PostList = ({ posts }) => {
                 <h3 className="birdTitle">{post.bird}</h3>
                 <div>
                   <div>{post.postText}</div>
-                  <div>{post.username}</div>
+                  <div>--{post.username}</div>
                 </div>
               </div>
             </div>
