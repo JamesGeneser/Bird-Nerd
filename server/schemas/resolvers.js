@@ -8,12 +8,18 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    posts: async () => {
-      return Post.find().sort({ createdAt: -1 });
-    },
+    // posts: async () => {
+    //   return Post.find().sort({ createdAt: -1 });
+    // },
 
-    post: async (parent, { postId }) => {
-      return Post.findOne({ _id: postId });
+    // post: async (parent, { postId }) => {
+    //   return Post.findOne({ _id: postId });
+    // },
+    me: async (parent, args, context) => {
+      if (context.user) {
+        return User.findOne({ _id: context.user._id }).populate("thoughts");
+      }
+      throw new AuthenticationError("You need to be logged in!");
     },
   },
 
@@ -49,9 +55,16 @@ const resolvers = {
       window.location.assign("/");
     },
 
-    addPost: async (parent, postText) => {
-      const post = await Post.create(postText);
-      return post;
+    addPost: async (parent, { bird, postText }, context) => {
+      if (context.user) {
+        const post = await Post.create({
+          bird,
+          postText,
+          postAuthor: context.user.username,
+        });
+
+        return post;
+      }
     },
 
     deletePost: async (parent, { postId }) => {

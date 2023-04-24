@@ -33,3 +33,11 @@ export const LOG_BIRD = gql`
     }
   }
 `;
+
+export const ADD_POST = gql`
+  mutation addPost($bird: String!, $postText: String!) {
+    addPost(bird: $bird, postText: $postText) {
+      postText
+    }
+  }
+`;
