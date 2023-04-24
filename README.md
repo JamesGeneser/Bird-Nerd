@@ -6,15 +6,19 @@ Bird Nerd
 
 ## Screenshots
 
+
 <details>
 
-![Home](../Bird-Nerd/client/src/assets/images/home.png "Home")
+<img width="1440" alt="home" src="https://user-images.githubusercontent.com/123986533/234046885-84834f21-e480-42af-9566-63a85912f905.png">
 
-![HomeDarkMode](../Bird-Nerd/client/src/assets/images/homeDark.png "Home")
 
-![Home](../Bird-Nerd/client/src/assets/images/idForm.png "Home")
+<img width="1440" alt="homeDark" src="https://user-images.githubusercontent.com/123986533/234046932-b662eaa5-3c18-48ac-b6d0-49e60670c710.png">
 
-![Home](../Bird-Nerd/client/src/assets/images/idResult.png "Home")
+
+<img width="1440" alt="idForm" src="https://user-images.githubusercontent.com/123986533/234047139-38f39ac3-afb9-46d2-a313-aa664275f1e0.png">
+
+
+<img width="1440" alt="idResult" src="https://user-images.githubusercontent.com/123986533/234047423-9f3aa755-540d-4e2e-8ffc-b547b32d5d8b.png">
 
 </details>
 
