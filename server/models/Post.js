@@ -8,7 +8,9 @@ const postSchema = new Schema({
     type: String,
     minLength: 1,
     maxLength: 280,
-    created: Date.now,
+  },
+  username: {
+    type: String,
   },
 });
 

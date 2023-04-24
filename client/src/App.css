@@ -46,6 +46,17 @@ main {
   box-sizing: border-box;
   width: 100%;
 }
+.feedCard {
+  width: 20rem;
+  margin: 3rem;
+  padding: 1rem;
+  border: 2px solid black;
+  background-color: white;
+}
+.birdTitle {
+  margin: 2rem
+}
+
 
 .hideElement {
   display: none;

@@ -9,18 +9,16 @@ export const QUERY_USER = gql`
       posts {
         _id
         postText
-        createdAt
       }
     }
   }
 `;
-export const QUERY_THOUGHTS = gql`
-  query getThoughts {
-    thoughts {
-      _id
-      thoughtText
-      thoughtAuthor
-      createdAt
+export const QUERY_POSTS = gql`
+  query getPosts {
+    posts {
+      bird
+      postText
+      username
     }
   }
 `;
@@ -30,10 +28,10 @@ export const QUERY_ME = gql`
       _id
       username
       email
-      thoughts {
+      posts {
         _id
-        thoughtText
-        thoughtAuthor
+        postText
+        username
         createdAt
       }
     }
