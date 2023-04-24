@@ -8,15 +8,18 @@ const cardStyle = {
 
 function PostCard() {
   return (
-    <Card>
-      <Card.Header as="h5">Title</Card.Header>
+    <Card className="postCard">
+      <Card.Header as="h3">Title: </Card.Header>
       <Card.Body>
-        <Card.Title>Description</Card.Title>
+        <Card.Title>Description: </Card.Title>
         <Card.Text>Things happened and I saw a really cool Bird</Card.Text>
-        <Button variant="warning" style={cardStyle}>
+        <br></br>
+        <Button variant="warning" className="submit-btn-user" style={cardStyle}>
           Edit
         </Button>
-        <Button variant="danger">Delete</Button>
+        <Button variant="danger" className="del">
+          Delete
+        </Button>
       </Card.Body>
     </Card>
   );

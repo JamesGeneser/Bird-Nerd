@@ -1,20 +1,128 @@
 .userPage {
-  height: 90vh;
-  overflow-y: scroll;
+  display: flex;
+  place-content: center;
+  padding-top: 3rem;
+  padding-bottom: 3rem;
+  font-size: 140%;
+  height: 100%;
 }
 
 .userPage h1 {
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
 }
 
-.userPage .leftSide {
-  background-color: dimgray;
-  padding-bottom: 20px;
+.columns {
+  display: grid;
+  grid-template-columns: 60% 30%;
+  align-items: center;
+  text-align: center;
+  gap: 15%;
 }
 
-.userPage .rightSide {
-  background-color: gray;
-  padding-bottom: 20px;
+.leftSideUser {
+  background-color: var(--lightblue);
+  display: grid;
+  grid-template-columns: 1fr, 1;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 3px var(--peach));
+  padding: 3rem;
+}
+
+.rightSideUser {
+  background-color: var(--lightblue);
+  display: grid;
+  grid-template-columns: 1fr, 1;
+  justify-content: center;
+  filter: drop-shadow(1px 1px 3px var(--peach));
+  padding: 2rem;
+  width: 120%;
+}
+
+.textarea {
+  padding: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
+
+.postCard {
+  padding: 2rem;
+  margin: 1rem;
+  background-color: var(--peach);
+  filter: drop-shadow(1px 1px 3px var(--blue));
+}
+
+.del {
+  color: var(--white);
+  background-color: var(--lightGray);
+  padding: 0.6rem;
+  border: 1px solid var(--lightGray);
+}
+
+.del:hover {
+  color: var(--darkGray);
+  background-color: var(--tan);
+  border: 1px solid var(--tan);
+}
+
+.submit-btn-user {
+  background-color: var(--blue);
+  padding: 0.6rem;
+}
+
+.formLabelUser {
+  padding: 0.5rem;
+}
+
+@media screen and (max-width: 1024px) {
+  .userPage {
+    max-width: 100%;
+  }
+
+  .columns {
+    gap: 2%;
+  }
+
+  .rightSideUser {
+    max-width: 100%;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .columns {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .leftSideUser {
+    margin-bottom: 3rem;
+  }
+
+  .editPost {
+    font-weight: bold;
+  }
+
+  .rightSideUser {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+    padding-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .postCard {
+    margin: 0;
+    margin-bottom: 1rem;
+  }
+
+  .leftSideUser {
+    padding: 1.5rem;
+  }
+
+  .textarea {
+    padding: 0;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
 }

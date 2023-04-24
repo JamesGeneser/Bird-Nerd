@@ -115,6 +115,7 @@ const PostSighting = () => {
                   aria-label="Default Option"
                   onChange={handleChange}
                   value={selected}
+                  className="birdchoice"
                   name="birdSelect"
                 >
                   <option name="bird">Great Blue Heron</option>
@@ -139,6 +140,7 @@ const PostSighting = () => {
                   <option name="bird">Pygmy Nuthatch</option>
                 </Form.Select>
               </Form.Group>
+              <br></br>
 
               <Form.Group controlId="formFile" className="mb-3 uploadform">
                 <Form.Label className="upload-label">
