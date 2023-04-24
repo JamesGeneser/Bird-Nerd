@@ -1,8 +1,9 @@
 .identifyBird {
   padding-bottom: 3%;
-  height: 100vh;
+  height: 90vh;
   height: 100%;
   font-size: 140%;
+  overflow-y: scroll;
 }
 
 .formCardID {
@@ -61,23 +62,23 @@
     height: 100vh;
     margin-top: 2rem;
   }
-  
+
   .form-box-id {
     width: 100%;
     height: 100%;
     margin: 0rem;
     padding: 0rem;
   }
-  
+
   .submit-btn-id {
     margin-bottom: 3rem;
   }
-  
+
   .identifyBird {
     height: 100vh;
     height: 100%;
   }
-  
+
   .footer {
     margin-top: 4rem;
     position: absolute;

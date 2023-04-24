@@ -2,12 +2,14 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
+import Modal from "react-bootstrap/Modal";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Card from "react-bootstrap/Card";
 import { useMutation } from "@apollo/client";
 import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
+import { Link } from "react-router-dom";
 
 const birdsArray = [
   //1
@@ -42,109 +44,133 @@ const birdsArray = [
   {
     name: "Turkey Vulture",
     size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    bodyColor: "Brown",
+    headColor: "Red",
   },
+  //6
   {
     name: "Great Horned Owl",
     size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    bodyColor: "Brown",
+    headColor: "Brown",
   },
+  //7
   {
     name: "Mourning Dove",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Medium",
+    bodyColor: "White",
+    headColor: "Brown",
   },
+  //8
   {
     name: "Belted Kingfisher",
-    size: "Large",
-    bodyColor: "Blue",
+    size: "Medium",
+    bodyColor: "BlueWhite",
     headColor: "Blue",
   },
+  //9
   {
     name: "Common Grackle",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Medium",
+    bodyColor: "Black",
+    headColor: "Black",
   },
+  //10
   {
     name: "American Avocet",
     size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    bodyColor: "BlackWhite",
+    headColor: "Brown",
   },
+  //11
   {
     name: "Black Billed Magpie",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Medium",
+    bodyColor: "BlackWhite",
+    headColor: "Black",
   },
+  //12
   {
     name: "Barn Swallow",
-    size: "Large",
-    bodyColor: "Blue",
+    size: "Small",
+    bodyColor: "Brown",
     headColor: "Blue",
   },
+  //13
   {
     name: "Brownheaded Cowbird",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Small",
+    bodyColor: "Black",
+    headColor: "Brown",
   },
+  //14
   {
     name: "Lazuli Bunting",
-    size: "Large",
+    size: "Small",
     bodyColor: "Blue",
-    headColor: "Blue",
+    headColor: "White",
   },
+  //15
   {
     name: "Mountain Bluebird",
-    size: "Large",
+    size: "Small",
     bodyColor: "Blue",
     headColor: "Blue",
   },
+  //16
   {
     name: "Tree Swallow",
-    size: "Large",
-    bodyColor: "Blue",
+    size: "Small",
+    bodyColor: "BlueWhite",
     headColor: "Blue",
   },
+  //17
   {
     name: "Yellow Warbler",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Small",
+    bodyColor: "Yellow",
+    headColor: "Yellow",
   },
+  //18
   {
     name: "Red-Headed Woodpecker",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Small",
+    bodyColor: "BlackWhite",
+    headColor: "Red",
   },
+  //19
   {
     name: "Black Headed Grosbeak",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Small",
+    bodyColor: "Orange",
+    headColor: "Black",
   },
+  //20
   {
     name: "Pygmey Nuthatch",
-    size: "Large",
-    bodyColor: "Blue",
-    headColor: "Blue",
+    size: "Small",
+    bodyColor: "BlueWhite",
+    headColor: "Brown",
   },
 ];
 
 const IdentifyBird = () => {
   // STATE
+  const [matchedBird, setMatchedBird] = useState({
+    name: "Bird Name",
+    size: "Bird Size",
+    headColor: "Head Color",
+    bodyColor: "Body Color",
+  });
+  console.log("Before Submit:");
+  console.log(matchedBird);
+
   const [formData, setFormData] = useState({
     size: "",
     bodyColor: "",
     headColor: "",
   });
-
+  // TODO: useMutation!!!!!!!!!!!!
   const [logBird, { error, data }] = useMutation(LOG_BIRD);
 
   // FORM SUBMIT event Listener
@@ -171,17 +197,33 @@ const IdentifyBird = () => {
     console.log("Body Color: " + birdObject.bodyColor);
 
     // ---- ACTUAL LOGIC ON SUBMIT ----
-    try {
-      const { data } = logBird({
-        variables: { ...formData },
+
+    const birdMatch = (array, object) => {
+      array.forEach((member) => {
+        if (
+          member.size === object.size &&
+          member.headColor === object.headColor &&
+          member.bodyColor === object.bodyColor
+        ) {
+          console.log("MATCH FOUND!");
+          console.log("Matching Bird: " + member.name);
+          setMatchedBird({
+            ...matchedBird,
+            name: member.name,
+            size: member.size,
+            headColor: member.headColor,
+            bodyColor: member.bodyColor,
+          });
+          console.log(matchedBird);
+        } else {
+          console.log(`This Bird's Details don't Match any Bird in our Database.
+          Please Try Again`);
+          // window.location.reload();
+        }
       });
-      setFormData("");
-      console.log("TRY: Success");
-      // window.location.reload();
-    } catch (error) {
-      console.log("CATCH: Error");
-      console.error(error);
-    }
+    };
+
+    birdMatch(birdsArray, birdObject);
   };
 
   // Size Change event Listener
@@ -210,15 +252,11 @@ const IdentifyBird = () => {
         ...formData,
         headColor: [...headColor, value],
       });
-      // setUserInfo({
-      //   headColor: [...headColor, value],
-      //   response: [...headColor, value],
-      // });
     }
     // Case 2  : The user unchecks the box
     else {
       setFormData({
-        headColor: headColor.filter((e) => e !== value),
+        headColor: headColor.filter((event) => event !== value),
       });
       console.log(headColor);
     }
@@ -238,15 +276,11 @@ const IdentifyBird = () => {
         ...formData,
         bodyColor: [...bodyColor, value],
       });
-      // setUserInfo({
-      //   bodyColor: [...bodyColor, value],
-      //   response: [...bodyColor, value],
-      // });
     }
     // Case 2  : The user unchecks the box
     else {
       setFormData({
-        bodyColor: bodyColor.filter((e) => e !== value),
+        bodyColor: bodyColor.filter((event) => event !== value),
       });
       console.log(bodyColor);
     }
@@ -255,6 +289,22 @@ const IdentifyBird = () => {
   return (
     <Container fluid className="identifyBird">
       <Row className="justify-content-center">
+        <Col>
+          <Card className="formCardID">
+            <Card.Img
+              variant="top"
+              src="https://via.placeholder.com/200x200?text=Bird+IMG"
+            />
+            <Card.Body>
+              <Card.Title>
+                <h2>{matchedBird.name}</h2>
+              </Card.Title>
+              <Card.Text>{`Size: ${matchedBird.size}`}</Card.Text>
+              <Card.Text>{`Head Color: ${matchedBird.headColor}`}</Card.Text>
+              <Card.Text>{`Body Color: ${matchedBird.bodyColor}`}</Card.Text>
+            </Card.Body>{" "}
+          </Card>
+        </Col>
         <Col>
           <Card className="formCardID">
             <Form onSubmit={handleFormSubmit} className="form-box-id">

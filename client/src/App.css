@@ -23,8 +23,8 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  /* font-family: "Rubik", sans-serif; */
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Rubik", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -59,7 +59,7 @@ main {
   margin: auto;
 }
 
-.btn {
+/* .btn {
   border-radius: 0;
   background-color: var(--lightblue);
   border: 1px solid var(--blue);
@@ -70,7 +70,7 @@ main {
 .btn:hover {
   background-color: var(--tan);
   cursor: pointer;
-}
+} */
 
 body {
   background: var(--background-color);
