@@ -1,7 +1,5 @@
 import React from "react";
-import { useQuery } from "@apollo/client";
 import { Link } from "react-router-dom";
-import landingImg from "../assets/images/dapper birb.jpg";
 import "../styles/Home.css";
 
 const Home = () => {
@@ -10,7 +8,9 @@ const Home = () => {
       <div className="img-wrapper">
         <div className="landing-picture">
           <img
-            src={landingImg}
+            src={
+              "https://www.allaboutbirds.org/guide/assets/photo/303711061-1280px.jpg"
+            }
             alt="birb in a snazzy suit"
             className="landing-img"
           />

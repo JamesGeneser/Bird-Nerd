@@ -16,21 +16,23 @@ const matchResults = document.getElementById("matchResults");
 const birdsArray = [
   //1
   {
-    img: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcTnJx1JmQMreeB1xhh2iR38jkN0kpxtn495zdtCHQdnDfqqQ14wj_T6D5rBiGVr64nwGKoPULr_Bt9Z5_A",
+    img: "https://www.allaboutbirds.org/guide/assets/photo/304479371-1280px.jpg",
     name: "Great Blue Heron",
     size: "Large",
-    bodyColor: "Blue",
     headColor: "Blue",
+    bodyColor: "Blue",
   },
   //2
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/306062281-1280px.jpg",
     name: "Bald Eagle",
     size: "Large",
-    bodyColor: "Brown",
     headColor: "White",
+    bodyColor: "Brown",
   },
   //3
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/305310381-1280px.jpg",
     name: "Osprey",
     size: "Large",
     bodyColor: "BrownWhite",
@@ -38,6 +40,7 @@ const birdsArray = [
   },
   //4
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/300152741-1280px.jpg",
     name: "Common Raven",
     size: "Large",
     bodyColor: "Black",
@@ -45,6 +48,7 @@ const birdsArray = [
   },
   //5
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/60317221-1280px.jpg",
     name: "Turkey Vulture",
     size: "Large",
     bodyColor: "Brown",
@@ -52,6 +56,7 @@ const birdsArray = [
   },
   //6
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/63741631-1280px.jpg",
     name: "Great Horned Owl",
     size: "Large",
     bodyColor: "Brown",
@@ -59,6 +64,7 @@ const birdsArray = [
   },
   //7
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/60386921-1280px.jpg",
     name: "Mourning Dove",
     size: "Medium",
     bodyColor: "White",
@@ -66,6 +72,7 @@ const birdsArray = [
   },
   //8
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/303711061-1280px.jpg",
     name: "Belted Kingfisher",
     size: "Medium",
     bodyColor: "BlueWhite",
@@ -73,6 +80,7 @@ const birdsArray = [
   },
   //9
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/307949491-1280px.jpg",
     name: "Common Grackle",
     size: "Medium",
     bodyColor: "Black",
@@ -80,6 +88,7 @@ const birdsArray = [
   },
   //10
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/297916791-1280px.jpg",
     name: "American Avocet",
     size: "Large",
     bodyColor: "BlackWhite",
@@ -87,6 +96,7 @@ const birdsArray = [
   },
   //11
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/302389441-1280px.jpg",
     name: "Black Billed Magpie",
     size: "Medium",
     bodyColor: "BlackWhite",
@@ -94,6 +104,7 @@ const birdsArray = [
   },
   //12
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/305765591-1280px.jpg",
     name: "Barn Swallow",
     size: "Small",
     bodyColor: "Brown",
@@ -101,6 +112,7 @@ const birdsArray = [
   },
   //13
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/306621721-1280px.jpg",
     name: "Brownheaded Cowbird",
     size: "Small",
     bodyColor: "Black",
@@ -108,6 +120,7 @@ const birdsArray = [
   },
   //14
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/311473551-1280px.jpg",
     name: "Lazuli Bunting",
     size: "Small",
     bodyColor: "Blue",
@@ -115,6 +128,7 @@ const birdsArray = [
   },
   //15
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/303800251-1280px.jpg",
     name: "Mountain Bluebird",
     size: "Small",
     bodyColor: "Blue",
@@ -122,6 +136,7 @@ const birdsArray = [
   },
   //16
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/305568151-1280px.jpg",
     name: "Tree Swallow",
     size: "Small",
     bodyColor: "BlueWhite",
@@ -129,6 +144,7 @@ const birdsArray = [
   },
   //17
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/297046671-1280px.jpg",
     name: "Yellow Warbler",
     size: "Small",
     bodyColor: "Yellow",
@@ -136,6 +152,7 @@ const birdsArray = [
   },
   //18
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/297684081-1280px.jpg",
     name: "Red-Headed Woodpecker",
     size: "Small",
     bodyColor: "BlackWhite",
@@ -143,13 +160,15 @@ const birdsArray = [
   },
   //19
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/297327641-1280px.jpg",
     name: "Black Headed Grosbeak",
     size: "Small",
-    bodyColor: "Orange",
+    bodyColor: "YellowBrown",
     headColor: "Black",
   },
   //20
   {
+    img: "https://www.allaboutbirds.org/guide/assets/photo/308593871-1280px.jpg",
     name: "Pygmey Nuthatch",
     size: "Small",
     bodyColor: "BlueWhite",
@@ -318,7 +337,13 @@ const IdentifyBird = () => {
             <Card.Body>
               <Card.Img
                 src={matchedBird.img}
-                style={{ width: "auto", height: "300px" }}
+                style={{
+                  width: "auto",
+                  height: "400px",
+                  borderBottomLeftRadius: "20px",
+                  borderBottomRightRadius: "20px",
+                  filter: "drop-shadow(1px 1px 15px darkslategray)",
+                }}
               />
               <Card.Title>
                 <h2>{matchedBird.name}</h2>
