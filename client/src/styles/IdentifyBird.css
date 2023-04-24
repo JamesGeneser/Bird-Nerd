@@ -19,7 +19,7 @@
   width: 50%;
   padding: 1rem;
   background-color: var(--lightblue);
-  filter: drop-shadow(1px 1px 5px var(--lightblue));
+  filter: drop-shadow(1px 1px 5px var(--peach));
 }
 
 .formGroupID {
@@ -42,6 +42,18 @@
   background-color: var(--lightblue);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+
+.headCheck {
+  width: 20%;
+  transform: translateX(230%);
+  text-align: start;
+}
+
+.bodyCheck {
+  width: 20%;
+  transform: translateX(230%);
+  text-align: start;
 }
 
 @media screen and (max-width: 1024px) {
@@ -87,7 +99,25 @@
   }
 
   .footer {
-    margin-top: 4rem;
+    margin-top: 12rem;
     position: absolute;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .headCheck {
+    width: 25%;
+    transform: translateX(180%);
+    text-align: start;
+  }
+
+  .bodyCheck {
+    width: 25%;
+    transform: translateX(180%);
+    text-align: start;
+  }
+
+  .footer {
+    margin-top: 8rem;
   }
 }

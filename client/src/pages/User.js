@@ -10,17 +10,17 @@ import EditCardForm from "../components/userPage/EditCardForm";
 const User = () => {
   return (
     <Container fluid className="userPage">
-      <Row>
-        <Col className="leftSide">
+      <Row className="columns">
+        <Col className="leftSideUser">
           <h1>{`[Username]'s Feed`}</h1>
-          <Stack gap={3}>
+          <Stack gap={3}> 
             <MyCard />
             <MyCard />
             <MyCard />
             <MyCard />
           </Stack>
         </Col>
-        <Col className="rightSide">
+        <Col className="rightSideUser">
           <h1>Edit Post</h1>
           <EditCardForm />
         </Col>
