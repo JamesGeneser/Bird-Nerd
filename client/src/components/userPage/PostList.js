@@ -1,4 +1,5 @@
 import React from "react";
+import Card from "react-bootstrap/Card";
 
 const PostList = ({ posts }) => {
   if (!posts.length) {
@@ -9,14 +10,17 @@ const PostList = ({ posts }) => {
     <div>
       {posts &&
         posts.map((post) => (
-          <div key={post._id} className="card mb-3">
-            <h4 className="card-header bg-primary text-light p-2 m-0">
-              {post.username} <br />
-              <span style={{ fontSize: "1rem" }}>Saw a : {post.bird}</span>
-              <div>{post.postText}</div>
-            </h4>
-            <div className="card-body bg-light p-2">{post.text}</div>
-          </div>
+          <Card className="feedCard">
+            <div key={post._id} className="card mb-3">
+              <div className="card-header bg-primary text-light p-2">
+                <h3 className="birdTitle">{post.bird}</h3>
+                <div>
+                  <div>{post.postText}</div>
+                  <div>{post.username}</div>
+                </div>
+              </div>
+            </div>
+          </Card>
         ))}
     </div>
   );
