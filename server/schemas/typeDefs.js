@@ -29,16 +29,15 @@ const typeDefs = gql`
     post(postId: ID!): Post
     bird(birdId: ID!): Birds
     me: User
+    isAuthenticated: Boolean!
   }
   type Mutation {
     addUser(username: String!, email: String!, password: String!): Auth
     logBird(userId: ID!, birdId: String!): User
-
     addPost(bird: String!, postText: String!): Post
     deletePost(postId: ID!): Post
-
     login(email: String!, password: String!): Auth
-    logout(email: String!, password: String!): Auth
+    logout: Boolean!
   }
 `;
 

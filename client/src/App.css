@@ -8,7 +8,7 @@
   --lightGray: #373d45;
   --lightgrey: lightgrey;
   --peach: #fe938c;
-  --tan: #e6b89c;
+  --tan: #f4b289;
   --lightyellow: #ead2ac;
   --lightblue: #9cafb7;
   --blue: #4281a4;
@@ -23,8 +23,8 @@ html {
 }
 
 body {
-  font-family: "Roboto", sans-serif;
-  /* font-family: "Rubik", sans-serif; */
+  /* font-family: "Roboto", sans-serif; */
+  font-family: "Rubik", sans-serif;
   padding: 0;
   margin: 0;
 }
@@ -58,6 +58,10 @@ main {
 }
 
 
+.hideElement {
+  display: none;
+}
+
 .form {
   display: flex;
   flex-direction: column;
@@ -74,13 +78,15 @@ main {
   border-radius: 0;
   background-color: var(--lightblue);
   border: 1px solid var(--blue);
-  color: var(--darkGray);
+  color: var(--white);
   font-size: 18px;
 }
 
 .btn:hover {
   background-color: var(--tan);
   cursor: pointer;
+  color: var(--darkGray);
+  border: 1px solid var(--tan);
 }
 
 body {

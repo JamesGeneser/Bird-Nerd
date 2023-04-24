@@ -1,8 +1,9 @@
 .identifyBird {
   padding-bottom: 3%;
-  height: 100vh;
+  height: 90vh;
   height: 100%;
   font-size: 140%;
+  overflow-y: scroll;
 }
 
 .formCardID {
@@ -18,7 +19,7 @@
   width: 50%;
   padding: 1rem;
   background-color: var(--lightblue);
-  filter: drop-shadow(1px 1px 5px var(--lightblue));
+  filter: drop-shadow(1px 1px 5px var(--peach));
 }
 
 .formGroupID {
@@ -34,6 +35,25 @@
   font-size: 75%;
   margin: 1rem;
   padding: 0.4rem;
+}
+
+#matchedResultWrap {
+  filter: drop-shadow(1px 1px 3px var(--lightblue));
+  background-color: var(--lightblue);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
+.headCheck {
+  width: 20%;
+  transform: translateX(230%);
+  text-align: start;
+}
+
+.bodyCheck {
+  width: 20%;
+  transform: translateX(230%);
+  text-align: start;
 }
 
 @media screen and (max-width: 1024px) {
@@ -61,25 +81,43 @@
     height: 100vh;
     margin-top: 2rem;
   }
-  
+
   .form-box-id {
     width: 100%;
     height: 100%;
     margin: 0rem;
     padding: 0rem;
   }
-  
+
   .submit-btn-id {
     margin-bottom: 3rem;
   }
-  
+
   .identifyBird {
     height: 100vh;
     height: 100%;
   }
-  
+
   .footer {
-    margin-top: 4rem;
+    margin-top: 12rem;
     position: absolute;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  .headCheck {
+    width: 25%;
+    transform: translateX(180%);
+    text-align: start;
+  }
+
+  .bodyCheck {
+    width: 25%;
+    transform: translateX(180%);
+    text-align: start;
+  }
+
+  .footer {
+    margin-top: 8rem;
   }
 }

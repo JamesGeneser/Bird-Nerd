@@ -38,28 +38,8 @@ const User = () => {
                 <div className="bg-light py-4">
                   {/* <h2>{posts}</h2> */}
                   <PostList posts={posts} />
-
-                  {/* {posts.postText} */}
                 </div>
               </div>
-              {/* {posts &&
-                posts.map((post) => {
-                  <div key={post._id} className="card mb-3">
-                    <h4 className="card-header bg-primary text-light p-2 m-0">
-                      <span style={{ fontSize: "1rem" }}>
-                        posted on {post.createdAt}
-                      </span>
-                    </h4>
-                    <div className="card-body bg-light p-2">
-                      <p>{post.bird}</p>
-                      <p>{post.postText}</p>
-                    </div>
-                  </div>;
-                })} */}
-              {/* <MyCard />
-              <MyCard />
-              <MyCard />
-              <MyCard /> */}
             </Stack>
           </Col>
           <Col className="rightSide">

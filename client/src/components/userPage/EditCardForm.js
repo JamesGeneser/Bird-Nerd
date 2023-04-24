@@ -9,30 +9,37 @@ const buttonStyle = {
 
 function EditCardForm() {
   return (
-    <Card className="formCard">
+    <Card className="formCardUser">
       <Form>
         <Form.Group controlId="formTitle" className="mb-3">
-          <Form.Label as="h4">Title</Form.Label>
+          <Form.Label className="editPost">Title: </Form.Label>
+          <br></br>
           <Form.Control
             name="text"
             type="text"
-            placeholder="Title Placeholder"
+            className="formLabelUser"
+            // placeholder="Title Placeholder"
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group controlId="formDescription" className="mb-3">
-          <Form.Label as="h4">Description</Form.Label>
+          <Form.Label className="editPost">Description: </Form.Label>
           <Form.Control
             as="textarea"
-            rows={3}
-            placeholder="Text Area Placeholder"
+            rows={5}
+            className="textarea"
+            // placeholder="Text Area Placeholder"
           />
           <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
-        <Button variant="success" style={buttonStyle}>
+        <Button
+          variant="success"
+          className="submit-btn-user"
+          style={buttonStyle}
+        >
           Update
         </Button>
-        <Button variant="danger" style={buttonStyle}>
+        <Button variant="danger" className="del" style={buttonStyle}>
           Delete
         </Button>
       </Form>

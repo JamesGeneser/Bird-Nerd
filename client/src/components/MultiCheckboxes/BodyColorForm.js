@@ -13,8 +13,8 @@ function BodyColorForm() {
     const { bodyColor } = userInput;
     const name = e.target.name;
 
-    console.log(`${value} is ${checked}`);
     console.log(name);
+    console.log(`----> ${value} is ${checked}`);
 
     // Case 1 : The user checks the box
     if (checked) {
@@ -34,54 +34,54 @@ function BodyColorForm() {
   };
 
   return (
-    <>
-      <Form.Group className="bodyColor mb-3" controlId="bodyColor">
-        <Form.Label>What color was its body?<br></br></Form.Label>
-        <Form.Text className="textMuted"> (check all that apply)</Form.Text>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="black"
-          name="bodyColor"
-          value="black"
-        ></Form.Check>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="white"
-          name="bodyColor"
-          value="white"
-        ></Form.Check>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="brown"
-          name="bodyColor"
-          value="brown"
-        ></Form.Check>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="yellow"
-          name="bodyColor"
-          value="yellow"
-        ></Form.Check>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="red"
-          name="bodyColor"
-          value="red"
-        ></Form.Check>
-        <Form.Check
-          onChange={handleChange}
-          type="checkbox"
-          label="blue"
-          name="bodyColor"
-          value="blue"
-        ></Form.Check>
-      </Form.Group>
-    </>
+    <Form.Group className="bodyColor mb-3" controlId="bodyColor">
+      <Form.Label>
+        What color was its BODY?<br></br>
+      </Form.Label>
+      <Form.Text className="textMuted"> (Check all that apply)</Form.Text>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="black"
+        name="bodyColor"
+        value="black"
+      ></Form.Check>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="white"
+        name="bodyColor"
+        value="white"
+      ></Form.Check>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="brown"
+        name="bodyColor"
+        value="brown"
+      ></Form.Check>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="yellow"
+        name="bodyColor"
+        value="yellow"
+      ></Form.Check>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="red"
+        name="bodyColor"
+        value="red"
+      ></Form.Check>
+      <Form.Check
+        onChange={handleChange}
+        type="checkbox"
+        label="blue"
+        name="bodyColor"
+        value="blue"
+      ></Form.Check>
+    </Form.Group>
   );
 }
 
