@@ -11,9 +11,12 @@ import { LOG_BIRD } from "../utils/mutations";
 import "../styles/IdentifyBird.css";
 import { Link } from "react-router-dom";
 
+const matchResults = document.getElementById("matchResults");
+
 const birdsArray = [
   //1
   {
+    img: "http://t3.gstatic.com/licensed-image?q=tbn:ANd9GcTnJx1JmQMreeB1xhh2iR38jkN0kpxtn495zdtCHQdnDfqqQ14wj_T6D5rBiGVr64nwGKoPULr_Bt9Z5_A",
     name: "Great Blue Heron",
     size: "Large",
     bodyColor: "Blue",
@@ -155,27 +158,47 @@ const birdsArray = [
 ];
 
 const IdentifyBird = () => {
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+  };
+
   // STATE
+
+  // active/inactive state for matched Results
+  const [isActive, setIsActive] = useState(false);
+  //matched bird Results
   const [matchedBird, setMatchedBird] = useState({
+    img: "https://via.placeholder.com/500x300?text=Bird+IMG",
     name: "Bird Name",
     size: "Bird Size",
     headColor: "Head Color",
     bodyColor: "Body Color",
   });
-  console.log("Before Submit:");
-  console.log(matchedBird);
-
+  //for input capture
   const [formData, setFormData] = useState({
     size: "",
     bodyColor: "",
     headColor: "",
   });
+
   // TODO: useMutation!!!!!!!!!!!!
-  const [logBird, { error, data }] = useMutation(LOG_BIRD);
+  // const [logBird, { error, data }] = useMutation(LOG_BIRD);
+
+  // display Match function
+  const displayMatch = (event) => {
+    console.log("Button Clicked");
+    setIsActive((current) => !current);
+  };
 
   // FORM SUBMIT event Listener
   const handleFormSubmit = (event) => {
     event.preventDefault();
+    scrollToTop();
     console.log("***** Submit Click *****");
     console.log("Capturing Info from State: ");
     console.log({ ...formData });
@@ -209,6 +232,7 @@ const IdentifyBird = () => {
           console.log("Matching Bird: " + member.name);
           setMatchedBird({
             ...matchedBird,
+            img: member.img,
             name: member.name,
             size: member.size,
             headColor: member.headColor,
@@ -289,13 +313,13 @@ const IdentifyBird = () => {
   return (
     <Container fluid className="identifyBird">
       <Row className="justify-content-center">
-        <Col>
+        <Col id="matchedResultWrap" className={isActive ? "" : "hideElement"}>
           <Card className="formCardID">
-            <Card.Img
-              variant="top"
-              src="https://via.placeholder.com/200x200?text=Bird+IMG"
-            />
             <Card.Body>
+              <Card.Img
+                src={matchedBird.img}
+                style={{ width: "auto", height: "300px" }}
+              />
               <Card.Title>
                 <h2>{matchedBird.name}</h2>
               </Card.Title>
@@ -439,6 +463,7 @@ const IdentifyBird = () => {
                 variant="primary"
                 className="btn submit-btn submit-btn-id"
                 type="submit"
+                onClick={displayMatch}
               >
                 Submit
               </Button>

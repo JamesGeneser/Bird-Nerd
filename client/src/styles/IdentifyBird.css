@@ -37,6 +37,14 @@
   padding: 0.4rem;
 }
 
+#matchedResultWrap {
+  filter: drop-shadow(1px 1px 3px var(--lightblue));
+  padding-top: 10px;
+  background-color: var(--lightblue);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+}
+
 @media screen and (max-width: 1024px) {
   .identifyBird {
     width: 100%;
