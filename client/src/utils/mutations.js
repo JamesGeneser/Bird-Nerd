@@ -11,6 +11,13 @@ export const LOGIN_USER = gql`
   }
 `;
 
+export const LOGOUT_USER = gql`
+mutation logout($email: String!, $password: String!) {
+  logout(email: $email, password: $password) {
+    token
+  }
+}`
+
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
     addUser(username: $username, email: $email, password: $password) {
@@ -41,3 +48,12 @@ export const ADD_POST = gql`
     }
   }
 `;
+
+export const DELETE_POST = gql`
+mutation deletePost($postId: ID!) {
+  deletePost(postId: $postId) {
+    _id
+    postText
+    postAuthor
+  }
+}`
