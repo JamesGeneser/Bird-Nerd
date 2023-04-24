@@ -18,6 +18,7 @@ export const QUERY_POSTS = gql`
     posts {
       bird
       postText
+      username
     }
   }
 `;
