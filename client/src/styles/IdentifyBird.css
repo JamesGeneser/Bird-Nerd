@@ -1,8 +1,9 @@
 .identifyBird {
   padding-bottom: 3%;
-  height: 100vh;
+  height: 90vh;
   height: 100%;
   font-size: 140%;
+  overflow-y: scroll;
 }
 
 .formCardID {
@@ -34,6 +35,13 @@
   font-size: 75%;
   margin: 1rem;
   padding: 0.4rem;
+}
+
+#matchedResultWrap {
+  filter: drop-shadow(1px 1px 3px var(--lightblue));
+  background-color: var(--lightblue);
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .headCheck {

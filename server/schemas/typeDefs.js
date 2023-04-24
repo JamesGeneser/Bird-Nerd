@@ -8,10 +8,9 @@ const typeDefs = gql`
   }
   type Post {
     _id: ID
-    bird: [Birds]
+    bird: String
     postText: String
-    postAuthor: String
-    createdAt: String
+    username: String
   }
   type User {
     _id: ID
