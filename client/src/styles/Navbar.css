@@ -53,6 +53,10 @@
   background-color: #21252a;
 }
 
+.darkModeLogoContainer {
+  display: flex;
+}
+
 .navbar #menuButton {
   display: none;
 }

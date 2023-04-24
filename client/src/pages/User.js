@@ -31,7 +31,7 @@ const User = () => {
       <Container fluid className="userPage">
         <Row>
           <Col className="leftSide">
-            <h1>My Feed</h1>
+            <h1 className="feedTitle">My Feed</h1>
 
             <Stack gap={3}>
               <div className="my-3">
@@ -42,10 +42,10 @@ const User = () => {
               </div>
             </Stack>
           </Col>
-          <Col className="rightSide">
-            <h1>Edit Post</h1>
+          {/* <Col className="rightSide">
+            <h1 className="feedTitle">Edit a Post</h1>
             <EditCardForm />
-          </Col>
+          </Col> */}
         </Row>
       </Container>
     </div>

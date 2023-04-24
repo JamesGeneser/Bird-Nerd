@@ -49,10 +49,7 @@ const Login = (props) => {
       <Row className="justify-content-center">
         <Col>
           <Card className="formCardLogin mt-4 mb-5">
-            <Form
-              onSubmit={handleFormSubmit}
-              className="form-box-login"
-            >
+            <Form onSubmit={handleFormSubmit} className="form-box-login">
               <h2>Login</h2>
               {/* EMAIL INPUT */}
               <Form.Group

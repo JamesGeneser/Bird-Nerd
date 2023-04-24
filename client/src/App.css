@@ -56,7 +56,9 @@ main {
 .birdTitle {
   margin: 2rem
 }
-
+.feedTitle{
+  color: white;
+}
 
 .hideElement {
   display: none;
