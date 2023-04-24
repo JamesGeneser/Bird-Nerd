@@ -43,6 +43,18 @@
   background-color: var(--blue);
 }
 
+.submit-btn-reroute {
+  padding: .6rem;
+  background-color: var(--blue);
+  text-decoration: none;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 4%;
+}
+
 @media screen and (max-width: 1024px) {
   .form-box-sign {
     margin: 2rem;
@@ -54,6 +66,8 @@
     padding: 0;
     padding-bottom: 1.6rem;
   }
+
+ 
 }
 
 @media screen and (max-width: 600px) {
@@ -75,11 +89,12 @@
     padding-bottom: 5rem;
   }
 
-  .submit-btn-sign {
-    margin-bottom: 3rem;
-  }
 
   .signup {
     height: 100vh;
+  }
+
+  .button-group {
+    padding-bottom: 5%;
   }
 }

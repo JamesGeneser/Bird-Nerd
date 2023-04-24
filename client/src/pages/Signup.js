@@ -105,17 +105,22 @@ const Signup = (props) => {
                   className="custom-form-sign"
                 />
               </Form.Group>
-
-              <Button
-                variant="primary"
-                type="submit"
-                className="btn submit-btn submit-btn-sign"
-              >
-                Submit
-              </Button>
-              <Link type="button" className="btn  submit-btn-sign" to="/login">
-                Login
-              </Link>
+              <div className="button-group">
+                <Link
+                  type="button"
+                  className="btn  submit-btn-reroute"
+                  to="/login"
+                >
+                  Login
+                </Link>
+                <Button
+                  variant="primary"
+                  type="submit"
+                  className="btn submit-btn-sign"
+                >
+                  Submit
+                </Button>
+              </div>
             </Form>
           </Card>
         </Col>

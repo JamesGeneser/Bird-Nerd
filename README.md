@@ -56,3 +56,7 @@ don't hesitate to contact our team.
 ```
 bird@nerd.com
 ```
+
+### Credits
+
+[For the dark mode component](https://github.com/alekspopovic/DarkMode)
