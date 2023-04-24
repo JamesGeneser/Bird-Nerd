@@ -61,8 +61,8 @@
 
 .del:hover {
   color: var(--darkGray);
-  background-color: var(--peach);
-  border: 1px solid var(--peach);
+  background-color: var(--tan);
+  border: 1px solid var(--tan);
 }
 
 .submit-btn-user {
