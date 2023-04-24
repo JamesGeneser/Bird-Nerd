@@ -13,6 +13,7 @@ import { ADD_POST } from "../utils/mutations";
 import { QUERY_THOUGHTS, QUERY_ME } from "../utils/queries";
 import Auth from "../utils/auth";
 import CardChanger from "../components/PostPrompts/Index";
+
 const options = [
   "Great Blue Heron",
   "Bald Eagle",
@@ -73,6 +74,7 @@ const PostSighting = () => {
         variables: {
           bird: selected,
           postText: thoughtText,
+
           //   postAuthor: Auth.getProfile().data.username,
         },
       });
@@ -108,15 +110,17 @@ const PostSighting = () => {
               <h2>Log Book</h2>
               <Form.Group className="mb-3 formGroupSight" controlId="btnGroup">
                 <br></br>
-                <CardChanger />
+                {/* <CardChanger /> */}
               </Form.Group>
               <Form.Group>
+                <Form.Label>What bird did you see?: </Form.Label>
                 <Form.Select
                   aria-label="Default Option"
                   onChange={handleChange}
                   value={selected}
                   name="birdSelect"
                 >
+                  <option>select bird</option>
                   <option name="bird">Great Blue Heron</option>
                   <option name="bird">Bald Eagle</option>
                   <option name="bird">Osprey</option>

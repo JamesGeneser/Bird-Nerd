@@ -53,10 +53,7 @@ const Signup = (props) => {
       <Row className="justify-content-center">
         <Col>
           <Card className="formCardSign mt-4 mb-5">
-            <Form
-              onSubmit={handleFormSubmit}
-              className="form-box-sign"
-            >
+            <Form onSubmit={handleFormSubmit} className="form-box-sign">
               <h2>Signup</h2>
               <Form.Group
                 className="mb-3 formGroupSign"
@@ -116,6 +113,9 @@ const Signup = (props) => {
               >
                 Submit
               </Button>
+              <Link type="button" className="btn  submit-btn-sign" to="/login">
+                Login
+              </Link>
             </Form>
           </Card>
         </Col>

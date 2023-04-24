@@ -18,7 +18,7 @@ function EditCardForm() {
             type="text"
             placeholder="Title Placeholder"
           />
-          <Form.Text className="text-muted">Muted Text</Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Form.Group controlId="formDescription" className="mb-3">
           <Form.Label as="h4">Description</Form.Label>
@@ -27,7 +27,7 @@ function EditCardForm() {
             rows={3}
             placeholder="Text Area Placeholder"
           />
-          <Form.Text className="text-muted">Muted Text</Form.Text>
+          <Form.Text className="text-muted"></Form.Text>
         </Form.Group>
         <Button variant="success" style={buttonStyle}>
           Update

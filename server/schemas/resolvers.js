@@ -8,13 +8,14 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    // posts: async () => {
-    //   return Post.find().sort({ createdAt: -1 });
-    // },
+    posts: async () => {
+      //   const params = username ? { username } : {};
+      return Post.find().sort({ createdAt: -1 });
+    },
 
-    // post: async (parent, { postId }) => {
-    //   return Post.findOne({ _id: postId });
-    // },
+    post: async (parent, { postId }) => {
+      return Post.findOne({ _id: postId });
+    },
     me: async (parent, args, context) => {
       if (context.user) {
         return User.findOne({ _id: context.user._id }).populate("thoughts");
@@ -60,7 +61,7 @@ const resolvers = {
         const post = await Post.create({
           bird,
           postText,
-          postAuthor: context.user.username,
+          username: context.user.username,
         });
 
         return post;
@@ -70,7 +71,7 @@ const resolvers = {
     deletePost: async (parent, { postId }) => {
       const post = await Post.findOneAndDelete({
         _id: postId,
-        postAuthor: User._id,
+        username: User._id,
       });
 
       await User.findOneAndUpdate(
